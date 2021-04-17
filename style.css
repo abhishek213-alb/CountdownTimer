@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+   
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 4rem;
+    margin-top: 5rem;
+    
+    color:rgb(143, 2, 179) ;
+}
+
+.countdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.big-text {
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 1rem 2rem;
+}
+
+.countdown-el {
+    text-align: center;
+    color: rgb(207, 8, 181);
+}
+
+.countdown-el span {
+    font-size: 2.3rem;
+}
