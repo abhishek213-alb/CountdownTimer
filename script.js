@@ -1,31 +1,32 @@
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minsEl = document.getElementById("mins");
-const secondsEl = document.getElementById("seconds");
+var target_date = new Date("2022-03-25"); 
+var days, hours, minutes, seconds; 
 
-const newYears = "11 September 2021";
+var countdown = document.getElementById("tiles"); 
 
-function countdown() {
-    const newYearsDate = new Date(newYears);
-    const currentDate = new Date();
+getCountdown();
 
-    const totalSeconds = (newYearsDate - currentDate) / 1000;
+setInterval(function () { getCountdown(); }, 1000);
 
-    const days = Math.floor(totalSeconds / 3600 / 24);
-    const hours = Math.floor(totalSeconds / 3600) % 24;
-    const mins = Math.floor(totalSeconds / 60) % 60;
-    const seconds = Math.floor(totalSeconds) % 60;
+function getCountdown() {
 
-    daysEl.innerHTML = days;
-    hoursEl.innerHTML = formatTime(hours);
-    minsEl.innerHTML = formatTime(mins);
-    secondsEl.innerHTML = formatTime(seconds);
+    var current_date = new Date().getTime();
+    var seconds_left = (target_date - current_date) / 1000;
+
+    days = pad(parseInt(seconds_left / 86400));
+    seconds_left = seconds_left % 86400;
+
+    hours = pad(parseInt(seconds_left / 3600));
+    seconds_left = seconds_left % 3600;
+
+    minutes = pad(parseInt(seconds_left / 60));
+    seconds = pad(parseInt(seconds_left % 60));
+
+    // format countdown string + set tag value
+    countdown.innerHTML = "<span>" + days + "</span><span>" + hours + "</span><span>" + minutes + "</span><span>" + seconds + "</span>";
 }
 
-function formatTime(time) {
-    return time < 10 ? `0${time}` : time;
+function pad(n) {
+    return (n < 10 ? '0' : '') + n;
 }
 
-countdown();
 
-setInterval(countdown, 1000);
