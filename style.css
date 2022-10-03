@@ -13,6 +13,18 @@ h1 {
   color: #f47321;
   text-shadow: 2px 2px #ff0000;
 }
+.take-date{
+  text-align: center;
+  color: #f47321;
+  /* text-shadow: 2px 2px #ff0000; */
+  /* font-size: 20px; */
+}
+.Countdown-date{
+  font-size: 20px;
+}
+.submit-btn{
+  margin-top: 15px;
+}
 .heading-title{
   text-align: center;
 }
