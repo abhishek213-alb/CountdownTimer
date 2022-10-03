@@ -7,13 +7,15 @@ body {
 }
 
 h1 {
+  display: block;
   text-align: center;
-  margin-top: 15%;
   font-size: 4rem;
   color: #f47321;
   text-shadow: 2px 2px #ff0000;
 }
-
+.heading-title{
+  text-align: center;
+}
 #countdown {
   width: 90%;
   max-width: 465px;
