@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Countdown timer</h1>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/70385488/192114009-0830321a-d227-4a4d-8411-6c03b54d7ce6.png" alt="project-image"></p>
+<p align="center"><img src="https://img.freepik.com/free-vector/business-planning-concept-setting-goal-target-following-schedule-idea-planning-organization-time-optimization-isolated-flat-vector-illustration_613284-1364.jpg?w=740&t=st=1664895049~exp=1664895649~hmac=05f5fa08845c81fe2dc881854cb0d76e51b98f3b33606fcfc276ecb811df1309" alt="project-image"></p>
 
 <p id="description">A project to enchance your time management and Make you feel motivated to waste less time</p>
 
