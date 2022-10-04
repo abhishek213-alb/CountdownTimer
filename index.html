@@ -28,71 +28,68 @@
     
   </head>
 
-  <body>
-    
-    <div class="heading-title">
-      <div class="outline"></div>
-      <div class="circle"></div>
-      <h1>CountDown Setter</h1>
-    </div>
-    <div class="take-date">
-      <form>
-      <label class="Countdown-date" for="countdown">Choose Date : </label>
-      <input class="Countdown-date" id="date-c" type="date">
-      </form>
-    </div>
-   
-    <div class=wrapper>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-      <div class="circle-wrap">
-        <div class="circle">
-          <div class="mask full">
-            <div class="fill" ></div>
-          </div>
-          <div class="mask half">
-            <div class="fill"></div>
-          </div>
-          <div class="inside-circle" id="inside-circle-day"></div>
-          
-        </div>
+<body>
+  <div class="carousel">
+    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
+    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
+  </div>
+
+  <div class="cards-container">
+    <div class="card-container">
+      <div class="card">
+        <h3>Title</h3>
+        <div class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem
+          laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
+          rerum reiciendis quam.</div>
       </div>
-      <div class="circle-wrap">
-        <div class="circle">
-          <div class="mask full">
-            <div class="fill" id="fill-hour-one"></div>
-          </div>
-          <div class="mask half">
-            <div class="fill" id="fill-hour-two"></div>
-          </div>
-          <div class="inside-circle" id="inside-circle-hour"></div>
-          
-        </div>
-      </div>
-      <div class="circle-wrap">
-        <div class="circle">
-          <div class="mask full">
-            <div class="fill" id="fill-minute-one" ></div>
-          </div>
-          <div class="mask half">
-            <div class="fill" id="fill-minute-two" ></div>
-          </div>
-          <div class="inside-circle" id="inside-circle-minute"></div>
-          
-        </div>
-      </div>
-      <div class="circle-wrap">
-        <div class="circle">
-          <div class="mask full">
-            <div class="fill"  id="fill-second-one"></div>
-          </div>
-          <div class="mask half">
-            <div class="fill" id="fill-second-two" ></div>
-          </div>
-          <div class="inside-circle" id="inside-circle-second"></div>
-          
-        </div>
-      </div>
+      <a href="#">Open</a>
     </div>
-  </body>
+    <div class="card-container">
+      <div class="card">
+        <h3>Title</h3>
+        <div class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem
+          laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
+          rerum reiciendis quam.</div>
+      </div>
+      <a href="#">Open</a>
+    </div>
+      <div class="card-container">
+        <div class="card">
+          <h3>Countdown Timer</h3>
+          <div class="card-content">A simple web app for setting up a Countdown from right now to a specific date</div>
+        </div>
+        <a href="components/CountdownTimer.html">Open</a>
+      </div>
+</div>
+  <script>
+
+    let slideIndex = 0;
+    const showSlides = async () => {
+      let slides = document.getElementsByClassName('slide');
+      let url;
+      try {
+        let response = await fetch('https://source.unsplash.com/1600x900/?quote');
+        url = response.url;
+      }
+      catch (error) {
+        console.log(error);
+      }
+      slides[slideIndex].classList.toggle("active");
+      slideIndex++;
+      slideIndex %= slides.length;
+      slides[slideIndex].classList.toggle("active");
+      slides[slideIndex].src = url;
+    }
+    setInterval(showSlides, 5000);
+  </script>
+</body>
+
 </html>
- 
