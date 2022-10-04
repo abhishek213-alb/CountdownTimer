@@ -27,4 +27,4 @@ This project is licensed under the Countdown Timer by @abhishek213-alb
 <h2>💖Like my work?</h2>
 
 If you are facing any issues regarding this project or want to hire us 
-feel free to contact us through - example@example.com
+feel free to contact us  - @abhishek213-alb
