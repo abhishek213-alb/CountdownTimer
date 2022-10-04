@@ -1,3 +1,76 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+/* body {
+  font-family: "Roboto", sans-serif;
+  background: #d2eaf1;
+} */
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+.circle-wrap {
+  /* margin: 150px auto; */
+  width: 150px;
+  height: 150px;
+  background: #fefcff;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.circle-wrap .inside-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #d2eaf1;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: #1e51dc;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+/* color animation */
+
+/* 3rd progress bar */
+.mask .fill {
+  clip: rect(0px, 75px, 150px, 0px);
+  background-color: #227ded;
+}
+
+.mask.full,
+.circle .fill {
+  /* animation: fill ease-in-out 3s; */
+  transform: rotate(180deg);
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
 body {
   font: normal 13px/20px Arial, Helvetica, sans-serif;
   word-wrap: break-word;
@@ -13,19 +86,19 @@ h1 {
   color: #f47321;
   text-shadow: 2px 2px #ff0000;
 }
-.take-date{
+.take-date {
   text-align: center;
   color: #f47321;
   /* text-shadow: 2px 2px #ff0000; */
   /* font-size: 20px; */
 }
-.Countdown-date{
+.Countdown-date {
   font-size: 20px;
 }
-.submit-btn{
+.submit-btn {
   margin-top: 15px;
 }
-.heading-title{
+.heading-title {
   text-align: center;
 }
 #countdown {
@@ -170,7 +243,7 @@ h1 {
   z-index: -20;
 }
 
-.circle {
+/* .circle {
   background-color: #f47321;
   width: 400px;
   height: 400px;
@@ -182,7 +255,7 @@ h1 {
   padding: 0;
   z-index: -20;
   overflow: hidden;
-}
+} */
 
 @media (max-width: 1024px) {
   .circle {
