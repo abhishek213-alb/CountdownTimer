@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Countdown Timer</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Set</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <title>Countdown Timer</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
 
-  <body>
-    
-    <div class="heading-title">
-      <div class="outline"></div>
-      <div class="circle"></div>
-      <h1>CountDown Setter</h1>
-    </div>
-    <div class="take-date">
-      <form>
-      <label class="Countdown-date" for="countdown">Choose Date : </label>
-      <input class="Countdown-date" id="date-c" type="date">
-      </form>
-    </div>
-    <div id="countdown">
-      <div id="tiles"></div>
-      <div class="labels">
-        <li>Days</li>
-        <li>Hours</li>
-        <li>Mins</li>
-        <li>Secs</li>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="carousel">
+    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
+    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
+  </div>
+
+  <div class="cards-container">
+    <div class="card-container">
+      <div class="card">
+        <h3>Title</h3>
+        <div class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem
+          laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
+          rerum reiciendis quam.</div>
       </div>
+      <a href="#">Open</a>
     </div>
-  </body>
+    <div class="card-container">
+      <div class="card">
+        <h3>Title</h3>
+        <div class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem
+          laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
+          rerum reiciendis quam.</div>
+      </div>
+      <a href="#">Open</a>
+    </div>
+    <div class="card-container">
+      <div class="card">
+        <h3>Countdown Timer</h3>
+        <div class="card-content">A simple web app for setting up a Countdown from right now to a specific date</div>
+      </div>
+      <a href="components/CountdownTimer.html">Open</a>
+    </div>
+
+  </div>
+
+  <script>
+
+    let slideIndex = 0;
+    const showSlides = async () => {
+      let slides = document.getElementsByClassName('slide');
+      let url;
+      try {
+        let response = await fetch('https://source.unsplash.com/1600x900/?quote');
+        url = response.url;
+      }
+      catch (error) {
+        console.log(error);
+      }
+      slides[slideIndex].classList.toggle("active");
+      slideIndex++;
+      slideIndex %= slides.length;
+      slides[slideIndex].classList.toggle("active");
+      slides[slideIndex].src = url;
+    }
+    setInterval(showSlides, 5000);
+  </script>
+</body>
+
 </html>
- 
