@@ -43,7 +43,7 @@
             <input class="Countdown-date" id="date-c" type="date">
         </form>
     </div>
-    <div id="countdown">
+    <!-- <div id="countdown">
         <div id="tiles"></div>
         <div class="labels">
             <li>Days</li>
@@ -51,7 +51,59 @@
             <li>Mins</li>
             <li>Secs</li>
         </div>
-    </div>
+    </div> -->
+    
+    <div class=wrapper>
+
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full">
+              <div class="fill" ></div>
+            </div>
+            <div class="mask half">
+              <div class="fill"></div>
+            </div>
+            <div class="inside-circle" id="inside-circle-day"></div>
+            
+          </div>
+        </div>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full">
+              <div class="fill" id="fill-hour-one"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill" id="fill-hour-two"></div>
+            </div>
+            <div class="inside-circle" id="inside-circle-hour"></div>
+            
+          </div>
+        </div>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full">
+              <div class="fill" id="fill-minute-one" ></div>
+            </div>
+            <div class="mask half">
+              <div class="fill" id="fill-minute-two" ></div>
+            </div>
+            <div class="inside-circle" id="inside-circle-minute"></div>
+            
+          </div>
+        </div>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full">
+              <div class="fill"  id="fill-second-one"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill" id="fill-second-two" ></div>
+            </div>
+            <div class="inside-circle" id="inside-circle-second"></div>
+            
+          </div>
+          
+        </div></div>
 </body>
 
 </html>

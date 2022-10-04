@@ -12,7 +12,19 @@ var newCountdown = input_date.addEventListener("change", function () {
 });
 var days, hours, minutes, seconds;
 
-var countdown = document.getElementById("tiles");
+var countdownDay = document.getElementById("inside-circle-day");
+var countdownHour = document.getElementById("inside-circle-hour");
+var countdownMinute = document.getElementById("inside-circle-minute");
+var countdownSecond = document.getElementById("inside-circle-second");
+
+var fillSecondOne = document.getElementById("fill-second-one");
+var fillSecondTwo = document.getElementById("fill-second-two");
+
+var fillMinuteOne = document.getElementById("fill-minute-one");
+var fillMinuteTwo = document.getElementById("fill-minute-two");
+
+var fillHourOne = document.getElementById("fill-hour-one");
+var fillHourTwo = document.getElementById("fill-hour-two");
 
 getCountdown();
 
@@ -34,16 +46,39 @@ function getCountdown() {
   seconds = pad(parseInt(seconds_left % 60));
 
   // format countdown string + set tag value
-  countdown.innerHTML =
-    "<span>" +
-    days +
-    "</span><span>" +
-    hours +
-    "</span><span>" +
-    minutes +
-    "</span><span>" +
-    seconds +
-    "</span>";
+  countdownDay.innerHTML =
+    "<span>" + days + "</span>" + "<br/><span>Days</span>";
+  countdownHour.innerHTML =
+    "<span>" + hours + "</span>" + "<br/><span>Hours</span>";
+  countdownMinute.innerHTML =
+    "<span>" + minutes + "</span>" + "<br/><span>Minutes</span>";
+  countdownSecond.innerHTML =
+    "<span>" + seconds + "</span>" + "<br/><span>Seconds</span>";
+  if (seconds > 30) {
+    fillSecondOne.style.display = "block";
+    fillSecondOne.style.transform = `rotate(${180 - (60 - seconds) * 6}deg)`;
+    fillSecondTwo.style.transform = `rotate(180deg)`;
+  } else {
+    fillSecondOne.style.display = "none";
+    fillSecondTwo.style.transform = `rotate(${seconds * 6}deg)`;
+  }
+  if (minutes > 30) {
+    fillMinuteOne.style.display = "block";
+    fillMinuteOne.style.transform = `rotate(${180 - (60 - minutes) * 6}deg)`;
+    fillMinuteTwo.style.transform = `rotate(180deg)`;
+  } else {
+    fillMinuteOne.style.display = "none";
+    fillMinuteTwo.style.transform = `rotate(${minutes * 6}deg)`;
+  }
+
+  if (hours >= 12) {
+    fillHourOne.style.display = "block";
+    fillHourOne.style.transform = `rotate(${90 - (24 - hours) * 7.5}deg)`;
+    fillHourTwo.style.transform = `rotate(180deg)`;
+  } else {
+    fillHourOne.style.display = "none";
+    fillHourTwo.style.transform = `rotate(${hours * 7.5}deg)`;
+  }
 }
 
 function pad(n) {
