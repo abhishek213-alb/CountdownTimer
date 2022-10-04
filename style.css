@@ -40,41 +40,74 @@ body {
   align-items: center;
   gap: 15px;
 }
+/*card styles*/
 
-.card {
+.card{
   width: 250px;
   height: 350px;
-  background-color: #f47321;
-  border-radius: 2rem;
-  padding: 1rem;
+  /* color: white; */
+  border-radius: 0.5rem;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
 }
 
-.card-container {
+.card.bg-3{
+  background:rgba(255,255,255,0.9) url('./pexels-anton-makarenko-1078057.jpg');
+  background-size: cover;
+}
+
+.card-content {
+  padding: 1.5rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  height:100%;
+  /* position: relative; */
+  opacity: 0;
+  transition: opacity 500ms ease;
 }
 
-.card-container a {
+.bg-1{
+  background:url('./pexels-darwis-alwan-1808329.jpg');
+  background-size: cover;
+}
+
+.bg-2{
+  background:url('./pexels-eberhard-grossgasteiger-1064162.jpg');
+  background-size: cover;
+}
+
+.goto-btn {
   text-decoration: none;
   color: black;
-  background-color: white;
+  background-color: #1DA1F2;
   font-size: 1.1rem;
-  padding: 0.5em 0.8em;
-  border-radius: 10px;
-  border: 3px solid white;
+  padding: 0.25em 0.5em;
+  border-radius: 6px;
   transition: all 0.1s;
+  width: min-content;
+  color: white;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 3rem;
 }
 
-.card-container a:hover {
-  border: 3px solid black;
+.goto-btn:hover {
+  outline: 4px solid #1187d192;
 }
 
-.card h3 {
-  text-align: center;
-  margin-bottom: 5px;
+.card:hover .card-content{
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.253);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.card:hover {
+  -webkit-backdrop-filter: blur(10px) saturate(100%) contrast(60%) brightness(130%);
+  backdrop-filter: blur(10px) saturate(100%) contrast(60%) brightness(130%);
 }
 
 @keyframes fade {
