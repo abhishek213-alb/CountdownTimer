@@ -16,6 +16,7 @@ body {
   padding: 1rem;
   font-family: sans-serif;
   font-size: 16px;
+
 }
 
 nav {
@@ -51,6 +52,36 @@ a {
 .item a:hover::after {
   color: #ccc;
 }
+
+}
+
+nav {
+  background: #222;
+  padding: 0 15px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.menu,
+.submenu {
+  list-style-type: none;
+}
+.logo {
+  font-size: 20px;
+  padding: 7.5px 10px 7.5px 0;
+}
+.item {
+  padding: 10px;
+}
+.item.button {
+  padding: 9px 5px;
+}
+.item:not(.button) a:hover,
+.item a:hover::after {
+  color: #ccc;
+}
+
 
 /* Mobile menu */
 .menu {
@@ -290,6 +321,4 @@ a {
     opacity: 1;
   }
 }
-
-
 
