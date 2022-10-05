@@ -9,11 +9,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <nav>
+
+    <nav id="navbar">
+
       <ul class="menu">
         <li class="logo"><a href="#">LOGO</a></li>
         <li class="item"><a href="#">Home</a></li>
@@ -38,11 +41,24 @@
         <li class="item"><a href="#">Blog</a></li>
         <li class="item"><a href="#">Contact</a></li>
         <li class="item button"><a href="#">Log In</a></li>
+        <li class="item d-flex my-2"><input type="search" placeholder="search" id="form1" class="form-control" />
+          
+        <button type="button" class="btn btn-primary mx-1">
+          <i class="fas fa-search"></i></button>
+      </li>
+        <li class="toggle">
+          <a href="#"><i class="fas fa-bars"></i></a>
+        </li>
+       
+      </ul>
+      
+
         <li class="item button secondary"><a href="#">Sign Up</a></li>
         <li class="toggle">
           <a href="#"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
+
     </nav>
     <div class="carousel">
       <img
