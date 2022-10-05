@@ -1,70 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li class="logo"><a href="#">LOGO</a></li>
+        <li class="item"><a href="#">Home</a></li>
+        <li class="item"><a href="#">About</a></li>
+        <li class="item has-submenu">
+          <a tabindex="0">Services</a>
+          <ul class="submenu">
+            <li class="subitem"><a href="#">Design</a></li>
+            <li class="subitem"><a href="#">Development</a></li>
+            <li class="subitem"><a href="#">SEO</a></li>
+            <li class="subitem"><a href="#">Copywriting</a></li>
+          </ul>
+        </li>
+        <li class="item has-submenu">
+          <a tabindex="0">Plans</a>
+          <ul class="submenu">
+            <li class="subitem"><a href="#">Freelancer</a></li>
+            <li class="subitem"><a href="#">Startup</a></li>
+            <li class="subitem"><a href="#">Enterprise</a></li>
+          </ul>
+        </li>
+        <li class="item"><a href="#">Blog</a></li>
+        <li class="item"><a href="#">Contact</a></li>
+        <li class="item button"><a href="#">Log In</a></li>
+        <li class="item button secondary"><a href="#">Sign Up</a></li>
+        <li class="toggle">
+          <a href="#"><i class="fas fa-bars"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="carousel">
+      <img
+        src="https://source.unsplash.com/1600x900/?quote"
+        alt="quote"
+        class="slide active fade"
+      />
+      <img
+        src="https://source.unsplash.com/1600x900/?quote"
+        alt="quote"
+        class="slide fade"
+      />
+    </div>
 
-<body>
-  <div class="carousel">
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
-  </div>
-
-  <div class="cards-container">
-    <div class="card bg-1">
-      <div class="card-content">
-        <h3>Title</h3>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem
-          laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
-          rerum reiciendis quam.</div>
+    <div class="cards-container">
+      <div class="card bg-1">
+        <div class="card-content">
+          <h3>Title</h3>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+            molestias voluptatem laboriosam esse, deserunt eaque est fugiat
+            vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
+            rerum reiciendis quam.
+          </div>
           <a href="#" class="goto-btn">Open</a>
+        </div>
       </div>
-    </div>
-    <div class="card bg-2">
-      <div class="card-content">
-        <h3>Title</h3>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem
-          laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
-          rerum reiciendis quam.</div>
+      <div class="card bg-2">
+        <div class="card-content">
+          <h3>Title</h3>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+            molestias voluptatem laboriosam esse, deserunt eaque est fugiat
+            vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
+            rerum reiciendis quam.
+          </div>
           <a href="#" class="goto-btn">Open</a>
+        </div>
+      </div>
+      <div class="card bg-3">
+        <div class="card-content">
+          <h3>Countdown Timer</h3>
+          <div>
+            A simple web app for setting up a Countdown from right now to a
+            specific date
+          </div>
+          <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
+        </div>
       </div>
     </div>
-    <div class="card bg-3">
-      <div class="card-content">
-        <h3>Countdown Timer</h3>
-        <div>A simple web app for setting up a Countdown from right now to a specific date</div>
-        <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
-      </div>
-    </div>
 
-  </div>
+    <script>
+      let slideIndex = 0;
+      const showSlides = async () => {
+        let slides = document.getElementsByClassName("slide");
+        let url;
+        try {
+          let response = await fetch(
+            "https://source.unsplash.com/1600x900/?quote"
+          );
+          url = response.url;
+        } catch (error) {
+          console.log(error);
+        }
+        slides[slideIndex].classList.toggle("active");
+        slideIndex++;
+        slideIndex %= slides.length;
+        slides[slideIndex].classList.toggle("active");
+        slides[slideIndex].src = url;
+      };
+      setInterval(showSlides, 5000);
 
-  <script>
+      const toggle = document.querySelector(".toggle");
+      const menu = document.querySelector(".menu");
 
-    let slideIndex = 0;
-    const showSlides = async () => {
-      let slides = document.getElementsByClassName('slide');
-      let url;
-      try {
-        let response = await fetch('https://source.unsplash.com/1600x900/?quote');
-        url = response.url;
+      /* Toggle mobile menu */
+      function toggleMenu() {
+        if (menu.classList.contains("active")) {
+          menu.classList.remove("active");
+
+          // adds the menu (hamburger) icon
+          toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+        } else {
+          menu.classList.add("active");
+
+          // adds the close (x) icon
+          toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+        }
       }
-      catch (error) {
-        console.log(error);
-      }
-      slides[slideIndex].classList.toggle("active");
-      slideIndex++;
-      slideIndex %= slides.length;
-      slides[slideIndex].classList.toggle("active");
-      slides[slideIndex].src = url;
-    }
-    setInterval(showSlides, 5000);
-  </script>
-</body>
 
+      /* Event Listener */
+      toggle.addEventListener("click", toggleMenu, false);
+
+      const items = document.querySelectorAll(".item");
+
+      /* Activate Submenu */
+      function toggleItem() {
+        if (this.classList.contains("submenu-active")) {
+          this.classList.remove("submenu-active");
+        } else if (menu.querySelector(".submenu-active")) {
+          menu
+            .querySelector(".submenu-active")
+            .classList.remove("submenu-active");
+          this.classList.add("submenu-active");
+        } else {
+          this.classList.add("submenu-active");
+        }
+      }
+
+      /* Event Listeners */
+      for (let item of items) {
+        if (item.querySelector(".submenu")) {
+          item.addEventListener("click", toggleItem, false);
+          item.addEventListener("keypress", toggleItem, false);
+        }
+      }
+
+      /* Close Submenu From Anywhere */
+      function closeSubmenu(e) {
+        if (menu.querySelector(".submenu-active")) {
+          let isClickInside = menu
+            .querySelector(".submenu-active")
+            .contains(e.target);
+
+          if (!isClickInside && menu.querySelector(".submenu-active")) {
+            menu
+              .querySelector(".submenu-active")
+              .classList.remove("submenu-active");
+          }
+        }
+      }
+
+      /* Event listener */
+      document.addEventListener("click", closeSubmenu, false);
+    </script>
+  </body>
 </html>
