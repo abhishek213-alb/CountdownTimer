@@ -223,9 +223,12 @@ h1 {
     margin-top: 40%;
   }
 }
-.navbar {
-  background-color: #e6976f;
-}
-.nav-item {
-  font-size: 120%;
+
+#navTop{
+  background-image: linear-gradient(to right,#fff, #ec8647,#f47321);
+  width: 95vw;
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #fff;
 }
