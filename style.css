@@ -283,3 +283,59 @@ a {
     opacity: 1;
   }
 }
+
+
+/* Footer-CSS */
+.footer{
+  display: flex;
+  background-color: #e6976f;
+  margin-top: 15em;
+  margin-bottom: 0em;
+  font-family: 'Roboto Slab', serif;
+  color: #000;
+  position: relative;
+  bottom: -4em;
+}
+
+.footer h3{
+  margin: 2em;
+}
+.footer h3:hover{
+  color: whitesmoke;
+}
+
+.footer h4{
+  margin: 2em;
+  margin-top: 2.5em;
+}
+.footer h4:hover{
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.social-media h4{
+  margin-bottom: 1em;
+  margin-left: 2.5em;
+}
+
+.social-media i{
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0em;
+  margin-bottom: 2em;
+}
+.facebook:hover{
+  color: blue;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+.instagram:hover{
+  color: #e11d74;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+.twitter:hover {
+  color: #00adb5;
+  transform: scale(1.5);
+  cursor: pointer;
+}
