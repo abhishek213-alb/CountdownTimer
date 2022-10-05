@@ -16,6 +16,9 @@ body {
   padding: 1rem;
   font-family: sans-serif;
   font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 20px;
 }
 
 nav {
@@ -185,12 +188,35 @@ a {
 }
 
 .carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ text-align: center;
+ margin: auto;
 }
-
-.slide {
+@media screen and (max-width: 768px) 
+{
+    .carousel
+    {
+        width :100% ;
+    }
+    .active
+    {
+      width: 100%;
+      margin: 0px;
+      
+    }
+    .slide
+    {
+      width: 100%;
+      margin: 0px;
+    }
+    .card
+    {
+      width: 70%;
+      height: 100px;
+      
+    }
+}
+.slide 
+{
   display: none;
 }
 
@@ -199,8 +225,10 @@ a {
   background-color: white;
   animation: fade 1.4s;
   object-fit: contain;
-  width: 800px;
+  width: 75%;
   aspect-ratio: 16/9;
+  text-align: center;
+  margin: auto;
 }
 
 .cards-container {
@@ -208,6 +236,7 @@ a {
   justify-content: space-evenly;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 /*card styles*/
 
