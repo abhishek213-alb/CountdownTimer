@@ -19,7 +19,6 @@ body {
   margin: 0px;
   padding: 0px;
   padding-bottom: 20px;
-}
 
 nav {
   background: #222;
@@ -252,7 +251,7 @@ a {
 
 .card.bg-3 {
   background: rgba(255, 255, 255, 0.9)
-    url("./pexels-anton-makarenko-1078057.jpg");
+    url("./timer.jpg");
   background-size: cover;
 }
 
@@ -269,12 +268,12 @@ a {
 }
 
 .bg-1 {
-  background: url("./pexels-darwis-alwan-1808329.jpg");
+  background: url("./music.png");
   background-size: cover;
 }
 
 .bg-2 {
-  background: url("./pexels-eberhard-grossgasteiger-1064162.jpg");
+  background: url("./todoman.png");
   background-size: cover;
 }
 
