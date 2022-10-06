@@ -47,6 +47,17 @@ a {
 .item a:hover::after {
   color: #ccc;
 }
+.button a{
+  border-radius: 10%;
+  text-shadow: rgba(0, 0, 0, 0.8) 5px 2px 7px ;
+  box-shadow: wheat 1px 1px 7px;
+}
+.button a:hover{
+  color: black;
+  border: none;
+  text-shadow: none;
+  box-shadow: wheat 0px 0px 10px;
+}
 
 /* Mobile menu */
 .menu {
