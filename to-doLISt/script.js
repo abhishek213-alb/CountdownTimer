@@ -34,9 +34,9 @@ function addTodo(todo) {
                 <div class="task">
 					<input type="text" id="added-task" name='todo' disabled value="${todo}">
                     <div>
-                        <input type="button" value="✔️" name='update' title='update task' class="update-task">
-                        <input type="button" value="✏️" name='rename' title='rename task' class="rename-task">
-                        <input type="button" value="❌" name='delete' title='delete task' class="del-task">
+                        <input type="button" value="✔️" name='update' title='update task' class="update-task child">
+                        <input type="button" value="✏️" name='rename' title='rename task' class="rename-task child">
+                        <input type="button" value="❌" name='delete' title='delete task' class="del-task child">
                     </div>
                 </div>
                 `

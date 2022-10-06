@@ -5,23 +5,33 @@
 }
 
 body{
-    background:linear-gradient(90deg ,#ec2c2c,#d29e62,#e9993d );
-    font-family: Poppins, sans-serif
+    background:linear-gradient(90deg ,#630ab6,#d29e62,#b983dd );
+    font-family: Poppins, sans-serif;
+}
+
+h1{
+    font-family: 'Poppins', sans-serif;
+    color: #500050;
 }
 
 .container{
-    margin: 0 auto;
+    margin: 80px auto;
     text-align: center;
-    width: 70%;
-    max-width: 600px;
+    width: 60%;
+    max-width: 450px;
     padding: 60px 0;
-    color: white;
+    /* color: white; */
+    border: 2px solid gray;
+    border-radius: 10px;
+    /* background:linear-gradient(90deg ,#ec2c2c,#d29e62,#e9993d ); */
+    background-color: white;
+    box-shadow: 10px 10px 19px #241f1f;
 }
 
 #line{
     width:30px;
     height:2px;
-    background-color: white;
+    background-color: black;
     margin: 0 auto;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -34,6 +44,7 @@ body{
 
 input{
     border:none;
+    border-radius: 10px;
 }
 input[type='text']{
     width: 70%;
@@ -43,12 +54,14 @@ input[type='text']{
     margin-right: -4px;
     color: rgb(0, 0, 0);
     background-color: #ffffff;
+    border-bottom: 1px solid #c3aeaea1;
     cursor:pointer;
 }
 input[type='text']:disabled{
     cursor:default;
-    color: rgb(227, 213, 213);
-    background-color: rgb(147, 135, 135);
+    color: black;
+    background-color: #c3aeaea1;
+    
 }
 input[type='button']{
     padding: 5px;
@@ -57,33 +70,53 @@ input[type='button']{
     margin: 0 -3px;
 }
 #add-btn{
-    margin-right: -4px;
-    background-color: #e9adad;
+    margin-right: -1px;
+    background-color: #eb9797;
+    /* border-radius: 10px 0px 0px 10px; */
+    height: 40px;
+    width: 40px;
 }
 
 #del-btn{
     background-color: #540a0a;
+    /* border-radius: 0 10px 10px 0px; */
+    height: 40px;
+    width: 40px;
 }
 
 input[type='button']:active{
     transform: scale(.94);
 }
 
+#add-btn:hover{
+    border: 2px solid #540a0a;
+    cursor: pointer;
+}
+#del-btn:hover{
+    border: 2px solid #e9adad;
+    cursor: pointer;
+}
+input[type='button']:hover{
+    cursor: pointer;
+}
 
 .new-tasks{
     margin: 25px auto;
 }
 .update-task{
     margin-left: 10px;
-    background-color: #158c47;
+    border-radius:0px;
+    background-color: #3dc916;
 }
 .rename-task{
     background-color: #e9adad;
+    border-radius:0px;
 }
 
 
 .del-task{
     background-color: #540a0a;
+    border-radius:0px 10px 10px 0px;
 }
 
 .task{
@@ -92,6 +125,9 @@ input[type='button']:active{
     display: flex;
     justify-content: center;
     
+}
+#add-task{
+    border-bottom: 1px solid gray;
 }
 
 
