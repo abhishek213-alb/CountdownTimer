@@ -16,10 +16,7 @@ body {
   padding: 1rem;
   font-family: sans-serif;
   font-size: 16px;
-  margin: 0px;
-  padding: 0px;
-  padding-bottom: 20px;
-}
+
 
 nav {
   background: #222;
@@ -47,6 +44,7 @@ a {
 .item a:hover::after {
   color: #ccc;
 }
+
 
 /* Mobile menu */
 .menu {
@@ -312,3 +310,4 @@ a {
     opacity: 1;
   }
 }
+
