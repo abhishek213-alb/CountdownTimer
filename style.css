@@ -1,20 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Warnes&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;ind
-  font-family: "Roboto", sans-serif;
+  padding: 0;
 }
 
 body {
-  background: linear-gradient(90deg, rgb(193 193 193) 0%, rgb(58 58 173) 35%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgb(193 193 193) 0%,
+    rgb(58 58 173) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
-  font-family: sans-serif;
   font-size: 16px;
   margin: 0px;
   padding: 0px;
@@ -22,7 +27,14 @@ body {
 }
 
 nav {
-  background: #222;
+  background-image: linear-gradient(
+    90deg,
+    #0c79ed 20%,
+    #13547a 50%,
+    #049ea6 70%,
+    #09c19c 75%,
+    #0afcac 80%
+  );
   padding: 0 15px;
 }
 a {
@@ -45,6 +57,7 @@ a {
   padding: 7.5px 10px 7.5px 0;
 }
 .item {
+  font-family: "Warnes", cursive;
   padding: 10px;
 }
 .item.button {
@@ -52,7 +65,9 @@ a {
 }
 .item:not(.button) a:hover,
 .item a:hover::after {
-  color: #ccc;
+  color: #ed0cb5;
+  text-shadow: 0 0 5px #ed0cb5, 0 0 10px #ed0cb5, 0 0 15px #ed0cb5,
+    0 0 20px #ed0cb5, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
 }
 
 /* Mobile menu */
@@ -195,41 +210,45 @@ a {
 }
 
 .carousel {
- text-align: center;
- margin: auto;
+  text-align: center;
+  margin: auto;
 }
-@media screen and (max-width: 768px) 
-{
-    .carousel
-    {
-        width :100% ;
-    }
-    .active
-    {
-      width: 100%;
-      margin: 0px;
-      
-    }
-    .slide
-    {
-      width: 100%;
-      margin: 0px;
-    }
-    .card
-    {
-      width: 70%;
-      height: 100px;
-      
-    }
+@media screen and (max-width: 768px) {
+  .carousel {
+    width: 100%;
+  }
+  .active {
+    width: 100%;
+    margin: 0px;
+  }
+  .slide {
+    width: 100%;
+    margin: 0px;
+  }
+  .card {
+    width: 70%;
+    height: 100px;
+  }
 }
-.slide 
+@media screen and (max-width: 380px)
 {
+  .logo{
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 320px)
+{
+  .logo{
+    padding: 0px;
+  }
+}
+.slide {
   display: none;
 }
 
 .active {
   display: block;
-  background-color: white;
+  background-image: linear-gradient(15deg, #13547a 10%, #80d0c7 100%);
   animation: fade 1.4s;
   object-fit: contain;
   width: 75%;
@@ -239,6 +258,7 @@ a {
 }
 
 .cards-container {
+  font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -258,8 +278,7 @@ a {
 }
 
 .card.bg-3 {
-  background: rgba(255, 255, 255, 0.9)
-    url("./timer.jpg");
+  background: rgba(255, 255, 255, 0.9) url("./timer.jpg");
   background-size: cover;
 }
 
