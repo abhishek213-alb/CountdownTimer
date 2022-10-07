@@ -209,13 +209,12 @@ a {
 .carousel {
  text-align: center;
  margin: auto;
- width: 80%;
 }
 @media screen and (max-width: 768px) 
 {
     .carousel
     {
-        width :80% ;
+        width :100% ;
     }
     .active
     {
