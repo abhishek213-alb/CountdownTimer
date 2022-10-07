@@ -1,7 +1,16 @@
+document.addEventListener("DOMContentLoaded", function () {
+  let date = localStorage.getItem('date');
+  if (date != null) {
+    document.getElementById("date-c").value = date;
+    target_date = new Date(date);
+  }
+});
+
 var input_date = document.getElementById("date-c");
 var target_date = new Date("0000-00-00");
 var newCountdown = input_date.addEventListener("change", function () {
   var input = this.value;
+  localStorage.setItem('date', input);
   target_date = new Date(input);
   var curr = new Date().getTime();
   if (target_date < curr) {
@@ -10,6 +19,14 @@ var newCountdown = input_date.addEventListener("change", function () {
     target_date = curr;
   }
 });
+
+var reset = document.getElementById("reset");
+reset.addEventListener("click", function () {
+  localStorage.removeItem("date");
+  document.getElementById("date-c").value = '';
+  target_date = new Date("0000-00-00");
+});
+
 var days, hours, minutes, seconds;
 
 var countdownDay = document.getElementById("inside-circle-day");
