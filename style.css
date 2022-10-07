@@ -53,9 +53,7 @@ nav {
 .menu .logo{
    margin-right: 80px;
 }
-/* .submenu-title {
-  cursor: pointer;
-} */
+
 
 .item {
   padding: 10px;
@@ -75,7 +73,6 @@ nav {
   font-size: 20px;
 }
 .links{
-  /* margin: 0 3px 0 30px; */
   display: flex;
   justify-content: space-between;
 }
@@ -300,7 +297,6 @@ nav {
   gap: 10px;
   width: 100%;
   height: 100%;
-  /* position: relative; */
   opacity: 0;
   transition: opacity 500ms ease;
 }
