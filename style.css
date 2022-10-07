@@ -3,7 +3,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;ind
+  padding: 0;
   font-family: "Roboto", sans-serif;
 }
 
@@ -22,22 +22,23 @@ body {
 }
 
 nav {
+  width: 100%;
   background: #222;
-  background-image: linear-gradient(
-    90deg,
-    #0c79ed 20%,
-    #13547a 50%,
-    #049ea6 70%,
-    #09c19c 75%,
-    #0afcac 80%
-  );
-  padding: 0 15px;
-  padding: 0 15px;
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+  height: 15vh;
 }
-a {
-  color: #ed0b0b;
+.menu a{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.menu a:hover{
+  color: black;
+  font-size: 22px;
   text-decoration: none;
 }
+
 .has-submenu {
   z-index: 100;
 }
@@ -45,27 +46,47 @@ a {
 .submenu {
   list-style-type: none;
 }
-.submenu-title {
+.menu{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.menu .logo{
+   margin-right: 80px;
+}
+/* .submenu-title {
   cursor: pointer;
-  color: #fff4f4;
-}
-.logo {
-  font-size: 20px;
-  padding: 7.5px 10px 7.5px 0;
-}
+} */
+
 .item {
   padding: 10px;
 }
-.item.button {
+.button1{
+  height: 20px;
+  margin-left: 30px;
+  margin-right: -12px;
+}
+.button1 a{
+  color: black;
   padding: 9px 5px;
+  border-radius: 8px;
 }
-.item:not(.button) a:hover,
-.item a:hover::after {
-  color: #ccc;
-  color: #ed0cb5;
-  text-shadow: 0 0 5px #ed0cb5, 0 0 10px #ed0cb5, 0 0 15px #ed0cb5,
-    0 0 20px #ed0cb5, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+.button1 a:hover{
+  color: white;
+  font-size: 20px;
 }
+.links{
+  /* margin: 0 3px 0 30px; */
+  display: flex;
+  justify-content: space-between;
+}
+.searched{
+ left: 20px;
+}
+.menu input{
+  border-radius: 8px;
+  border: 1px black solid;
+}
+
 
 /* Mobile menu */
 .menu {
@@ -78,9 +99,7 @@ a {
   display: block;
   padding: 15px 5px;
 }
-.menu li.subitem a {
-  padding: 15px;
-}
+
 .toggle {
   order: 1;
   font-size: 20px;
@@ -119,13 +138,8 @@ a {
   font-weight: 900;
   content: "\f078";
   color: white;
-  padding-left: 5px;
-}
-.subitem a {
-  padding: 10px 15px;
 }
 .submenu-active {
-  background-color: #111;
   border-radius: 3px;
 }
 
@@ -149,7 +163,7 @@ a {
   }
   /* Button up from tablet screen */
   .menu li.button a {
-    padding: 10px 15px;
+    padding: 7px 10px;
     margin: 5px 0;
   }
   .button a {
@@ -165,10 +179,6 @@ a {
   }
   .button a:hover {
     text-decoration: none;
-  }
-  .button:not(.secondary) a:hover {
-    background: royalblue;
-    border-color: darkblue;
   }
 }
 
@@ -196,7 +206,15 @@ a {
     position: absolute;
     left: 0;
     top: 68px;
-    background: #111;
+    width: auto;
+  }
+  
+  .subitem a{
+    color: white;
+    background-image: linear-gradient(to right, #8360c3, #2ebf91);;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 20px;
   }
   .toggle {
     display: none;

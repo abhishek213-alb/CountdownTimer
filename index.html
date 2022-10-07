@@ -83,7 +83,10 @@
 <body>
   <nav id="navbar">
     <ul class="menu">
-      <li class="logo"><img src="Countdown.png" alt="" height="80px" width="80px" style="border-radius: 50px;"></li>
+      <div>
+      <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;"></li>
+      </div>
+      <div class="links">
       <li class="item"><a href="#">Home</a></li>
       <li class="item"><a href="#">About</a></li>
       <li class="item has-submenu">
@@ -108,9 +111,11 @@
       </li>
       <li class="item"><a href="#">Blog</a></li>
       <li class="item"><a href="#">Contact</a></li>
-      <li class="item button"><a href="#">Log In</a></li>
-      <li class="item d-flex my-2">
-        <input type="search" placeholder="search" id="form1" class="form-control" />
+      <li class="item button button1"><a href="#">Log In</a></li>
+    </div>
+    <div>
+      <li class="item searched d-flex my-2">
+        <input type="search" placeholder="Search" id="form1" class="form-control" />
         <button type="button" class="btn btn-primary mx-1">
           <i class="fas fa-search"></i>
         </button>
@@ -118,6 +123,7 @@
       <li class="toggle">
         <a href="#"><i class="fas fa-bars"></i></a>
       </li>
+    </div>
     </ul>
   </nav>
   <div class="carousel">
