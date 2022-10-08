@@ -8,7 +8,6 @@
   <title>Homepage</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
@@ -20,6 +19,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
   <style>
+    .carousel {
+      height: 40em;
+    }
+
     .footer-basic {
       padding: 40px 0;
       background-color: #ffffff;
@@ -81,50 +84,52 @@
     }
   </style>
 </head>
+
 <body>
   <nav id="navbar">
     <ul class="menu">
       <div>
-      <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;"></li>
+        <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;">
+        </li>
       </div>
       <div class="links">
-      <li class="item"><a href="#">Home</a></li>
-      <li class="item"><a href="./about.html">About</a></li>
-      <li class="item has-submenu">
-        <a class="submenu-title" tabindex="0">Services</a>
-        <ul class="submenu">
-          <li class="subitem">
-            <a href="./components/CountdownTimer.html">Timer app</a>
-          </li>
-          <li class="subitem">
-            <a href="./to-doLISt/index.html">Todo Manager</a>
-          </li>
-          <li class="subitem"><a href="#">Music Player</a></li>
-        </ul>
-      </li>
-      <li class="item has-submenu">
-        <a class="submenu-title" tabindex="0">Plans</a>
-        <ul class="submenu">
-          <li class="subitem"><a href="#">Freelancer</a></li>
-          <li class="subitem"><a href="#">Startup</a></li>
-          <li class="subitem"><a href="#">Enterprise</a></li>
-        </ul>
-      </li>
-      <li class="item"><a href="#">Blog</a></li>
-      <li class="item"><a href="#">Contact</a></li>
-      <li class="item button button1"><a href="#">Log In</a></li>
-    </div>
-    <div>
-      <li class="item searched d-flex my-2">
-        <input type="search" placeholder="Search" id="form1" class="form-control" />
-        <button type="button" class="btn btn-primary mx-1">
-          <i class="fas fa-search"></i>
-        </button>
-      </li>
-      <li class="toggle">
-        <a href="#"><i class="fas fa-bars"></i></a>
-      </li>
-    </div>
+        <li class="item"><a href="#">Home</a></li>
+        <li class="item"><a href="./about.html">About</a></li>
+        <li class="item has-submenu">
+          <a class="submenu-title" tabindex="0">Services</a>
+          <ul class="submenu">
+            <li class="subitem">
+              <a href="./components/CountdownTimer.html">Timer app</a>
+            </li>
+            <li class="subitem">
+              <a href="./to-doLISt/index.html">Todo Manager</a>
+            </li>
+            <li class="subitem"><a href="#">Music Player</a></li>
+          </ul>
+        </li>
+        <li class="item has-submenu">
+          <a class="submenu-title" tabindex="0">Plans</a>
+          <ul class="submenu">
+            <li class="subitem"><a href="#">Freelancer</a></li>
+            <li class="subitem"><a href="#">Startup</a></li>
+            <li class="subitem"><a href="#">Enterprise</a></li>
+          </ul>
+        </li>
+        <li class="item"><a href="#">Blog</a></li>
+        <li class="item"><a href="#">Contact</a></li>
+        <li class="item button button1"><a href="#">Log In</a></li>
+      </div>
+      <div>
+        <li class="item searched d-flex my-2">
+          <input type="search" placeholder="Search" id="form1" class="form-control" />
+          <button type="button" class="btn btn-primary mx-1">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+        <li class="toggle">
+          <a href="#"><i class="fas fa-bars"></i></a>
+        </li>
+      </div>
     </ul>
   </nav>
   <div class="carousel">

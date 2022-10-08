@@ -8,7 +8,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(193 193 193) 0%, rgb(58 58 173) 35%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(90deg, rgb(193 193 193) 0%, rgb(58 58 173) 35%, rgba(0, 212, 255, 1) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,13 +27,15 @@ nav {
   background-image: linear-gradient(to right, #8360c3, #2ebf91);
   height: 15vh;
 }
-.menu a{
+
+.menu a {
   color: white;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
 }
-.menu a:hover{
+
+.menu a:hover {
   color: black;
   font-size: 22px;
   text-decoration: none;
@@ -42,44 +44,53 @@ nav {
 .has-submenu {
   z-index: 100;
 }
+
 .menu,
 .submenu {
   list-style-type: none;
 }
-.menu{
+
+.menu {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.menu .logo{
-   margin-right: 80px;
+
+.menu .logo {
+  margin-right: 80px;
 }
 
 
 .item {
   padding: 10px;
 }
-.button1{
+
+.button1 {
   height: 20px;
   margin-left: 30px;
   margin-right: -12px;
 }
-.button1 a{
+
+.button1 a {
   color: black;
   padding: 9px 5px;
   border-radius: 8px;
 }
-.button1 a:hover{
+
+.button1 a:hover {
   color: white;
   font-size: 20px;
 }
-.links{
+
+.links {
   display: flex;
   justify-content: space-between;
 }
-.searched{
- left: 20px;
+
+.searched {
+  left: 20px;
 }
-.menu input{
+
+.menu input {
   border-radius: 8px;
   border: 1px black solid;
 }
@@ -92,6 +103,7 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+
 .menu li a {
   display: block;
   padding: 15px 5px;
@@ -101,18 +113,22 @@ nav {
   order: 1;
   font-size: 20px;
 }
+
 .item.button {
   order: 2;
 }
+
 .item {
   order: 3;
   width: 100%;
   text-align: center;
   display: none;
 }
+
 .active .item {
   display: block;
 }
+
 .button.secondary {
   /* divider between buttons and menu links */
   border-bottom: 1px #444 solid;
@@ -122,13 +138,16 @@ nav {
 .submenu {
   display: none;
 }
+
 .submenu-active .submenu {
   display: block;
 }
+
 .has-submenu i {
   font-size: 12px;
 }
-.has-submenu > a::after {
+
+.has-submenu>a::after {
   font-family: "Font Awesome 5 Free";
   font-size: 12px;
   line-height: 16px;
@@ -136,6 +155,7 @@ nav {
   content: "\f078";
   color: white;
 }
+
 .submenu-active {
   border-radius: 3px;
 }
@@ -145,35 +165,43 @@ nav {
   .menu {
     justify-content: center;
   }
+
   .logo {
     flex: 1;
   }
+
   .item.button {
     width: auto;
     order: 1;
     display: block;
   }
+
   .toggle {
     flex: 1;
     text-align: right;
     order: 2;
   }
+
   /* Button up from tablet screen */
   .menu li.button a {
     padding: 7px 10px;
     margin: 5px 0;
   }
+
   .button a {
     background: #0080ff;
     border: 1px royalblue solid;
   }
+
   .button.secondary {
     border: 0;
   }
+
   .button.secondary a {
     background: transparent;
     border: 1px #0080ff solid;
   }
+
   .button a:hover {
     text-decoration: none;
   }
@@ -186,18 +214,22 @@ nav {
     flex-wrap: nowrap;
     background: none;
   }
+
   .logo {
     order: 0;
   }
+
   .item {
     order: 1;
     position: relative;
     display: block;
     width: auto;
   }
+
   .button {
     order: 2;
   }
+
   .submenu-active .submenu {
     display: block;
     position: absolute;
@@ -205,52 +237,55 @@ nav {
     top: 68px;
     width: auto;
   }
-  
-  .subitem a{
+
+  .subitem a {
     color: white;
-    background-image: linear-gradient(to right, #8360c3, #2ebf91);;
+    background-image: linear-gradient(to right, #8360c3, #2ebf91);
+    ;
     text-align: center;
     margin-bottom: 0;
     font-size: 20px;
   }
+
   .toggle {
     display: none;
   }
+
   .submenu-active {
     border-radius: 0;
   }
 }
 
 .carousel {
- text-align: center;
- margin: auto;
+  text-align: center;
+  margin: auto;
 }
-@media screen and (max-width: 768px) 
-{
-    .carousel
-    {
-        width :100% ;
-    }
-    .active
-    {
-      width: 100%;
-      margin: 0px;
-      
-    }
-    .slide
-    {
-      width: 100%;
-      margin: 0px;
-    }
-    .card
-    {
-      width: 70%;
-      height: 100px;
-      
-    }
+
+@media screen and (max-width: 768px) {
+  .carousel {
+    width: 100%;
+    height: 30vh;
+  }
+
+  .active {
+    width: 100%;
+    margin: 0px;
+
+  }
+
+  .slide {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .card {
+    width: 70%;
+    height: 100px;
+
+  }
 }
-.slide 
-{
+
+.slide {
   display: none;
 }
 
@@ -272,6 +307,7 @@ nav {
   gap: 15px;
   flex-wrap: wrap;
 }
+
 /*card styles*/
 
 .card {
@@ -285,8 +321,7 @@ nav {
 }
 
 .card.bg-3 {
-  background: rgba(255, 255, 255, 0.9)
-    url("./timer.jpg");
+  background: rgba(255, 255, 255, 0.9) url("./timer.jpg");
   background-size: cover;
 }
 
@@ -341,6 +376,7 @@ nav {
   from {
     opacity: 0.4;
   }
+
   to {
     opacity: 1;
   }
