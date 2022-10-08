@@ -8,24 +8,98 @@
   <title>Homepage</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  <style>
+    .footer-basic {
+      padding: 40px 0;
+      background-color: #ffffff;
+      color: #4b4c4d;
+    }
+
+    .footer-basic ul {
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .footer-basic li {
+      padding: 0 10px;
+    }
+
+    .footer-basic ul a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .footer-basic ul a:hover {
+      opacity: 1;
+    }
+
+    .footer-basic .social {
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    .footer-basic .social>a {
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      margin: 0 8px;
+      color: inherit;
+      opacity: 0.75;
+    }
+
+    .footer-basic .social>a:hover {
+      opacity: 0.9;
+    }
+
+    .footer-basic .copyright {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      margin-bottom: 0;
+    }
+  </style>
 </head>
-
 <body>
-
   <nav id="navbar">
-
     <ul class="menu">
-      <li class="logo"><a href="#">LOGO</a></li>
+      <div>
+      <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;"></li>
+      </div>
+      <div class="links">
       <li class="item"><a href="#">Home</a></li>
-      <li class="item"><a href="#">About</a></li>
+      <li class="item"><a href="./about.html">About</a></li>
       <li class="item has-submenu">
         <a class="submenu-title" tabindex="0">Services</a>
         <ul class="submenu">
-          <li class="subitem"><a href="./components/CountdownTimer.html">Timer app</a></li>
-          <li class="subitem"><a href="./to-doLISt/index.html">Todo Manager</a></li>
-          <li class="subitem"><a href="/Pages/Musicapp">Music Player</a></li>
+          <li class="subitem">
+            <a href="./components/CountdownTimer.html">Timer app</a>
+          </li>
+          <li class="subitem">
+            <a href="./to-doLISt/index.html">Todo Manager</a>
+          </li>
+          <li class="subitem"><a href="#">Music Player</a></li>
         </ul>
       </li>
       <li class="item has-submenu">
@@ -38,26 +112,25 @@
       </li>
       <li class="item"><a href="#">Blog</a></li>
       <li class="item"><a href="#">Contact</a></li>
-      <li class="item button"><a href="#">Log In</a></li>
-      <li class="item d-flex my-2"><input type="search" placeholder="search" id="form1" class="form-control" />
-
+      <li class="item button button1"><a href="#">Log In</a></li>
+    </div>
+    <div>
+      <li class="item searched d-flex my-2">
+        <input type="search" placeholder="Search" id="form1" class="form-control" />
         <button type="button" class="btn btn-primary mx-1">
-          <i class="fas fa-search"></i></button>
+          <i class="fas fa-search"></i>
+        </button>
       </li>
       <li class="toggle">
         <a href="#"><i class="fas fa-bars"></i></a>
       </li>
-
+    </div>
     </ul>
-
-
-
   </nav>
   <div class="carousel">
     <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
     <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
   </div>
-
   <div class="cards-container">
     <div class="card bg-1">
       <div class="card-content">
@@ -70,13 +143,12 @@
     </div>
     <div class="card bg-2">
       <div class="card-content">
-        <h3> Todo Manager</h3>
-        <div>
-          Procrastination is opportunity's natural assassin
-        </div>
+        <h3>Todo Manager</h3>
+        <div>Procrastination is opportunity's natural assassin</div>
         <a href="to-doLISt/index.html" class="goto-btn">Open</a>
       </div>
     </div>
+
     <div class="card bg-3">
       <div class="card-content">
         <h3>Countdown Timer</h3>
@@ -101,6 +173,7 @@
         url = response.url;
       } catch (error) {
         console.log(error);
+
       }
       slides[slideIndex].classList.toggle("active");
       slideIndex++;
@@ -109,28 +182,22 @@
       slides[slideIndex].src = url;
     };
     setInterval(showSlides, 5000);
-
     const toggle = document.querySelector(".toggle");
     const menu = document.querySelector(".menu");
-
     /* Toggle mobile menu */
     function toggleMenu() {
       if (menu.classList.contains("active")) {
         menu.classList.remove("active");
-
         // adds the menu (hamburger) icon
         toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
       } else {
         menu.classList.add("active");
-
         // adds the close (x) icon
         toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
       }
     }
-
     /* Event Listener */
     toggle.addEventListener("click", toggleMenu, false);
-
     const items = document.querySelectorAll(".item");
 
     /* Activate Submenu */
@@ -152,9 +219,9 @@
       if (item.querySelector(".submenu")) {
         item.addEventListener("click", toggleItem, false);
         item.addEventListener("keypress", toggleItem, false);
+
       }
     }
-
     /* Close Submenu From Anywhere */
     function closeSubmenu(e) {
       if (menu.querySelector(".submenu-active")) {
@@ -169,10 +236,26 @@
         }
       }
     }
-
     /* Event listener */
     document.addEventListener("click", closeSubmenu, false);
   </script>
+  <div class="footer-basic">
+    <footer>
+      <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+            class="icon ion-social-linkedin"></i></a><a href="#"><i class="icon ion-social-pinterest"></i></a><a
+          href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-youtube"></i></div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Services</a></li>
+        <li class="list-inline-item"><a href="./about.html">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">CountdownTimer © 2021</p>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
