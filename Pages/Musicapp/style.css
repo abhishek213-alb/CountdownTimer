@@ -13,14 +13,31 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 7em 5em;
+    padding: 3.6em 5em;
 }
 
 .music-card {
-
-    display: inline-block;
-    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+    cursor: pointer;
     background-color: rgb(0 0 0 / 40%);
     padding: 2em;
+    transition: all 1s ease-in-out;
+}
 
+.music-card:hover {
+    transform: scale(0.85);
+}
+
+#currentInstrument {
+    font-family: monospace;
+    background-color: black;
+    padding: 0.3em;
+}
+
+body>h2 {
+    padding-top: 0.5em;
+    text-align: center;
+    color: white;
 }
