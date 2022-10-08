@@ -8,6 +8,7 @@
   <title>Homepage</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
@@ -133,14 +134,11 @@
   <div class="cards-container">
     <div class="card bg-1">
       <div class="card-content">
-        <h3>Title</h3>
+        <h3>Music Instruments App</h3>
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-          molestias voluptatem laboriosam esse, deserunt eaque est fugiat
-          vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
-          rerum reiciendis quam.
+          This is the best Music Instruments Sound app which will make this app unique from other apps.
         </div>
-        <a href="#" class="goto-btn">Open</a>
+        <a href="pages/Musicapp/index.html" class="goto-btn">Open</a>
       </div>
     </div>
     <div class="card bg-2">
@@ -150,6 +148,7 @@
         <a href="to-doLISt/index.html" class="goto-btn">Open</a>
       </div>
     </div>
+
     <div class="card bg-3">
       <div class="card-content">
         <h3>Countdown Timer</h3>
@@ -161,6 +160,7 @@
       </div>
     </div>
   </div>
+
   <script>
     let slideIndex = 0;
     const showSlides = async () => {
@@ -173,6 +173,7 @@
         url = response.url;
       } catch (error) {
         console.log(error);
+
       }
       slides[slideIndex].classList.toggle("active");
       slideIndex++;
@@ -198,6 +199,7 @@
     /* Event Listener */
     toggle.addEventListener("click", toggleMenu, false);
     const items = document.querySelectorAll(".item");
+
     /* Activate Submenu */
     function toggleItem() {
       if (this.classList.contains("submenu-active")) {
@@ -211,11 +213,13 @@
         this.classList.add("submenu-active");
       }
     }
+
     /* Event Listeners */
     for (let item of items) {
       if (item.querySelector(".submenu")) {
         item.addEventListener("click", toggleItem, false);
         item.addEventListener("keypress", toggleItem, false);
+
       }
     }
     /* Close Submenu From Anywhere */
@@ -253,4 +257,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
