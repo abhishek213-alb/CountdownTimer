@@ -20,44 +20,47 @@
   <body>
 
     <nav id="navbar">
-
+      <!-- logo  -->
+      <div class="logo-container">
+        <h2>Logo</h2>
+      </div>
+      <!-- nav items  -->
       <ul class="menu">
-        <li class="logo"><a href="#">LOGO</a></li>
+        <li class="item d-flex">
+          <input type="search" placeholder="search" id="form1" class="form-control" />
+          <button type="button" class="btn btn-primary mx-1">
+            <i class="fas fa-search fa-lg"></i></button>
+          </li>
         <li class="item"><a href="#">Home</a></li>
         <li class="item"><a href="#">About</a></li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Services</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="./components/CountdownTimer.html">Timer app</a></li>
-            <li class="subitem"><a href="./to-doLISt/index.html">Todo Manager</a></li>
-            <li class="subitem"><a href="#">Music Player</a></li>
-          </ul>
+        <li class="item dropdown">
+          <select name="services" id="select-container1">
+            <option value="">Services</option>
+            <option value="">Timer app</option>
+            <option value="">Todo Manager</option>
+          </select>
         </li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Plans</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="#">Freelancer</a></li>
-            <li class="subitem"><a href="#">Startup</a></li>
-            <li class="subitem"><a href="#">Enterprise</a></li>
-          </ul>
+        <li class="item dropdown">
+          <select name="services" id="select-container2">
+            <option value="">Plans</option>
+            <option value="">Freelancer</option>
+            <option value="">Startup</option>
+            <option value="">Enterprise</option>
+          </select>
         </li>
         <li class="item"><a href="#">Blog</a></li>
         <li class="item"><a href="#">Contact</a></li>
-        <li class="item button"><a href="#">Log In</a></li>
-        <li class="item d-flex my-2"><input type="search" placeholder="search" id="form1" class="form-control" />
-          
-        <button type="button" class="btn btn-primary mx-1">
-          <i class="fas fa-search"></i></button>
-      </li>
-        <li class="toggle">
-          <a href="#"><i class="fas fa-bars"></i></a>
-        </li>
-       
+        <li class="item button"><a href="#">Log In</a></li>  
       </ul>
-      
 
-
+      <!-- Hamburger -->
+      <div id="hamburger" class="hamburger">
+        <span id="bar"></span>
+        <span id="bar"></span>
+        <span id="bar"></span>
+      </div>
     </nav>
+<!-- carousel -->
     <div class="carousel">
       <img
         src="https://source.unsplash.com/1600x900/?quote"
@@ -105,89 +108,7 @@
       </div>
     </div>
 
-    <script>
-      let slideIndex = 0;
-      const showSlides = async () => {
-        let slides = document.getElementsByClassName("slide");
-        let url;
-        try {
-          let response = await fetch(
-            "https://source.unsplash.com/1600x900/?quote"
-          );
-          url = response.url;
-        } catch (error) {
-          console.log(error);
-        }
-        slides[slideIndex].classList.toggle("active");
-        slideIndex++;
-        slideIndex %= slides.length;
-        slides[slideIndex].classList.toggle("active");
-        slides[slideIndex].src = url;
-      };
-      setInterval(showSlides, 5000);
-
-      const toggle = document.querySelector(".toggle");
-      const menu = document.querySelector(".menu");
-
-      /* Toggle mobile menu */
-      function toggleMenu() {
-        if (menu.classList.contains("active")) {
-          menu.classList.remove("active");
-
-          // adds the menu (hamburger) icon
-          toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
-        } else {
-          menu.classList.add("active");
-
-          // adds the close (x) icon
-          toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
-        }
-      }
-
-      /* Event Listener */
-      toggle.addEventListener("click", toggleMenu, false);
-
-      const items = document.querySelectorAll(".item");
-
-      /* Activate Submenu */
-      function toggleItem() {
-        if (this.classList.contains("submenu-active")) {
-          this.classList.remove("submenu-active");
-        } else if (menu.querySelector(".submenu-active")) {
-          menu
-            .querySelector(".submenu-active")
-            .classList.remove("submenu-active");
-          this.classList.add("submenu-active");
-        } else {
-          this.classList.add("submenu-active");
-        }
-      }
-
-      /* Event Listeners */
-      for (let item of items) {
-        if (item.querySelector(".submenu")) {
-          item.addEventListener("click", toggleItem, false);
-          item.addEventListener("keypress", toggleItem, false);
-        }
-      }
-
-      /* Close Submenu From Anywhere */
-      function closeSubmenu(e) {
-        if (menu.querySelector(".submenu-active")) {
-          let isClickInside = menu
-            .querySelector(".submenu-active")
-            .contains(e.target);
-
-          if (!isClickInside && menu.querySelector(".submenu-active")) {
-            menu
-              .querySelector(".submenu-active")
-              .classList.remove("submenu-active");
-          }
-        }
-      }
-
-      /* Event listener */
-      document.addEventListener("click", closeSubmenu, false);
-    </script>
+    <!-- js file -->
+    <script src="./script.js"></script>
   </body>
 </html>
