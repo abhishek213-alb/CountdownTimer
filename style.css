@@ -8,7 +8,7 @@
 }
 
 body {
-  
+  background-image: url(background_pattern.png);
   display: flex;
   flex-direction: column;
   justify-content: center;
