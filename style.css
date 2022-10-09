@@ -264,6 +264,9 @@ nav {
 @media screen and (max-width: 768px) {
   .carousel {
     width: 100%;
+
+    height: 30vh;
+
   }
 
   .active {
@@ -379,6 +382,7 @@ nav {
   to {
     opacity: 1;
   }
+
 }
 
 ::-webkit-scrollbar {
@@ -394,4 +398,5 @@ nav {
   background-clip: content-box;
   border: 2px solid transparent;
   border-radius: 15px;
+
 }
