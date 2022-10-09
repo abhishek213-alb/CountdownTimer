@@ -8,7 +8,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(193 193 193) 0%, rgb(58 58 173) 35%, rgba(0, 212, 255, 1) 100%);
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
