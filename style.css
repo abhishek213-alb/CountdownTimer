@@ -8,7 +8,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(193 193 193) 0%, rgb(58 58 173) 35%, rgba(0, 212, 255, 1) 100%);
+  background-image: linear-gradient(to right top, #06002a, #08164c, #0d2672, #11369a, #1148c4, #0063da, #007eed, #0098ff, #00b7ff, #00d3ff, #00ebf1, #00ffd4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,13 +24,14 @@ body {
 nav {
   width: 100%;
   background: #222;
-  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+  background-image: linear-gradient(to right, #001b45, #005188, #008a9c, #00c174, #a8eb12);
   height: 15vh;
 }
 
 .sticky {
   position: sticky;
   top: 0;
+  height: 9vh;
   width: 100%;
   z-index: 1;
 }
@@ -329,31 +330,6 @@ nav {
   position: relative;
 }
 
-.card.bg-3 {
-  background: rgba(255, 255, 255, 0.9) url("./timer.jpg");
-  background-size: cover;
-}
-
-.card-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 500ms ease;
-}
-
-.bg-1 {
-  background: url("./music.png");
-  background-size: cover;
-}
-
-.bg-2 {
-  background: url("./todoman.png");
-  background-size: cover;
-}
 
 .goto-btn {
   text-decoration: none;
@@ -366,7 +342,7 @@ nav {
   width: min-content;
   color: white;
   font-size: 1rem;
-  position: absolute;
+  position: center;
   bottom: 3rem;
 }
 
@@ -374,12 +350,6 @@ nav {
   outline: 4px solid #1187d192;
 }
 
-.card:hover .card-content {
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 0.253);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-}
 
 @keyframes fade {
   from {
@@ -407,3 +377,108 @@ nav {
   border-radius: 15px;
 
 }
+
+.container20{
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 35px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+    .card1 {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 15px;
+      box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+    }
+
+      .face {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .face1 {
+          box-sizing: border-box;
+          padding: 20px;
+        }
+
+          h2 {
+            margin: 0;
+            padding: 0;
+          }
+
+          .java {
+            background-color: #fffc00;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+
+          .python {
+            background-color: #00fffc;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+
+          .cSharp {
+            background-color: #fc00ff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+    
+
+        .face2 {
+          transition: 0.5s;
+        }
+
+          .card1 .h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 10em;
+            color: #fff;
+            transition: 0.5s;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+          
+        }
+
+    .card1:hover .face.face2 {
+      height: 60px;}
+
+      h2 {
+        font-size: 2em;
+      }
+   
+
+    .card1:nth-child(1) .face.face2 {
+      background: url("./music.png");
+      background-size: cover;
+      border-radius: 15px;
+    }
+
+    .card1:nth-child(2) .face.face2 {
+      background: url("./todoman.png");
+      background-size: cover;
+      border-radius: 15px;
+    }
+
+    .card1:nth-child(3) .face.face2 {
+      background: rgba(255, 255, 255, 0.9) url("./timer.jpg");
+      background-size: cover;
+      border-radius: 15px;
+    }
+    .card1:nth-child(4) .face.face2 {
+      background: rgba(255, 255, 255, 0.9) url("./Screenshot\ 2022-10-10\ 120912.png");
+      background-size: cover;
+      border-radius: 15px;
+    }
+  
