@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="blog.css">
+  <style>
+    .carousel {
+      height: 40em;
+    }
+
+    .footer-basic {
+      padding: 40px 0;
+      background-color: #ffffff;
+      color: #4b4c4d;
+    }
+
+    .footer-basic ul {
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .footer-basic li {
+      padding: 0 10px;
+    }
+
+    .footer-basic ul a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .footer-basic ul a:hover {
+      opacity: 1;
+    }
+
+    .footer-basic .social {
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    .footer-basic .social>a {
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      margin: 0 8px;
+      color: inherit;
+      opacity: 0.75;
+    }
+
+    .footer-basic .social>a:hover {
+      opacity: 0.9;
+    }
+
+    .footer-basic .copyright {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      margin-bottom: 0;
+    }
+
+    .card.bg-4 {
+      background: rgba(255, 255, 255, 0.9) url("https://i.scdn.co/image/ab67706c0000bebb01b4eb9c4a97c5d464c39b1a");
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar" class="sticky">
+    <ul class="menu">
+      <div>
+        <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;">
+        </li>
+      </div>
+      <div class="links">
+
+        <li class="item"><a href="index.html">Home</a></li>
+
+        <li class="item"><a href="./about.html">About</a></li>
+        <li class="item has-submenu">
+          <a class="submenu-title" tabindex="0">Services</a>
+          <ul class="submenu">
+            <li class="subitem">
+              <a href="./components/CountdownTimer.html">Timer app</a>
+            </li>
+            <li class="subitem">
+              <a href="./to-doLISt/index.html">Todo Manager</a>
+            </li>
+            <li class="subitem"><a href="#">Music Player</a></li>
+          </ul>
+        </li>
+        <li class="item has-submenu">
+          <a class="submenu-title" tabindex="0">Plans</a>
+          <ul class="submenu">
+            <li class="subitem"><a href="#">Freelancer</a></li>
+            <li class="subitem"><a href="#">Startup</a></li>
+            <li class="subitem"><a href="#">Enterprise</a></li>
+          </ul>
+        </li>
+        <li class="item"><a href="./blog.html">Blog</a></li>
+        <li class="item"><a href="./contact.html">Contact</a></li>
+
+        <li class="item button button1"><a href="LOGIN/LogIn.html">Log In</a></li>
+
+      </div>
+      <div>
+        <li class="item searched d-flex my-2">
+          <input type="search" placeholder="Search" id="form1" class="form-control" />
+          <button type="button" class="btn btn-primary mx-1">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+        <li class="toggle">
+          <a href="#"><i class="fas fa-bars"></i></a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+
+  <section>
+    <div class="blogs">
+        <h2 style="text-align: center; color:white; border-bottom: 2px solid white; border-top: 2px solid white;padding: 1.2rem;">Blog Section</h2>
+        <div class="card-container">
+            <div class="card">
+               <div class="image">
+                <img class="imgs" src="./images/blog1.jpeg">
+               </div>
+               <div class="content">
+                <p class="heading">Self-Management vs. Time Management</p>
+                <p class="author">by Patricia Thompson</p>
+               </div>
+               <div>
+                <a target="_blank" href="https://medium.com/the-mission/self-management-vs-time-management-what-you-need-to-know-67a4063715e6"><button class="read">Read more...</button></a>
+               </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog2.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Time Management Really Is About Self-Management</p>
+                    <p class="author">by Ye Chen</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/@yechen.main/time-management-really-is-about-self-management-ca1935b06d1d"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog3.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">You Don’t Have A Time Management Problem — You Just Think You Do</p>
+                    <p class="author">by Josh Spector</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/an-idea-for-you/you-dont-have-a-time-management-problem-you-just-think-you-do-ac8eb6952b06"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog4.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Simplify Your Time Management With the ‘Rule of 4’</p>
+                    <p class="author">by inc. magazine</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/inc./simplify-your-time-management-with-the-rule-of-4-e884883c0173"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog5.jpg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Productivity Isn’t About Time Management. It’s About Attention Management.</p>
+                    <p class="author">by Adam Grant</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/@AdamMGrant/productivity-isnt-about-time-management-it-s-about-attention-management-ce622139b1a5"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog6.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Why You Really Don’t Have a Time Management Problem</p>
+                    <p class="author">by Charlie Gilkey</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/thrive-global/why-you-really-dont-have-a-time-management-problem-82eb6e31ffc9"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog7.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">How I Got More Done, Reduced Stress, Increased Focus, And Mastered Time Management In 10 Minutes A Day</p>
+                    <p class="author">by Josh Spector</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/an-idea-for-you/how-i-got-more-done-reduced-stress-increased-focus-and-mastered-time-management-in-10-minutes-a-4ed59e41f7ba"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog8.jpg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">The Time Management Secret Nobody Talks About</p>
+                    <p class="author">by Barry Davret</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://barry-davret.medium.com/the-time-management-secret-nobody-talks-about-ea9c154b7e0"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <script>
+    let slideIndex = 0;
+    const showSlides = async () => {
+      let slides = document.getElementsByClassName("slide");
+      let url;
+      try {
+        let response = await fetch(
+          "https://source.unsplash.com/1600x900/?quote"
+        );
+        url = response.url;
+      } catch (error) {
+        console.log(error);
+
+      }
+      slides[slideIndex].classList.toggle("active");
+      slideIndex++;
+      slideIndex %= slides.length;
+      slides[slideIndex].classList.toggle("active");
+      slides[slideIndex].src = url;
+    };
+    setInterval(showSlides, 5000);
+    const toggle = document.querySelector(".toggle");
+    const menu = document.querySelector(".menu");
+    /* Toggle mobile menu */
+    function toggleMenu() {
+      if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+        // adds the menu (hamburger) icon
+        toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+      } else {
+        menu.classList.add("active");
+        // adds the close (x) icon
+        toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+      }
+    }
+    /* Event Listener */
+    toggle.addEventListener("click", toggleMenu, false);
+    const items = document.querySelectorAll(".item");
+
+    /* Activate Submenu */
+    function toggleItem() {
+      if (this.classList.contains("submenu-active")) {
+        this.classList.remove("submenu-active");
+      } else if (menu.querySelector(".submenu-active")) {
+        menu
+          .querySelector(".submenu-active")
+          .classList.remove("submenu-active");
+        this.classList.add("submenu-active");
+      } else {
+        this.classList.add("submenu-active");
+      }
+    }
+
+    /* Event Listeners */
+    for (let item of items) {
+      if (item.querySelector(".submenu")) {
+        item.addEventListener("click", toggleItem, false);
+        item.addEventListener("keypress", toggleItem, false);
+
+      }
+    }
+    /* Close Submenu From Anywhere */
+    function closeSubmenu(e) {
+      if (menu.querySelector(".submenu-active")) {
+        let isClickInside = menu
+          .querySelector(".submenu-active")
+          .contains(e.target);
+
+        if (!isClickInside && menu.querySelector(".submenu-active")) {
+          menu
+            .querySelector(".submenu-active")
+            .classList.remove("submenu-active");
+        }
+      }
+    }
+    /* Event listener */
+    document.addEventListener("click", closeSubmenu, false);
+  </script>
+  <div class="footer-basic">
+    <footer>
+      <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+            class="icon ion-social-linkedin"></i></a><a href="#"><i class="icon ion-social-pinterest"></i></a><a
+          href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-youtube"></i></div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Services</a></li>
+        <li class="list-inline-item"><a href="./about.html">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">CountdownTimer © 2021</p>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
