@@ -22,16 +22,14 @@ body {
 }
 
 nav {
-  width: 100%;
-  background: #222;
-  background-image: linear-gradient(to right, #001b45, #005188, #008a9c, #00c174, #a8eb12);
   height: 15vh;
+  background-color: #152932;
 }
 
 .sticky {
   position: sticky;
   top: 0;
-  height: 9vh;
+  height: 100px;
   width: 100%;
   z-index: 1;
 }
@@ -44,7 +42,7 @@ nav {
 }
 
 .menu a:hover {
-  color: black;
+  color: #00c2cb;
   font-size: 22px;
   text-decoration: none;
 }
@@ -66,8 +64,14 @@ nav {
 .menu .logo {
   margin-right: 80px;
 }
-
-
+.logo img{
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  border: 2px solid #00c2cb;
+  box-shadow: #00c2cb 0px 5px 15px;
+  margin-top: 5px;
+}
 .item {
   padding: 10px;
 }
@@ -171,13 +175,12 @@ nav {
 /* Tablet menu */
 @media all and (min-width: 700px) {
   .menu {
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .logo {
     flex: 1;
   }
-
   .item.button {
     width: auto;
     order: 1;
@@ -216,6 +219,12 @@ nav {
 }
 
 /* Desktop menu */
+@media screen and (max-width:1160px){
+  .menu input{
+    display: none;
+  }
+}
+
 @media all and (min-width: 960px) {
   .menu {
     align-items: flex-start;
@@ -248,8 +257,7 @@ nav {
 
   .subitem a {
     color: white;
-    background-image: linear-gradient(to right, #8360c3, #2ebf91);
-    ;
+    background-color: #152932;
     text-align: center;
     margin-bottom: 0;
     font-size: 20px;
