@@ -17,8 +17,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
+  <link rel="stylesheet" href="blog.css">
   <style>
+    .carousel {
+      height: 40em;
+    }
+
     .footer-basic {
       padding: 40px 0;
       background-color: #ffffff;
@@ -79,37 +83,24 @@
       margin-bottom: 0;
     }
 
-    .heading {
-      display: block;
-      justify-content: center;
-      position: relative;
-      left: 20vw;
-    }
-
-    .contents {
-      display: block;
-      justify-content: center;
-      position: relative;
-      left: 20vw;
-      margin-right: 50vw;
-    }
-
-    .linkhome {
-      text-decoration: none;
-      color: black;
+    .card.bg-4 {
+      background: rgba(255, 255, 255, 0.9) url("https://i.scdn.co/image/ab67706c0000bebb01b4eb9c4a97c5d464c39b1a");
+      background-size: cover;
     }
   </style>
 </head>
 
 <body>
-  <nav id="navbar">
+  <nav id="navbar" class="sticky">
     <ul class="menu">
       <div>
         <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;">
         </li>
       </div>
       <div class="links">
+
         <li class="item"><a href="index.html">Home</a></li>
+
         <li class="item"><a href="./about.html">About</a></li>
         <li class="item has-submenu">
           <a class="submenu-title" tabindex="0">Services</a>
@@ -131,9 +122,11 @@
             <li class="subitem"><a href="#">Enterprise</a></li>
           </ul>
         </li>
-        <li class="item"><a href="#">Blog</a></li>
+        <li class="item"><a href="./blog.html">Blog</a></li>
         <li class="item"><a href="./contact.html">Contact</a></li>
-        <li class="item button button1"><a href="/LOGIN/LogIn.html">Log In</a></li>
+
+        <li class="item button button1"><a href="LOGIN/LogIn.html">Log In</a></li>
+
       </div>
       <div>
         <li class="item searched d-flex my-2">
@@ -148,66 +141,110 @@
       </div>
     </ul>
   </nav>
-  <div class="about-us">
-    <h1 class="heading">About Us</h1>
-    <br>
-    <p class="contents">Countdown Timer is a website that manages your time in the most efficient yet sophisticated way.
-      It offers various apps to do the same, like for example, timer manager app, to do app.
-      It takes a lot of care that you finish your work in time, and not miss out assignments due to paucity of time.
-      Time management plays a significant role in everyone's life from big celebrities to normal laymen.
-      Appointments, and late night assignments define a student's life in general. Procrastination is the favourite
-      word, you can not do without.
-      Last minute preparations are like the fairy Godmothers at the end.<br /> But halt there, <i>Countdown Timer </i>
-      has harbingered to get you rid of all such troubles, and worries. We promise you timer calls to wake up early, get
-      to work, and reminder warnings to stop you from missing assignments, as well as appointments.
-      List down your favourites, or even your daily chores, and cross out when the work gets done. Thereby the website
-      won't allow you to miss out anything precious!
-      Stay in top of the corporate ladder with our website, which we have customized in such a way to fit both timers as
-      well as to do lists in place just juxtaposed against each other.
-      We also offer other services like startup, enterprises and freelancing plans. Our blogs may help your come across
-      information which interests you.
-      What are you waiting for then? Just open up the <a href="./index.html" class="linkhome"><small>Home</small></a>
-      page and get access to awesome content!
 
-
-
-    </p>
-  </div>
-  <div class="carousel">
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
-  </div>
-  <div class="cards-container">
-    <div class="card bg-1">
-      <div class="card-content">
-        <h3>Title</h3>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-          molestias voluptatem laboriosam esse, deserunt eaque est fugiat
-          vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
-          rerum reiciendis quam.
+  <section>
+    <div class="blogs">
+        <h2 style="text-align: center; color:white; border-bottom: 2px solid white; border-top: 2px solid white;padding: 1.2rem;">Blog Section</h2>
+        <div class="card-container">
+            <div class="card">
+               <div class="image">
+                <img class="imgs" src="./images/blog1.jpeg">
+               </div>
+               <div class="content">
+                <p class="heading">Self-Management vs. Time Management</p>
+                <p class="author">by Patricia Thompson</p>
+               </div>
+               <div>
+                <a target="_blank" href="https://medium.com/the-mission/self-management-vs-time-management-what-you-need-to-know-67a4063715e6"><button class="read">Read more...</button></a>
+               </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog2.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Time Management Really Is About Self-Management</p>
+                    <p class="author">by Ye Chen</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/@yechen.main/time-management-really-is-about-self-management-ca1935b06d1d"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog3.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">You Don’t Have A Time Management Problem — You Just Think You Do</p>
+                    <p class="author">by Josh Spector</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/an-idea-for-you/you-dont-have-a-time-management-problem-you-just-think-you-do-ac8eb6952b06"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog4.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Simplify Your Time Management With the ‘Rule of 4’</p>
+                    <p class="author">by inc. magazine</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/inc./simplify-your-time-management-with-the-rule-of-4-e884883c0173"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog5.jpg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Productivity Isn’t About Time Management. It’s About Attention Management.</p>
+                    <p class="author">by Adam Grant</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/@AdamMGrant/productivity-isnt-about-time-management-it-s-about-attention-management-ce622139b1a5"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog6.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">Why You Really Don’t Have a Time Management Problem</p>
+                    <p class="author">by Charlie Gilkey</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/thrive-global/why-you-really-dont-have-a-time-management-problem-82eb6e31ffc9"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog7.jpeg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">How I Got More Done, Reduced Stress, Increased Focus, And Mastered Time Management In 10 Minutes A Day</p>
+                    <p class="author">by Josh Spector</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://medium.com/an-idea-for-you/how-i-got-more-done-reduced-stress-increased-focus-and-mastered-time-management-in-10-minutes-a-4ed59e41f7ba"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="imgs" src="./images/blog8.jpg">
+                   </div>
+                   <div class="content">
+                    <p class="heading">The Time Management Secret Nobody Talks About</p>
+                    <p class="author">by Barry Davret</p>
+                   </div>
+                   <div>
+                    <a target="_blank" href="https://barry-davret.medium.com/the-time-management-secret-nobody-talks-about-ea9c154b7e0"><button class="read">Read more...</button></a>
+                   </div>
+            </div>
         </div>
-        <a href="#" class="goto-btn">Open</a>
-      </div>
     </div>
-    <div class="card bg-2">
-      <div class="card-content">
-        <h3>Todo Manager</h3>
-        <div>Procrastination is opportunity's natural assassin</div>
-        <a href="to-doLISt/index.html" class="goto-btn">Open</a>
-      </div>
-    </div>
-    <div class="card bg-3">
-      <div class="card-content">
-        <h3>Countdown Timer</h3>
-        <div>
-          A simple web app for setting up a Countdown from right now to a
-          specific date
-        </div>
-        <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
-      </div>
-    </div>
-  </div>
+  </section>
   <script>
     let slideIndex = 0;
     const showSlides = async () => {
@@ -220,6 +257,7 @@
         url = response.url;
       } catch (error) {
         console.log(error);
+
       }
       slides[slideIndex].classList.toggle("active");
       slideIndex++;
@@ -245,6 +283,7 @@
     /* Event Listener */
     toggle.addEventListener("click", toggleMenu, false);
     const items = document.querySelectorAll(".item");
+
     /* Activate Submenu */
     function toggleItem() {
       if (this.classList.contains("submenu-active")) {
@@ -258,11 +297,13 @@
         this.classList.add("submenu-active");
       }
     }
+
     /* Event Listeners */
     for (let item of items) {
       if (item.querySelector(".submenu")) {
         item.addEventListener("click", toggleItem, false);
         item.addEventListener("keypress", toggleItem, false);
+
       }
     }
     /* Close Submenu From Anywhere */
