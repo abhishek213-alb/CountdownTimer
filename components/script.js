@@ -45,7 +45,7 @@ var fillHourTwo = document.getElementById("fill-hour-two");
 
 getCountdown();
 
-setInterval(function () {
+var myfunc= setInterval(function () {
   getCountdown();
 }, 1000);
 
@@ -95,6 +95,11 @@ function getCountdown() {
   } else {
     fillHourOne.style.display = "none";
     fillHourTwo.style.transform = `rotate(${hours * 7.5}deg)`;
+  }
+  if (seconds_left < 0) {
+    clearInterval(myfunc);
+    alert("TIME UP!!");
+   
   }
 }
 
