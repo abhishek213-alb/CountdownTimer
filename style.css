@@ -8,7 +8,6 @@
 }
 
 body {
-  background-image: url(pattern_background.png);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +18,14 @@ body {
   margin: 0px;
   padding: 0px;
   padding-bottom: 20px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 nav {
