@@ -38,7 +38,7 @@ nav {
   z-index: 1;
 }
 
-/*! my nmobile nav */
+/* mobile nav */
 @media (max-width: 960px) {
   #bar {
     display: block;
@@ -53,6 +53,7 @@ nav {
     cursor: pointer;
     margin-right: 10px;
   }
+
 
 
   #hamburger.active {
@@ -195,7 +196,6 @@ select option {
 .btn-primary {
   border: none;
 }
-
 
 /* Desktop menu */
 @media  (min-width: 960px) {
