@@ -25,16 +25,109 @@ nav {
   width: 100%;
   background: #222;
   background-image: linear-gradient(to right, #001b45, #005188, #008a9c, #00c174, #a8eb12);
-  height: 15vh;
+  /* height: 15vh; */
 }
 
 .sticky {
   position: sticky;
   top: 0;
-  height: 9vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 9vh; */
+  height: 100px;
   width: 100%;
   z-index: 1;
 }
+
+/*! my nmobile nav */
+#bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background: black;
+}
+#hamburger {
+  /* display: none; */
+  cursor: pointer;
+}
+
+
+#hamburger.active {
+  /* background: inherit; */
+  /* width: inherit; */
+  /* padding-right: inherit; */
+  right: 0;
+  /* position: absolute; */
+}
+
+
+#hamburger {
+  display: block;
+}
+
+#hamburger.active :nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active :nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#hamburger.active :nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu {
+  position: fixed;
+  left: -100%;
+  top: 78px;
+  gap: 0;
+  flex-direction: column;
+  background-color: #222;
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.item {
+  margin: 16px auto;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+.item a {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 4px;
+  font-weight: bolder;
+  font-family: 'crimson text';        
+}
+ul {
+  padding: 0;
+}
+
+.menu.active {
+  left: 0;
+}
+select {
+  border: none;
+  align-self: center;
+  color: white;
+  background: #222;
+  padding: 0 5px;
+}
+
+#select-container1 {
+  max-width: 110px;
+}
+#select-container2{
+  max-width: 80px;
+}
+/*! end of mobile nav */
 
 .menu a {
   color: white;
@@ -63,9 +156,9 @@ nav {
   padding-bottom: 5px;
 }
 
-.menu .logo {
+/* .menu .logo {
   margin-right: 80px;
-}
+} */
 
 
 .item {
@@ -114,7 +207,7 @@ nav {
 
 .menu li a {
   display: block;
-  padding: 15px 5px;
+  /* padding: 15px 5px; */
 }
 
 .toggle {
@@ -174,9 +267,9 @@ nav {
     justify-content: center;
   }
 
-  .logo {
+  /* .logo {
     flex: 1;
-  }
+  } */
 
   .item.button {
     width: auto;
@@ -223,9 +316,9 @@ nav {
     background: none;
   }
 
-  .logo {
+  /* .logo {
     order: 0;
-  }
+  } */
 
   .item {
     order: 1;
@@ -267,18 +360,21 @@ nav {
 .carousel {
   text-align: center;
   margin: auto;
+  width: 100%;
+  border: 3px solid red;
+}
+.carousel img {
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
   .carousel {
     width: 100%;
-
     height: 30vh;
-
   }
 
   .active {
-    width: 100%;
+    /* width: 100%; */
     margin: 0px;
 
   }
@@ -301,13 +397,13 @@ nav {
 
 .active {
   display: block;
-  background-color: white;
+  background-color: none;
   animation: fade 1.4s;
   object-fit: contain;
-  width: 75%;
+  /* width: 75%; */
   aspect-ratio: 16/9;
   text-align: center;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .cards-container {
