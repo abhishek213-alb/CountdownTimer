@@ -25,7 +25,6 @@ nav {
   width: 100%;
   background: #222;
   background-image: linear-gradient(to right, #001b45, #005188, #008a9c, #00c174, #a8eb12);
-  /* height: 15vh; */
 }
 
 .sticky {
@@ -34,14 +33,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* height: 9vh; */
   height: 100px;
   width: 100%;
   z-index: 1;
 }
 
 /*! my nmobile nav */
-#bar {
+@media (max-width: 960px) {
+  #bar {
     display: block;
     width: 25px;
     height: 3px;
@@ -49,319 +48,176 @@ nav {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background: black;
-}
-#hamburger {
-  /* display: none; */
-  cursor: pointer;
-}
+  }
+  #hamburger {
+    cursor: pointer;
+    margin-right: 10px;
+  }
 
 
-#hamburger.active {
-  /* background: inherit; */
-  /* width: inherit; */
-  /* padding-right: inherit; */
-  right: 0;
-  /* position: absolute; */
-}
+  #hamburger.active {
+    right: 0;
+  }
 
 
-#hamburger {
-  display: block;
+  #hamburger {
+    display: block;
+  }
+
+  #hamburger.active :nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.active :nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #hamburger.active :nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .menu {
+    position: fixed;
+    left: -100%;
+    top: 100px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #222;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .item {
+    margin: 16px auto;
+    width: 100%;
+  }
+  .item a {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 4px;
+    font-weight: bolder;
+    font-family: 'crimson text';        
+  }
+  ul {
+    padding: 0;
+  }
+
+  .menu.active {
+    left: 0;
+  }
+  select {
+    border: none;
+    align-self: center;
+    color: white;
+    background: #222;
+    padding: 0 5px;
+  }
+  #select-container1:hover, #select-container2:hover {
+    color: rgb(201, 196, 196);
+  }
+  #select-container1 {
+    max-width: 110px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  #select-container2{
+    max-width: 80px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  select option {
+    font-size: 15px;
+  }
+  .button {
+    background: none;
+  }
+  .button a {
+    border: none;
+    padding: 10px 5px;
+    background: blue;
+  }
+  
 }
 
-#hamburger.active :nth-child(2) {
-  opacity: 0;
-}
-
-#hamburger.active :nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-#hamburger.active :nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-.menu {
-  position: fixed;
-  left: -100%;
-  top: 78px;
-  gap: 0;
-  flex-direction: column;
-  background-color: #222;
-  width: 100%;
-  text-align: center;
-  transition: 0.3s;
-  z-index: 1;
-}
-
-.item {
-  margin: 16px auto;
-  width: 100%;
-  /* border: 1px solid red; */
-}
-.item a {
-  color: white;
-  font-size: 20px;
-  letter-spacing: 4px;
-  font-weight: bolder;
-  font-family: 'crimson text';        
-}
-ul {
-  padding: 0;
-}
-
-.menu.active {
-  left: 0;
-}
 select {
   border: none;
   align-self: center;
   color: white;
-  background: #222;
+  background: none;
   padding: 0 5px;
 }
-
+select option {
+  background: rgba(0, 0, 0, 0.658);
+  color: white;
+}
+#select-container1:hover, #select-container2:hover {
+  color: rgba(0, 0, 0, 0.671);
+}
 #select-container1 {
   max-width: 110px;
+  font-size: 20px;
+  font-weight: bold;
 }
 #select-container2{
   max-width: 80px;
+  font-size: 20px;
+  font-weight: bold;
 }
-/*! end of mobile nav */
 
+/* General nav style */
 .menu a {
   color: white;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .menu a:hover {
-  color: black;
-  font-size: 22px;
+  color: rgba(0, 0, 0, 0.671);
   text-decoration: none;
 }
 
-.has-submenu {
-  z-index: 100;
-}
-
-.menu,
-.submenu {
-  list-style-type: none;
-}
-
-.menu {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-/* .menu .logo {
-  margin-right: 80px;
-} */
-
-
-.item {
-  padding: 10px;
-}
-
-.button1 {
-  height: 20px;
-  margin-left: 30px;
-  margin-right: -12px;
-}
-
-.button1 a {
-  color: black;
-  padding: 9px 5px;
-  border-radius: 8px;
-}
-
-.button1 a:hover {
-  color: white;
-  font-size: 20px;
-}
-
-.links {
-  display: flex;
-  justify-content: space-between;
-}
-
-.searched {
-  left: 20px;
-}
-
-.menu input {
-  border-radius: 8px;
-  border: 1px black solid;
-}
-
-
-/* Mobile menu */
 .menu {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
-.menu li a {
-  display: block;
-  /* padding: 15px 5px; */
-}
-
-.toggle {
-  order: 1;
-  font-size: 20px;
-}
-
-.item.button {
-  order: 2;
+.menu li {
+  list-style: none;
 }
 
 .item {
-  order: 3;
-  width: 100%;
-  text-align: center;
-  display: none;
+  margin-right: 13px;
 }
 
-.active .item {
-  display: block;
-}
-
-.button.secondary {
-  /* divider between buttons and menu links */
-  border-bottom: 1px #444 solid;
-}
-
-/* Submenu up from mobile screens */
-.submenu {
-  display: none;
-}
-
-.submenu-active .submenu {
-  display: block;
-}
-
-.has-submenu i {
-  font-size: 12px;
-}
-
-.has-submenu>a::after {
-  font-family: "Font Awesome 5 Free";
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 900;
-  content: "\f078";
-  color: white;
-}
-
-.submenu-active {
-  border-radius: 3px;
-}
-
-/* Tablet menu */
-@media all and (min-width: 700px) {
-  .menu {
-    justify-content: center;
-  }
-
-  /* .logo {
-    flex: 1;
-  } */
-
-  .item.button {
-    width: auto;
-    order: 1;
-    display: block;
-  }
-
-  .toggle {
-    flex: 1;
-    text-align: right;
-    order: 2;
-  }
-
-  /* Button up from tablet screen */
-  .menu li.button a {
-    padding: 7px 10px;
-    margin: 5px 0;
-  }
-
-  .button a {
-    background: #0080ff;
-    border: 1px royalblue solid;
-  }
-
-  .button.secondary {
-    border: 0;
-  }
-
-  .button.secondary a {
-    background: transparent;
-    border: 1px #0080ff solid;
-  }
-
-  .button a:hover {
-    text-decoration: none;
-  }
-}
 
 /* Desktop menu */
-@media all and (min-width: 960px) {
-  .menu {
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    background: none;
-  }
-
-  /* .logo {
-    order: 0;
-  } */
-
-  .item {
-    order: 1;
-    position: relative;
-    display: block;
-    width: auto;
-  }
-
-  .button {
-    order: 2;
-  }
-
-  .submenu-active .submenu {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 68px;
-    width: auto;
-  }
-
-  .subitem a {
-    color: white;
-    background-image: linear-gradient(to right, #8360c3, #2ebf91);
-    ;
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 20px;
-  }
-
-  .toggle {
+@media  (min-width: 960px) {
+  #hamburger {
     display: none;
   }
 
-  .submenu-active {
-    border-radius: 0;
+  .button {
+    background: blue;
+    min-width: 80px;
+    text-align: center;
+  }
+  .button {
+    background: blue;
+    min-width: 80px;
+    text-align: center;
   }
 }
+
+
 
 .carousel {
   text-align: center;
   margin: auto;
   width: 100%;
-  border: 3px solid red;
 }
 .carousel img {
   width: 100%;
@@ -374,7 +230,6 @@ select {
   }
 
   .active {
-    /* width: 100%; */
     margin: 0px;
 
   }
@@ -400,10 +255,8 @@ select {
   background-color: none;
   animation: fade 1.4s;
   object-fit: contain;
-  /* width: 75%; */
   aspect-ratio: 16/9;
   text-align: center;
-  /* margin: auto; */
 }
 
 .cards-container {
@@ -414,12 +267,11 @@ select {
   flex-wrap: wrap;
 }
 
-/*card styles*/
 
 .card {
   width: 250px;
   height: 350px;
-  /* color: white; */
+  color: white;
   border-radius: 0.5rem;
   background-color: white;
   overflow: hidden;
