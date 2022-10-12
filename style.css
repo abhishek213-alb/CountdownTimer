@@ -192,6 +192,9 @@ select option {
 .item {
   margin-right: 13px;
 }
+.btn-primary {
+  border: none;
+}
 
 
 /* Desktop menu */
