@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown Timer</title>
+   
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="../Countdown.png">
     <script src="script.js" defer></script>
@@ -18,15 +19,15 @@
           <a class="nav-link" aria-current="page" href="../index.html">Home</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Set</a>
-      </li>
+        <a class="nav-link" aria-current="page" href="../set.html">Set</a>
+    </li>
   </ul>
 </nav>
     <div class="heading-title">
         <div class="outline"></div>
         <div class="circle"></div>
         <h1>CountDown Setter</h1>
-        <button style=" margin-top:30px;  margin-bottom: 30px;"  type="button" onclick="document.getElementById('demo').innerHTML = Date()"> Click me to display current Date and Time.</button>
+        <button type="button" style="  background-color:blueviolet;padding-top: 10px;padding-bottom: 10px;position: relative;left: 30px;border-radius: 25px; margin-top:30px;  margin-bottom: 30px;"   type="button" onclick="document.getElementById('demo').innerHTML = Date()"> Current date and time</button>
         <p id="demo"></p>
     </div>
     <div class="take-date">
@@ -34,8 +35,10 @@
             <label class="Countdown-date" for="countdown">Choose Date : </label>
             <input class="Countdown-date" id="date-c" type="datetime-local">
             <button type="button" id="reset">Reset</button>
+          
         </form>
     </div>
+
     
     <div class=wrapper>
 
@@ -88,6 +91,7 @@
           </div>
           
         </div></div>
+         
 </body>
 
 </html>
