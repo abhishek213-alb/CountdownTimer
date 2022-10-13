@@ -6,6 +6,8 @@ const delTaskBtn = document.querySelector('#del-btn')
 const renameBtn = document.querySelector('.rename-task')
 const updateBtn = document.querySelector('.update-task')
 const delBtn = document.querySelector('.del-task')
+const completedBtn= document.querySelector('.complete-task')
+
 
 const newTasks = document.querySelector('.new-tasks')
 
@@ -34,9 +36,10 @@ function addTodo(todo) {
                 <div class="task">
 					<input type="text" id="added-task" name='todo' disabled value="${todo}">
                     <div>
-                        <input type="button" value="✔️" name='update' title='update task' class="update-task child">
+                        <input type="button" value="🔄" name='update' title='update task' class="update-task child">
                         <input type="button" value="✏️" name='rename' title='rename task' class="rename-task child">
                         <input type="button" value="❌" name='delete' title='delete task' class="del-task child">
+                        <input type="button" value="✔️" name='complete' title='completed task' class="complete-task child">
                     </div>
                 </div>
                 `
@@ -70,6 +73,14 @@ function updateTodo() {
                     t.children[0].disabled = true
                 }
             }
+            else if (e.target.classList.contains('complete-task')){
+                
+                t.innerHTML=t.textContent.strike();
+                endMusic = new Audio("clapping.wav");
+                endMusic.play();
+                alert('Task complete');
+                
+                };	    
         })
 
     })
