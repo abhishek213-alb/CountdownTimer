@@ -15,7 +15,7 @@ var newCountdown = input_date.addEventListener("change", function () {
   var curr = new Date().getTime();
   if (target_date < curr) {
     alert("Date is from past and i am unble to to time travel.");
-    console.log("This is Chutiyapa");
+    console.log("404");
     target_date = curr;
   }
 });
