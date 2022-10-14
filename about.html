@@ -98,6 +98,14 @@
       text-decoration: none;
       color: black;
     }
+    #cardTitle{
+      text-align: center;
+      color: black;
+    }
+    .text{
+      text-align: justify;
+      margin: 8px 8px 8px 8px;
+    }
   </style>
 </head>
 
@@ -180,31 +188,31 @@
   <div class="cards-container">
     <div class="card bg-1">
       <div class="card-content">
-        <h3>Title</h3>
-        <div>
+        <h3 id="cardTitle">Title</h3>
+        <div class="text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. At
           molestias voluptatem laboriosam esse, deserunt eaque est fugiat
           vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
           rerum reiciendis quam.
         </div>
-        <a href="#" class="goto-btn">Open</a>
+        <a href="#" class="goto-btn" id="btn">Open</a>
       </div>
     </div>
     <div class="card bg-2">
       <div class="card-content">
-        <h3>Todo Manager</h3>
-        <div>Procrastination is opportunity's natural assassin</div>
-        <a href="to-doLISt/index.html" class="goto-btn">Open</a>
+        <h3 id="cardTitle">Todo Manager</h3>
+        <div class="text">Procrastination is opportunity's natural assassin</div>
+        <a href="to-doLISt/index.html" class="goto-btn" id="btn">Open</a>
       </div>
     </div>
     <div class="card bg-3">
       <div class="card-content">
-        <h3>Countdown Timer</h3>
-        <div>
+        <h3 id="cardTitle">Countdown Timer</h3>
+        <div class="text">
           A simple web app for setting up a Countdown from right now to a
           specific date
         </div>
-        <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
+        <a href="components/CountdownTimer.html" class="goto-btn" id="btn">Open</a>
       </div>
     </div>
   </div>
