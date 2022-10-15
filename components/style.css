@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 100px;
+  flex-wrap: wrap;
 }
 .circle-wrap {
   /* margin: 150px auto; */
