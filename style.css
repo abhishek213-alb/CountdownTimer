@@ -88,6 +88,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -42px;
 }
 
 .slide {
@@ -99,7 +100,7 @@ body {
   background-color: white;
   animation: fade 1.4s;
   object-fit: contain;
-  width: 800px;
+  width: 323px;
   aspect-ratio: 16/9;
 }
 
@@ -108,6 +109,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .card {
