@@ -112,7 +112,10 @@ body {
   word-wrap: break-word;
   color: #eee;
   background: #353535;
-  background-image: url(https://source.unsplash.com/1920x1080/?landscape);
+  background-image: url("./alexandar-todov-AMzC2RVurO4-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+background-position: -20%;
 }
 
 h1 {
@@ -319,3 +322,26 @@ h1 {
   }
 }
 
+.btn{
+  margin: 30px 0px;
+  padding: 10px 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #227ded;
+  border: 2px solid #1e51dc;
+  font-family: sans-serif;
+}
+.btn:hover, #reset:hover{
+  color: #1e51dc;
+  background-color:#fff ;
+  transition: background-color 0.3s ease-in 0.2s;
+}
+#reset{
+  color: #fff;
+  border-radius: 10px;
+  background-color: #227ded;
+  border: 2px solid #1e51dc;
+  cursor: pointer;
+  padding: 6px 10px;
+}
