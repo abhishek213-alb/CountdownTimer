@@ -36,6 +36,12 @@ nav {
   z-index: 1;
 }
 
+.logo{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  background-color: lightcyan;
+  padding: 10px;
+}
 .menu a {
   color: white;
   font-size: 20px;
