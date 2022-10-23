@@ -7,20 +7,25 @@
 body{
     background:linear-gradient(90deg ,#630ab6,#d29e62,#b983dd );
     font-family: Poppins, sans-serif;
+    
 }
 
 h1{
     font-family: 'Poppins', sans-serif;
     color: #500050;
 }
-
+div.relative {
+  position: relative;
+  left: 30px;
+  border: 3px solid #73AD21;
+}
 .container{
     margin-left: 800px;
     margin-top: 80px;
     text-align: center;
     width: 100%;
     max-width: 500px;
-    padding: 100px 0;
+   padding: 100px 0;
     /* color: white; */
     border: 2px solid gray;
     border-radius: 10px;
