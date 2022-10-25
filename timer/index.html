@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Online Timer with Alarm and Sound – Free and easy!</title>
+	<meta name="description" content="Online Timer with alarm sound. Easy and free Timer with Alarm ... predefined time presets like 5, 10, 15, 20, 30 and 60 Minutes .. Easy to use Online Timer tool.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/3.0.0-jquery.min.js"></script>
+	<link rel="stylesheet" href="css/prod_files-bootstrap.min.css">
+	<link rel="stylesheet" href="css/prod_files-pomodoro_timer.css">
+	<link rel="stylesheet" href="css/prod_files-main.css">
+	<style>
+	.btn-default.disabled, .btn-default[disabled], fieldset[disabled] .btn-default {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+			display:none;
+}
+	</style>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42695607-52"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42695607-52');
+</script>
+
+</head>
+
+<body>
+	<style>.nopadding {   padding: 0 !important;   margin: 0 !important;}</style>
+	<div class="mainmenu-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12" style="padding-left:60px;text-align:center;">
+					<h1 style="font-size:32px;margin-bottom:0px;font-weight:700;color:#000;">Timer - Online Timer</h1>
+					<h2 style="font-size:16px;margin-bottom:20px;">Free online kitchen timer online</h2>
+
+
+<div style="height:0;overflow:hidden;"><a href="https://123movies-to.org">123movies</a> <a href="https://2piratebay.org">pirate bay</a> <a href="https://fmovies-online.net">fmovies</a> <a href="https://putlocker-is.org">putlocker</a> </div>
+				<div style="width:100%;text-align:center;display:block;">	
+					<button id="5minutes">5 Minutes</button>
+					<button id="10minutes">10 Minutes</button>
+					<button id="15minutes">15 Minutes</button>
+					<button id="20minutes">20 Minutes</button>
+					<button id="30minutes">30 Minutes</button>
+					<button id="60minutes">60 Minutes</button>
+					</div>
+		<script>
+		$('#5minutes').click(function(){ $('#pomodoro_timer').text('05:00');})
+		$('#10minutes').click(function(){ $('#pomodoro_timer').text('10:00');})
+		$('#15minutes').click(function(){ $('#pomodoro_timer').text('15:00');})
+		$('#20minutes').click(function(){ $('#pomodoro_timer').text('20:00');})
+		$('#30minutes').click(function(){ $('#pomodoro_timer').text('30:00');})
+		$('#60minutes').click(function(){ $('#pomodoro_timer').text('60:00');})
+					</script>
+					<span id="pomodoro_timer" style="font-size:22vh;">25:00</span>
+					<div id="alarm_buttons">
+						<div class="col-md-4"></div>
+						<div class="col-md-2">
+							<button class="btn btn-success" id="start_pomodoro_timer" onclick="startTimerWithButton(this);">Start</button>
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-danger" id="stop_pomodoro_timer" onclick="stopTimerWithButton(this);resetTimerWithButton(this);">Stop</button>
+						</div>
+						<div class="col-md-2" style="display:none;">
+							<button class="btn btn-default" id="reset_pomodoro_timer" onclick="resetTimerWithButton(this);" disabled>Set timer back</button>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+					<div id="alarm_turn_off_button" style="display: none;">
+						<div class="col-md-5"></div>
+						<div class="col-md-2">
+							<button class="btn btn-danger" id="turn_off_alarm" onclick="turnOffAlarm();resetTimerWithButton(this);">Turn off Alarm</button>
+						</div>
+						<div class="col-md-5"></div>
+					</div>
+					<div class="col-md-12" style="margin-top:40px;">
+				
+							<div class="col-md-12 nopadding" style="text-align:left;">
+								<div class="col-md-3"></div>
+								<div class="col-md-3 nopadding">
+									<p class="timer_header" style="
+    text-align: left;
+">Set Timer</p>
+									<div class="col-md-5" style="padding: 0">
+										<input type="number" style="text-align:center;width: 100%;font-size: 22px;height: auto;/* width: auto; */padding: 4px;" class="form-control" min="0" id="pomodoro_timer_minutes" placeholder="min" value="25">
+									</div>
+									<div class="col-md-2 time_separator">:</div>
+									<div class="col-md-5" style="padding: 0;margin-bottom: 0;">
+										<input type="number" style="text-align:center;width: 100%;font-size: 22px;height: auto;/* width: auto; */padding: 4px;" class="form-control" min="0" max="60" id="pomodoro_timer_seconds" placeholder="sec" value="00">
+									</div>
+					
+									<div style="clear:both;"></div>
+								
+
+				
+								
+									<p class="timer_header" style="text-align:left;margin-top:30px;">Select Alarm Sound</p>
+									<select class="form-control" id="timer_alarm_song" onclick="setAudioSource(this);">
+										<option value="game-sound.wav">Game Sound</option>
+										<option value="door-bell.mp3">Door Bell</option>
+										<option value="dingding.wav">Ding Ding</option>
+										<option value="alarm-ring.mp3">Alarm Ring</option>
+										<option value="censor-beep.wav">Censor Beep</option>
+										<option value="pianoloop.wav">Piano Loop</option>
+										<option value="acoustic-arpeggio.wav" selected>Acoustic Arpeggio</option>
+										<option value="two-bells.wav">Two Bells</option>
+										<option value="notification.wav">Notification</option>
+										<option value="success.wav">Success</option>
+									</select>
+									<input type="checkbox" id="sound_repeat">
+									<label for="sound_repeat" style="margin: 0">Repeat</label>	<a href="https://www.online-timer.net/#" style="
+    margin-left: 18px;
+" onclick="playAudio(event)" id="audio_play">Preview Alarm</a>
+									<audio controls="controls" id="sound_player" hidden="hidden" src="audio/alarm-ring.mp3" type="audio/mpeg"></audio>
+									<div>
+										<p class="timer_header" style="text-align:left;margin-top:20px;">Select Volume</p>
+										<select class="form-control" id="timer_alarm_volume" onclick="setAudioVolume(this);" style="
+    padding: 6px;
+">
+											<option value="0">Mute</option>
+											<option value="0.25">25%</option>
+											<option value="0.5" selected>50%</option>
+											<option value="0.75">75%</option>
+											<option value="1">100%</option>
+										</select>
+										<style>
+											input.form-control  {padding:6px;}
+										</style>
+									</div>
+								</div><div style="clear:both;"></div>
+										<div class="col-md-3"></div>
+								<div class="col-md-3" style="padding-left:30px;padding-top:10px;">
+									<button class="btn btn-primary" id="set_times" onclick="setTimes();">Set Timer</button>
+									
+								
+								</div><div style="clear: both"></div>
+										
+									
+
+										</div>
+									</div>
+						
+							
+				
+					
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div id="sound"></div>
+		</div>
+	</div>
+
+	<div style="line-height:24px;overflow:hidden;height:0;">
+										Partners:<br>
+									
+<a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">divi discount</a><br>
+<a href="https://123movies-en.org/en/">123movies</a><br>
+<a href="https://fmovies2.org">fmovies</a><br>
+<a href="https://123movies-to.org">123movies</a><br>
+<a href="https://putlocker-is.org">putlocker</a><br>
+<a href="https://elitetorrent-es.com">elitetorrent</a><br>
+<a href="https://grantorrent-es.com">grantorrent</a></div>
+
+	<script type="text/template" id="carusel_script">
+				<audio autoplay="autoplay" controls="controls" <%=loop%> id="timer_ended_sound" hidden="hidden">
+					<source src="audio/<%=sound%>" type="audio/<%=audioType%>" />
+				
+		</script>
+
+			<script src="./prod_files/bootstrap.min.js.Download"></script>
+			<script src="js/prod_files-pomodoro_timer.js"></script>
+			<script src="./prod_files/underscore.js.Download"></script>
+		
+</body></html>
