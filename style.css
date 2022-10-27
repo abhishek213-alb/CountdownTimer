@@ -8,7 +8,6 @@
 }
 
 body {
-  background-image: linear-gradient(to right top, #06002a, #08164c, #0d2672, #11369a, #1148c4, #0063da, #007eed, #0098ff, #00b7ff, #00d3ff, #00ebf1, #00ffd4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +18,14 @@ body {
   margin: 0px;
   padding: 0px;
   padding-bottom: 20px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 nav {
