@@ -92,54 +92,47 @@
 
 <body>
   <nav id="navbar" class="sticky">
+    <div class="logo-containter">
+      <img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;">
+    </div>
+
+    <!-- navigation items -->
     <ul class="menu">
-      <div>
-        <li class="logo"><img src="Countdown.png" alt="Logo">
+      <li class="item d-flex">
+        <input type="search" placeholder="search" id="form1" class="form-control" />
+        <button type="button" class="btn btn-primary mx-1">
+          <i class="fas fa-search fa-lg"></i></button>
         </li>
-      </div>
-      <div class="links">
-
-        <li class="item"><a href="index.html">Home</a></li>
-
-        <li class="item"><a href="./about.html">About</a></li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Services</a>
-          <ul class="submenu">
-            <li class="subitem">
-              <a href="./components/CountdownTimer.html">Timer app</a>
-            </li>
-            <li class="subitem">
-              <a href="./to-doLISt/index.html">Todo Manager</a>
-            </li>
-            <li class="subitem"><a href="#">Music Player</a></li>
-          </ul>
-        </li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Plans</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="#">Freelancer</a></li>
-            <li class="subitem"><a href="#">Startup</a></li>
-            <li class="subitem"><a href="#">Enterprise</a></li>
-          </ul>
-        </li>
-        <li class="item"><a href="./blog.html">Blog</a></li>
-        <li class="item"><a href="./contact.html">Contact</a></li>
-
-        <li class="item button button1"><a href="LOGIN/LogIn.html">Log In</a></li>
-
-      </div>
-      <div>
-        <li class="item searched d-flex my-2">
-          <input type="search" placeholder="Search" id="form1" class="form-control" />
-          <button type="button" class="btn btn-primary mx-1">
-            <i class="fas fa-search"></i>
-          </button>
-        </li>
-        <li class="toggle">
-          <a href="#"><i class="fas fa-bars"></i></a>
-        </li>
-      </div>
+      <li class="item"><a href="./index.html">Home</a></li>
+      <li class="item"><a href="./about.html">About</a></li>
+      <li class="item dropdown">
+        <select name="services" id="select-container1">
+          <option value="">Services</option>
+          <option value=""><a href="./components/CountdownTimer.html">Timer app</a></option>
+          <option value=""><a href="./to-doLISt/index.html">Todo Manager</a></option>
+          <option value=""><a href="#">Music Player</a></option>
+        </select>
+      </li>
+      <li class="item dropdown">
+        <select name="services" id="select-container2">
+          <option value=""><a href="#">Plans</a></option>
+          <option value=""><a href="#">Freelancer</a></option>
+          <option value=""><a href="#">Startup</a></option>
+          <option value=""><a href="#">Enterprise</a></option>
+        </select>
+      </li>
+      <li class="item"><a href="./blog.html">Blog</a></li>
+      <li class="item"><a href="./contact.html">Contact</a></li>
+      <li class="item button"><a href="LOGIN/LogIn.html">Log In</a></li>  
     </ul>
+
+    <div id="hamburger" class="hamburger">
+      <span id="bar"></span>
+      <span id="bar"></span>
+      <span id="bar"></span>
+    </div>
+  </nav>
+
   </nav>
   <div class="carousel">
     <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
@@ -206,7 +199,46 @@
     </div>
   </div>
 
+  <div class="footer-basic">
+    <footer>
+      <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+            class="icon ion-social-linkedin"></i></a><a href="#"><i class="icon ion-social-pinterest"></i></a><a
+          href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-youtube"></i></div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Services</a></li>
+        <li class="list-inline-item"><a href="./about.html">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">CountdownTimer © 2021</p>
+    </footer>
+  </div>
   <script>
+    // nav Hamburger js
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".menu");
+
+    // Hamburger js
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    })
+    window.addEventListener('scroll', () => {
+        if (navMenu.classList.toggle("active") == true) {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        } else {
+            
+        }
+    })  
+    // js to ensure menu closes when links close
+    document.querySelectorAll("#nav-link").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }))
+
+    //user js 
     let slideIndex = 0;
     const showSlides = async () => {
       let slides = document.getElementsByClassName("slide");
@@ -284,21 +316,7 @@
     /* Event listener */
     document.addEventListener("click", closeSubmenu, false);
   </script>
-  <div class="footer-basic">
-    <footer>
-      <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
-            class="icon ion-social-linkedin"></i></a><a href="#"><i class="icon ion-social-pinterest"></i></a><a
-          href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-youtube"></i></div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="./about.html">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">CountdownTimer © 2021</p>
-    </footer>
-  </div>
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
