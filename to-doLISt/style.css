@@ -11,12 +11,12 @@ body{
 
 h1{
     font-family: 'Poppins', sans-serif;
-    color: #500050;
+    color: #000000;
 }
 
 .container{
-    margin-left: 800px;
-    margin-top: 80px;
+    margin-left: 700px;
+    /* margin-top: 50px; */
     text-align: center;
     width: 100%;
     max-width: 500px;
@@ -27,6 +27,8 @@ h1{
     /* background:linear-gradient(90deg ,#ec2c2c,#d29e62,#e9993d ); */
     background-color: white;
     box-shadow: 10px 10px 19px #241f1f;
+    padding-bottom: 50px;
+    align-items: center;
 }
 
 #line{
@@ -65,7 +67,7 @@ input[type='text']{
     font-size: 1.2rem;
     margin-left: 50px;
     color: rgb(0, 0, 0);
-    background-color: #ffffff;
+    background-color: #d8b8f9;
     border-bottom: 1px solid #c3aeaea1;
     cursor:pointer;
     display: flex;
@@ -73,7 +75,7 @@ input[type='text']{
 }
 input[type='text']:disabled{
     cursor:default;
-    color: black;
+    color: rgb(0, 0, 0);
     background-color: #c3aeaea1;
     
 }
