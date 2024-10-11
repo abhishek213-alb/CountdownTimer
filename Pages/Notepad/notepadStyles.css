@@ -1,0 +1,128 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e8f0f2; /* Light blue background */
+    color: #333; /* Default text color */
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3; /* Dark blue title */
+    margin-bottom: 20px;
+}
+
+#description {
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic; /* Italic style for description */
+}
+
+#notesContainer {
+    margin-bottom: 20px;
+}
+
+.note-container {
+    border: 1px solid #0056b3; /* Dark blue border */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* White background for notes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for notes */
+}
+
+.noteArea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #0056b3; /* Dark blue border */
+    border-radius: 5px;
+    resize: none;
+    padding: 5px;
+    font-size: 16px; /* Base font size */
+    transition: border-color 0.3s; /* Smooth transition on focus */
+}
+
+.noteArea:focus {
+    border-color: #007bff; /* Lighter blue when focused */
+    outline: none; /* Remove default outline */
+}
+
+/* Button box styling */
+.button-box {
+    border: 1px solid #0056b3; /* Dark blue border for the box */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Padding inside the box */
+    margin-bottom: 20px; /* Space below the box */
+    background-color: #ffffff; /* White background for boxes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Button styles */
+button {
+    background-color: #007bff; /* Bright blue button */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for buttons */
+    margin: 5px; /* Margin between buttons */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+canvas {
+    border: 1px solid #0056b3; /* Dark blue border */
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    height: 300px; /* Fixed height for canvas */
+    border-radius: 5px; /* Rounded corners for canvas */
+    background-color: #f4f4f4; /* Light gray background for drawing area */
+}
+
+/* New note textarea styling */
+#newNoteArea {
+    width: 100%; /* Makes the textarea full width */
+    height: 100px; /* Set a height for the textarea */
+    padding: 10px;
+    border: 2px solid #004080; /* Dark blue border */
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none; /* Prevents resizing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for textarea */
+    margin-bottom: 10px; /* Space below the textarea */
+}
+
+@media (max-width: 600px) {
+    #notesContainer, #newNoteArea, .noteArea {
+        width: 100%; /* Full width on small screens */
+    }
+
+    button {
+        width: 100%; /* Full width for buttons */
+        margin-bottom: 10px; /* Margin between buttons */
+    }
+
+    #drawingControls input {
+        width: 100%; /* Full width for inputs */
+        margin-bottom: 10px; /* Margin between inputs */
+    }
+
+    #fontControls {
+        flex-direction: column; /* Stack controls vertically */
+        align-items: stretch; /* Stretch to fill available width */
+    }
+
+    /* Adjust button boxes to stack on small screens */
+    .button-box {
+        width: 100%; /* Full width for button boxes */
+    }
+}

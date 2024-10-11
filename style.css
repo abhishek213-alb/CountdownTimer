@@ -488,5 +488,12 @@ nav {
       background: rgba(255, 255, 255, 0.9) url("./Screenshot\ 2022-10-10\ 120912.png");
       background-size: cover;
       border-radius: 15px;
+    
     }
+    .card1:nth-child(5) .face.face2 {
+      background: rgba(255, 255, 255, 0.9) url("./notebook.jpg");
+      background-size: cover;
+      border-radius: 15px;
+    }
+
   

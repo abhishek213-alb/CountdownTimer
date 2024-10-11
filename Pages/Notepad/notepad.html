@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Note Application</title>
+    <link rel="stylesheet" href="notepadStyles.css">
+</head>
+
+<body>
+
+    <h1>Online Note Application</h1>
+    <div id="description">
+        <p>This application allows you to create, edit, and share notes easily.</p>
+    </div>
+
+    <div id="notesContainer"></div>
+
+    <div class="input-container">
+        <textarea id="newNoteArea" placeholder="Type your new note here..."></textarea>
+        <button onclick="addNote()">Add Note</button>
+    </div>
+
+    <div id="fontControls" class="button-box">
+        <label for="fontSelect">Choose Font:</label>
+        <select id="fontSelect" onchange="changeFont()">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+        </select>
+
+        <label for="fontSize">Font Size:</label>
+        <select id="fontSize" onchange="changeFontSize()">
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+            <option value="22">22</option>
+            <option value="24">24</option>
+        </select>
+
+        <label for="fontColor">Font Color:</label>
+        <input type="color" id="fontColor" onchange="changeFontColor()" value="#000000">
+
+        <button onclick="toggleBold()">Bold</button>
+        <button onclick="toggleItalic()">Italic</button>
+        <button onclick="toggleUnderline()">Underline</button>
+        <button onclick="resetStyles()">Reset Styles</button>
+    </div>
+
+    <canvas id="drawingArea"></canvas>
+
+    <div id="drawingControls" class="button-box">
+        <label for="penSize">Pen Size:</label>
+        <input type="range" id="penSize" min="1" max="10" value="2" onchange="changePenSize()">
+        <label for="colorPicker">Choose Color:</label>
+        <input type="color" id="colorPicker" onchange="changeColor(this.value)" value="#000000">
+        <button onclick="clearCanvas()">Clear Canvas</button>
+        
+        <!-- Zoom Controls for Canvas -->
+        <button onclick="zoomIn()">Zoom In</button>
+        <button onclick="zoomOut()">Zoom Out</button>
+    </div>
+
+    <script>
+        let notes = JSON.parse(localStorage.getItem('notes')) || []; // Load notes from local storage or initialize as empty
+        let scale = 1; // Default scale for canvas
+        const canvas = document.getElementById('drawingArea');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+        let currentColor = 'black'; // Default pen color
+        let lineWidth = 2; // Default line width
+
+        // Function to add a new note
+        function addNote() {
+            const newNoteArea = document.getElementById('newNoteArea');
+            const noteContent = newNoteArea.value.trim();
+
+            if (noteContent) {
+                notes.push(noteContent);
+                newNoteArea.value = ''; // Clear input field
+                saveNotesToLocalStorage(); // Save notes to local storage
+                renderNotes();
+            } else {
+                alert('Please enter a note!');
+            }
+        }
+
+        // Function to save notes to local storage
+        function saveNotesToLocalStorage() {
+            localStorage.setItem('notes', JSON.stringify(notes));
+        }
+
+        // Function to render notes
+        function renderNotes() {
+            const notesContainer = document.getElementById('notesContainer');
+            notesContainer.innerHTML = ''; // Clear existing notes
+
+            notes.forEach((note, index) => {
+                const noteContainer = document.createElement('div');
+                noteContainer.className = 'note-container';
+
+                const noteArea = document.createElement('textarea');
+                noteArea.className = 'noteArea';
+                noteArea.value = note;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => removeNote(index);
+
+                // Create controls for Copy, Cut, Share, Zoom In, Zoom Out buttons
+                const controlsDiv = document.createElement('div');
+                controlsDiv.className = 'button-box';
+
+                const copyButton = document.createElement('button');
+                copyButton.textContent = 'Copy';
+                copyButton.onclick = () => copyNote(index);
+
+                const cutButton = document.createElement('button');
+                cutButton.textContent = 'Cut';
+                cutButton.onclick = () => cutNote(index);
+
+                const shareButton = document.createElement('button');
+                shareButton.textContent = 'Share';
+                shareButton.onclick = () => shareNote(index);
+
+                const zoomInButton = document.createElement('button');
+                zoomInButton.textContent = 'Zoom In';
+                zoomInButton.onclick = () => changeNoteFontSize(index, 1); // Increase font size
+
+                const zoomOutButton = document.createElement('button');
+                zoomOutButton.textContent = 'Zoom Out';
+                zoomOutButton.onclick = () => changeNoteFontSize(index, -1); // Decrease font size
+
+                controlsDiv.appendChild(copyButton);
+                controlsDiv.appendChild(cutButton);
+                controlsDiv.appendChild(shareButton);
+                controlsDiv.appendChild(zoomInButton);
+                controlsDiv.appendChild(zoomOutButton);
+
+                noteContainer.appendChild(noteArea);
+                noteContainer.appendChild(removeButton);
+                noteContainer.appendChild(controlsDiv);
+                notesContainer.appendChild(noteContainer);
+            });
+        }
+
+        // Function to remove a note
+        function removeNote(index) {
+            notes.splice(index, 1); // Remove note from the array
+            saveNotesToLocalStorage(); // Save updated notes to local storage
+            renderNotes(); // Re-render notes
+        }
+
+        // Note functionality
+        function copyNote(index) {
+            const noteContent = notes[index];
+            navigator.clipboard.writeText(noteContent)
+                .then(() => alert('Note copied to clipboard!'))
+                .catch(err => console.error('Failed to copy:', err));
+        }
+
+        function cutNote(index) {
+            const noteContent = notes[index];
+            navigator.clipboard.writeText(noteContent)
+                .then(() => {
+                    removeNote(index); // Remove note after cutting
+                    alert('Note cut to clipboard!');
+                })
+                .catch(err => console.error('Failed to cut:', err));
+        }
+
+        function shareNote(index) {
+            const noteContent = notes[index];
+            const shareData = {
+                title: 'My Note',
+                text: noteContent,
+                url: window.location.href
+            };
+            navigator.share(shareData)
+                .then(() => console.log('Note shared successfully'))
+                .catch((error) => console.error('Error sharing note:', error));
+        }
+
+        // Change font size of specific note
+        function changeNoteFontSize(index, change) {
+            const noteArea = document.querySelectorAll('.noteArea')[index];
+            let currentSize = parseInt(window.getComputedStyle(noteArea).fontSize);
+            noteArea.style.fontSize = (currentSize + change) + 'px';
+        }
+
+        let currentFontSize = 16; // Default font size
+
+        // Change font function
+        function changeFont() {
+            const fontSelect = document.getElementById('fontSelect');
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.fontFamily = fontSelect.value;
+            });
+        }
+
+        // Change font size function
+        function changeFontSize() {
+            const fontSizeSelect = document.getElementById('fontSize');
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.fontSize = fontSizeSelect.value + 'px';
+            });
+        }
+
+        // Change font color
+        function changeFontColor() {
+            const fontColor = document.getElementById('fontColor');
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.color = fontColor.value;
+            });
+        }
+
+        // Toggle bold
+        function toggleBold() {
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.fontWeight = area.style.fontWeight === 'bold' ? 'normal' : 'bold';
+            });
+        }
+
+        // Toggle italic
+        function toggleItalic() {
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.fontStyle = area.style.fontStyle === 'italic' ? 'normal' : 'italic';
+            });
+        }
+
+        // Toggle underline
+        function toggleUnderline() {
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.textDecoration = area.style.textDecoration === 'underline' ? 'none' : 'underline';
+            });
+        }
+
+        // Reset styles
+        function resetStyles() {
+            document.querySelectorAll('.noteArea').forEach(area => {
+                area.style.fontWeight = 'normal';
+                area.style.fontStyle = 'normal';
+                area.style.textDecoration = 'none';
+                area.style.fontFamily = 'Arial';
+                area.style.fontSize = '16px';
+                area.style.color = '#000000'; // Reset text color
+            });
+            document.getElementById('fontSelect').value = 'Arial';
+            document.getElementById('fontSize').value = '16';
+            document.getElementById('fontColor').value = '#000000'; // Reset to black
+        }
+
+        // Drawing functionality
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        window.onload = function() {
+            resizeCanvas();
+            renderNotes(); // Render notes on load
+        };
+        window.onresize = resizeCanvas;
+
+        // Mouse event handlers
+        canvas.addEventListener('mousedown', (e) => {
+            drawing = true;
+            ctx.moveTo(e.offsetX / scale, e.offsetY / scale);
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            drawing = false;
+            ctx.beginPath();
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (drawing) {
+                ctx.strokeStyle = currentColor;
+                ctx.lineWidth = lineWidth / scale; // Adjust line width according to scale
+                ctx.lineTo(e.offsetX / scale, e.offsetY / scale);
+                ctx.stroke();
+            }
+        });
+
+        // Change pen color
+        function changeColor(color) {
+            currentColor = color;
+        }
+
+        function changePenSize() {
+            const penSize = document.getElementById('penSize');
+            lineWidth = penSize.value;
+        }
+
+        // Clear the canvas
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Zoom In and Zoom Out functions
+        function zoomIn() {
+            scale *= 1.1; // Increase scale by 10%
+            ctx.setTransform(scale, 0, 0, scale, 0, 0); // Set new scale
+            redrawCanvas(); // Redraw canvas
+        }
+
+        function zoomOut() {
+            scale /= 1.1; // Decrease scale by 10%
+            ctx.setTransform(scale, 0, 0, scale, 0, 0); // Set new scale
+            redrawCanvas(); // Redraw canvas
+        }
+
+        // Redraw the canvas
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // You may need to redraw shapes or paths here if necessary
+        }
+
+    </script>
+
+</body>
+
+</html>
