@@ -1,58 +1,108 @@
-.card-container{
-   
-}
-
-.card{
-    display: inline-block;
-    margin: 3rem;
-    background-color: rgb(192 196 255);
-    border-radius: 1rem;
-    box-shadow: rgb(158, 153, 153) 2px 2px 13px;
-}
-
-.imgs{
-    height: 100%;
-    width: 100%;
-    background-position: cover;
-}
-
-.heading{
-    text-align: center;
-    background-color: rgb(194 156 215);
-    margin: 0;
-    padding: 0;
-}
-
-.author{
-   text-align: center;
-   text-transform: capitalize;
-   background-color: rgb(219 208 224);
-   margin: 0;
-   padding: 0;
-}
-
-.read{
-    padding: 0.2rem;
-    margin: 2rem;
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    place-items: center;
+    gap: 2rem; /* Consistent spacing between cards */
+    padding: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    width: 280px; /* Adjusted width for better card size */
+    height: 400px; /* Reduced height for compact design */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.imgs {
+    height: 160px; /* Adjusted height for better proportions */
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: #cccccc;
+}
+
+.heading {
+    text-align: center;
+    background-color: #4a90e2;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff !important ; /* Set heading text color to white */
+    line-height: 1.3; /* Improved line height for readability */
+    height: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word; /* Break long words gracefully */
+}
+
+.author {
+    text-align: center;
+    text-transform: capitalize;
+    background-color: #e1f5fe;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: #333;
+}
+
+.read {
+    padding: 0.6rem 1.2rem; /* Adjusted padding for better button size */
+    margin: 1rem auto 0 auto; /* Center button with consistent space on top */
+    margin-bottom: 1.5rem; /* Add space below the button */
+    display: block;
     text-align: center;
     outline: none;
     border: none;
-    position: relative;
-    left: 2.5rem;
     border-radius: 7px;
-    background-color: blue;
+    background-color: #ff5722;
     color: white;
-    box-shadow: 2px 2px 13px rgb(141, 132, 132);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 15px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.card:hover{
-  transition: 0.2s;
-  transform: scale(1.02);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 25px;
 }
 
-.read:hover{
-    transform: scale(0.9);
-    transition: 0.3s;
+.read:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
+.card p {
+    padding: 0 1rem;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: #666;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Take up more width on small screens */
+        margin-bottom: 1.5rem;
+    }
 }
