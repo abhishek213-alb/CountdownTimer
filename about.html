@@ -177,38 +177,31 @@
     <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
     <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
   </div>
-  <div class="cards-container">
-    <div class="card bg-1">
-      <div class="card-content">
-        <h3>Title</h3>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-          molestias voluptatem laboriosam esse, deserunt eaque est fugiat
-          vitae itaque unde aut quasi soluta quod a perferendis voluptatibus,
-          rerum reiciendis quam.
+  <div class="cards-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; background-color: #f4f4f4;">
+    <div class="card" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 255, 0.3); width: 300px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background-color: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="card-content" style="padding: 15px; text-align: center; flex-grow: 1;">
+            <h3 style="font-size: 24px; margin: 0; color: white; font-weight: bold; background-color: #007BFF; padding: 10px;">Title</h3>
+            <div style="font-size: 14px; color: #666; margin: 10px 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. At molestias voluptatem laboriosam esse, deserunt eaque est fugiat vitae itaque unde aut quasi soluta quod a perferendis voluptatibus, rerum reiciendis quam.</div>
         </div>
-        <a href="#" class="goto-btn">Open</a>
-      </div>
+        <a href="#" class="goto-btn" style="display: inline-block; background-color: #ff5722; color: white; border: none; border-radius: 5px; padding: 10px 15px; text-decoration: none; box-shadow: 0 2px 10px rgba(255, 87, 34, 0.5); transition: background-color 0.3s, transform 0.3s; margin: 10px auto; width: 80%; text-align: center;" onmouseover="this.style.backgroundColor='#e64a19'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ff5722'; this.style.transform='translateY(0)'">Open</a>
     </div>
-    <div class="card bg-2">
-      <div class="card-content">
-        <h3>Todo Manager</h3>
-        <div>Procrastination is opportunity's natural assassin</div>
-        <a href="to-doLISt/index.html" class="goto-btn">Open</a>
-      </div>
-    </div>
-    <div class="card bg-3">
-      <div class="card-content">
-        <h3>Countdown Timer</h3>
-        <div>
-          A simple web app for setting up a Countdown from right now to a
-          specific date
+    
+    <div class="card" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 255, 0.3); width: 300px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background-color: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="card-content" style="padding: 15px; text-align: center; flex-grow: 1;">
+            <h3 style="font-size: 24px; margin: 0; color: white; font-weight: bold; background-color: #007BFF; padding: 10px;">Todo Manager</h3>
+            <div style="font-size: 14px; color: #666; margin: 10px 0;">Procrastination is opportunity's natural assassin</div>
         </div>
-        <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
-      </div>
+        <a href="to-doLISt/index.html" class="goto-btn" style="display: inline-block; background-color: #ff5722; color: white; border: none; border-radius: 5px; padding: 10px 15px; text-decoration: none; box-shadow: 0 2px 10px rgba(255, 87, 34, 0.5); transition: background-color 0.3s, transform 0.3s; margin: 10px auto; width: 80%; text-align: center;" onmouseover="this.style.backgroundColor='#e64a19'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ff5722'; this.style.transform='translateY(0)'">Open</a>
     </div>
-  
-  </div>
+    
+    <div class="card" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 255, 0.3); width: 300px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background-color: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="card-content" style="padding: 15px; text-align: center; flex-grow: 1;">
+            <h3 style="font-size: 24px; margin: 0; color: white; font-weight: bold; background-color: #007BFF; padding: 10px;">Countdown Timer</h3>
+            <div style="font-size: 14px; color: #666; margin: 10px 0;">A simple web app for setting up a Countdown from right now to a specific date</div>
+        </div>
+        <a href="components/CountdownTimer.html" class="goto-btn" style="display: inline-block; background-color: #ff5722; color: white; border: none; border-radius: 5px; padding: 10px 15px; text-decoration: none; box-shadow: 0 2px 10px rgba(255, 87, 34, 0.5); transition: background-color 0.3s, transform 0.3s; margin: 10px auto; width: 80%; text-align: center;" onmouseover="this.style.backgroundColor='#e64a19'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ff5722'; this.style.transform='translateY(0)'">Open</a>
+    </div>
+</div>
   <script>
     let slideIndex = 0;
     const showSlides = async () => {
