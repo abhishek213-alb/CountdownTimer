@@ -37,7 +37,7 @@
     padding: 1rem;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #ffffff !important ; /* Set heading text color to white */
+    color: #ffffff !important; /* Set heading text color to white */
     line-height: 1.3; /* Improved line height for readability */
     height: auto;
     display: -webkit-box;
@@ -82,9 +82,10 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 25px;
 }
 
+/* Merged .read:hover styles */
 .read:hover {
-    background-color: #e64a19;
-    transform: scale(1.05);
+    background-color: #e64a19; /* Change to darker color */
+    transform: scale(1.05); /* Scale up on hover */
 }
 
 .card p {
@@ -105,4 +106,8 @@
         width: 90%; /* Take up more width on small screens */
         margin-bottom: 1.5rem;
     }
+}
+
+ul.menu {
+    margin-bottom: 0px; /* Maintain spacing for the menu */
 }
