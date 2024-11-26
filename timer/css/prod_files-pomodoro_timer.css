@@ -1,0 +1,61 @@
+#buttons_group {
+    width: 100%;
+}
+#buttons_group button {
+    width: 33%;
+    height: 40px;
+}
+#pomodoro_timer {
+    margin: 40px 0;
+    font-size: 90px;
+    font-weight: bold;
+    text-align: center;
+}
+#start_pomodoro_timer,
+#stop_pomodoro_timer,
+#reset_pomodoro_timer {
+    width: 100%;
+    height: 45px;
+}
+.active_timer_button {
+    background-color: #2d6b91!important;
+    border-color: #1c5a80!important;
+}
+.shortcuts{
+    font-weight: bold;
+    font-size: 18px;
+}
+.time_separator{
+    padding: 5px 0 0 0!important;
+    text-align: center;
+    font-weight: bold;
+    /*width: 13%!important;*/
+}
+.timer_header{
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+#sound_player{
+    margin-top: 10px;
+    width: 100%;
+}
+#set_times{
+    width:100%;
+    height: 34px;
+    margin-top: 20px;
+}
+#empty_fields_alert, #success_alert{
+    margin: 15px!important;
+    display: none;
+}
+#sound_repeat{
+    margin-right: 5px;
+    margin-top: 15px;
+}
+#alarm_turn_off_button{
+    display: none;
+}
+#turn_off_alarm{
+    height: 45px;
+}
