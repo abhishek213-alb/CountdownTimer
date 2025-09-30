@@ -1,363 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern Sticky To-Do Board</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage | Redesigned</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="favicon_io/site.webmanifest" />
+
+  <style>
+    /* --- Custom CSS --- */
+
+    :root {
+      --primary-color: #5e2ced;
+      --secondary-color: #ed5b5b;
+      --dark-color: #23242a;
+      --light-color: #f8f9fa;
+      --text-color: #343a40;
+      --body-font: 'Poppins', sans-serif;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background-color: var(--light-color);
+      color: var(--text-color);
+    }
+
+    /* --- Navbar --- */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    .navbar .nav-link {
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+    
+    .navbar .nav-link:hover, .navbar .nav-link.active {
+      color: var(--primary-color);
+    }
+    
+    .navbar .dropdown-menu {
+        border: none;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,.1);
+    }
+    
+    .btn-login {
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border: none;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        color: white;
+    }
 
-    <style>
-        :root {
-            --font-heading: 'Poppins', sans-serif;
-            --font-notes: 'Kalam', cursive;
-            --color-dark: #4a4a4a;
-            --color-light: #fff;
-            --pin-color: #ff4757;
-        }
+    /* --- Hero Carousel --- */
+    #heroCarousel {
+      height: 90vh;
+      max-height: 700px;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .carousel-item {
+      height: 100%;
+    }
 
-        body {
-            font-family: var(--font-heading);
-            background-color: #D2B48C;
-            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-            color: var(--color-dark);
-            padding: 20px;
-        }
+    .carousel-item img {
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+    }
 
-        .homepage-nav {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            text-decoration: none;
-            color: var(--color-dark);
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .homepage-nav:hover {
-            background-color: var(--color-light);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
-        }
-        .homepage-nav i {
-            margin-right: 8px;
-        }
+    .carousel-caption {
+      bottom: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .carousel-caption h1 {
+        font-size: 3rem;
+        font-weight: 700;
+    }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    /* --- Features Section (Cards) --- */
+    .features-section {
+      padding: 80px 0;
+    }
 
-        .app-header {
-            text-align: center;
-            margin: 40px 0;
-        }
+    .section-title {
+        margin-bottom: 50px;
+        font-weight: 700;
+        color: var(--dark-color);
+    }
 
-        .app-header h1 {
-            display: inline-block;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #5a3a22;
-            background-color: #fafafa;
-            padding: 15px 40px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            transform: rotate(-1deg);
-        }
-        /* Pinned paper effect */
-        .app-header h1::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background-color: var(--pin-color);
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
+    .feature-card {
+      background-color: transparent;
+      width: 100%;
+      max-width: 350px;
+      height: 300px;
+      perspective: 1000px;
+      margin: 0 auto; /* Changed: Removed bottom margin */
+    }
 
-        .controls-area {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 15px;
+    }
 
-        #task-input {
-            width: 100%;
-            max-width: 500px;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-family: var(--font-heading);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-        }
-        #task-input:focus {
-            outline: 2px solid var(--pin-color);
-        }
+    .feature-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
 
-        .btn {
-            background-color: var(--pin-color);
-            color: var(--color-light);
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .btn i {
-            margin-right: 8px;
-        }
-        #clear-completed-btn {
-            background-color: #6c757d;
-        }
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-front {
+      background: #fff;
+      color: var(--dark-color);
+    }
+    
+    .card-front .icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+    }
+    
+    .card-front h3 {
+        font-weight: 600;
+    }
+
+    .card-back {
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      transform: rotateY(180deg);
+    }
+    
+    .card-back h3 {
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    .card-back p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .goto-btn {
+        background-color: rgba(255,255,255, 0.9);
+        color: var(--primary-color);
+        padding: 10px 25px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .goto-btn:hover {
+        background-color: #fff;
+        color: var(--dark-color);
+        transform: scale(1.05);
+    }
 
 
-        #notes-container {
-            column-count: 4;
-            column-gap: 20px;
-        }
+    /* --- Footer --- */
+    .footer {
+      background-color: var(--dark-color);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 60px 0 20px;
+    }
 
-        .note {
-            padding: 25px;
-            font-family: var(--font-notes);
-            font-size: 1.5rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            display: inline-block;
-            width: 100%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            position: relative;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
-        }
-        
-        /* Note Pushpin */
-        .note::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background-color: var(--pin-color);
-            border-radius: 50%;
-            box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3), 0 2px 5px rgba(0,0,0,0.3);
-            z-index: 2;
-        }
-        
-        .note:hover {
-            transform: scale(1.03) rotate(0deg) !important;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-        }
+    .footer .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    .footer .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer .footer-links a:hover {
+      color: #fff;
+    }
 
-        .note p {
-            word-wrap: break-word;
-            margin-bottom: 40px; /* Space for footer */
-        }
-        .note.completed p {
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
-        
-        /* Note Colors with Gradients */
-        .note-yellow { background: linear-gradient(135deg, #fffbc1, #f9f586); }
-        .note-pink { background: linear-gradient(135deg, #ffd1e9, #ffbde4); }
-        .note-blue { background: linear-gradient(135deg, #d4f8ff, #a6f1ff); }
-        .note-green { background: linear-gradient(135deg, #e4ffcd, #cbffaa); }
+    .footer .social-icons a {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .footer .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
 
-        .note-footer {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            display: flex;
-            gap: 10px;
+    .footer .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (max-width: 991.98px) {
+        #heroCarousel {
+            height: 70vh;
         }
+        .carousel-caption h1 {
+            font-size: 2rem;
+        }
+    }
 
-        .note-footer button {
-            background: transparent; border: none; font-size: 1.1rem;
-            cursor: pointer; color: rgba(0,0,0,0.4); transition: all 0.3s ease;
-        }
-        .note-footer button:hover { color: var(--color-dark); transform: scale(1.2); }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        @keyframes fadeOut {
-            from { transform: scale(1); opacity: 1; }
-            to { transform: scale(0.7); opacity: 0; }
-        }
-        .note.entering { animation: fadeIn 0.4s ease-out; }
-        .note.exiting { animation: fadeOut 0.4s ease-in; }
-        
-        /* Responsive Masonry Layout */
-        @media (max-width: 1200px) { #notes-container { column-count: 3; } }
-        @media (max-width: 900px) { #notes-container { column-count: 2; } }
-        @media (max-width: 600px) { #notes-container { column-count: 1; } }
-
-    </style>
+  </style>
 </head>
 
 <body>
-    <a href="index.html" class="homepage-nav"><i class="fas fa-home"></i> Back to Home</a>
 
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <header class="app-header">
-            <h1>My To-Do Board</h1>
-        </header>
-
-        <div class="controls-area">
-            <input type="text" id="task-input" placeholder="Type a new note..." />
-            <button id="add-task-btn" class="btn" title="Add Note"><i class="fas fa-plus"></i> Add Note</button>
-            <button id="clear-completed-btn" class="btn" title="Clear Completed Notes"><i class="fas fa-broom"></i> Clear Completed</button>
+      <a class="navbar-brand" href="#">
+        <img src="Countdown.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./components/CountdownTimer.html">Timer app</a></li>
+              <li><a class="dropdown-item" href="./to-doLISt/index.html">Todo Manager</a></li>
+              <li><a class="dropdown-item" href="#">Music Player</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Plans
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Freelancer</a></li>
+              <li><a class="dropdown-item" href="#">Startup</a></li>
+              <li><a class="dropdown-item" href="#">Enterprise</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+            <form class="d-flex me-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="LOGIN/LogIn.html" class="btn btn-login">Log In</a>
         </div>
-
-        <main id="notes-container">
-            </main>
+      </div>
     </div>
+  </nav>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const taskInput = document.getElementById('task-input');
-            const addTaskBtn = document.getElementById('add-task-btn');
-            const clearCompletedBtn = document.getElementById('clear-completed-btn');
-            const notesContainer = document.getElementById('notes-container');
+  <header>
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop" class="d-block w-100" alt="Inspirational quote about books">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>"The only way to do great work is to love what you do."</h1>
+                    <p>Unlock your potential with our suite of productivity tools.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop" class="d-block w-100" alt="Inspirational quote about work">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>"Success is not final, failure is not fatal: It is the courage to continue that counts."</h1>
+                    <p>Stay organized, focused, and on track with your goals.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop" class="d-block w-100" alt="Inspirational quote about planning">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>"Believe you can and you're halfway there."</h1>
+                    <p>From timers to to-do lists, we have the tools you need to succeed.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </header>
+  
+  <main>
+    <section class="features-section">
+      <div class="container">
+        <h2 class="text-center section-title">Our Suite of Tools</h2>
+        <div class="row justify-content-center gy-5">
 
-            const noteColors = ['note-yellow', 'note-pink', 'note-blue', 'note-green'];
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="icon"><i class="fas fa-music"></i></div>
+                  <h3>Music Instruments</h3>
+                </div>
+                <div class="card-back">
+                  <h3>Music Instruments App</h3>
+                  <p>The best Music Instruments Sound app, unique from all others.</p>
+                  <a href="Pages/Musicapp/index.html" class="goto-btn">Open App</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="icon"><i class="fas fa-list-check"></i></div>
+                  <h3>Todo Manager</h3>
+                </div>
+                <div class="card-back">
+                  <h3>Todo Manager</h3>
+                  <p>"Procrastination is opportunity's natural assassin"</p>
+                  <a href="to-doLISt/index.html" class="goto-btn">Open App</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="icon"><i class="fas fa-hourglass-half"></i></div>
+                  <h3>Countdown Timer</h3>
+                </div>
+                <div class="card-back">
+                  <h3>Countdown Timer</h3>
+                  <p>A simple web app for setting a countdown to a specific date.</p>
+                  <a href="components/CountdownTimer.html" class="goto-btn">Open App</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="icon"><i class="fas fa-headphones"></i></div>
+                  <h3>Lofi Beats</h3>
+                </div>
+                <div class="card-back">
+                  <h3>Lofi Beats</h3>
+                  <p>A lofi beats playlist which helps you concentrate and focus.</p>
+                  <a href="Pages/Musicapp/index.html" class="goto-btn">Open App</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="icon"><i class="fas fa-sticky-note"></i></div>
+                  <h3>Online Notepad</h3>
+                </div>
+                <div class="card-back">
+                  <h3>Online Notepad</h3>
+                  <p>Create, edit, and share your notes easily from anywhere.</p>
+                  <a href="Pages\Notepad\notepad.html" class="goto-btn">Open App</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            const loadNotes = () => {
-                const notes = JSON.parse(localStorage.getItem('stickyNotesV2') || '[]');
-                notes.forEach(note => createNoteElement(note));
-            };
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="social-icons mb-4">
+        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://in.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <ul class="list-inline footer-links mb-4">
+        <li class="list-inline-item mx-2"><a href="index.html">Home</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Services</a></li>
+        <li class="list-inline-item mx-2"><a href="./about.html">About</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Terms</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">CountdownTimer © <span id="copyright-year"></span></p>
+    </div>
+  </footer>
 
-            const saveNotes = () => {
-                const notes = [];
-                document.querySelectorAll('.note:not(.exiting)').forEach(noteEl => {
-                    notes.push({
-                        id: noteEl.dataset.id,
-                        text: noteEl.querySelector('p').innerText,
-                        completed: noteEl.classList.contains('completed'),
-                        color: Array.from(noteEl.classList).find(c => c.startsWith('note-')),
-                        rotation: noteEl.style.transform
-                    });
-                });
-                localStorage.setItem('stickyNotesV2', JSON.stringify(notes));
-            };
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 
-            const createNoteElement = (noteData) => {
-                const { id, text, completed, color, rotation } = noteData;
-                const noteEl = document.createElement('div');
-                noteEl.classList.add('note', color);
-                noteEl.dataset.id = id;
-                noteEl.style.transform = rotation;
-
-                if (completed) noteEl.classList.add('completed');
-                
-                noteEl.innerHTML = `
-                    <p>${text}</p>
-                    <div class="note-footer">
-                        <button class="complete-btn" title="Complete"><i class="fas fa-check"></i></button>
-                        <button class="delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
-                    </div>
-                `;
-                
-                // Add entering animation
-                noteEl.classList.add('entering');
-                noteEl.addEventListener('animationend', () => noteEl.classList.remove('entering'), { once: true });
-                
-                notesContainer.appendChild(noteEl);
-            };
-            
-            const addNote = () => {
-                const taskText = taskInput.value.trim();
-                if (taskText === '') return;
-                
-                const randomRotation = (Math.random() * 4) - 2; // between -2 and 2 degrees
-                
-                const newNoteData = {
-                    id: Date.now().toString(),
-                    text: taskText,
-                    completed: false,
-                    color: noteColors[Math.floor(Math.random() * noteColors.length)],
-                    rotation: `rotate(${randomRotation}deg)`
-                };
-                
-                createNoteElement(newNoteData);
-                taskInput.value = '';
-                saveNotes();
-            };
-            
-            const removeNote = (noteEl) => {
-                noteEl.classList.add('exiting');
-                noteEl.addEventListener('animationend', () => {
-                    noteEl.remove();
-                    saveNotes();
-                }, { once: true });
-            };
-
-            const handleNoteClick = (e) => {
-                const noteEl = e.target.closest('.note');
-                if (!noteEl) return;
-
-                if (e.target.closest('.complete-btn')) {
-                    noteEl.classList.toggle('completed');
-                } else if (e.target.closest('.delete-btn')) {
-                    removeNote(noteEl);
-                }
-                // Save changes unless it's a delete action (which saves after animation)
-                if (!e.target.closest('.delete-btn')) {
-                   saveNotes();
-                }
-            };
-            
-            const clearCompleted = () => {
-                const completedNotes = document.querySelectorAll('.note.completed');
-                if (completedNotes.length === 0) return;
-                
-                if (confirm(`Are you sure you want to clear ${completedNotes.length} completed note(s)?`)) {
-                    completedNotes.forEach(note => removeNote(note));
-                }
-            };
-
-            addTaskBtn.addEventListener('click', addNote);
-            taskInput.addEventListener('keypress', (e) => e.key === 'Enter' && addNote());
-            notesContainer.addEventListener('click', handleNoteClick);
-            clearCompletedBtn.addEventListener('click', clearCompleted);
-
-            loadNotes();
-        });
-    </script>
+  <script>
+    // Automatically update the copyright year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
