@@ -1,321 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homepage</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
-  <link rel="manifest" href="favicon_io/site.webmanifest" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  
-  <style>
-    .carousel {
-      height: 40em;
-    }
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Sticky To-Do Board</title>
 
-    .footer-basic {
-      padding: 40px 0;
-      background-color: #ffffff;
-      color: #4b4c4d;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    .footer-basic ul {
-      padding: 0;
-      list-style: none;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 0;
-    }
+    <style>
+        :root {
+            --font-heading: 'Poppins', sans-serif;
+            --font-notes: 'Kalam', cursive;
+            --color-dark: #4a4a4a;
+            --color-light: #fff;
+            --pin-color: #ff4757;
+        }
 
-    .footer-basic li {
-      padding: 0 10px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .footer-basic ul a {
-      color: inherit;
-      text-decoration: none;
-      opacity: 0.8;
-    }
+        body {
+            font-family: var(--font-heading);
+            background-color: #D2B48C;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            color: var(--color-dark);
+            padding: 20px;
+        }
 
-    .footer-basic ul a:hover {
-      opacity: 1;
-    }
+        .homepage-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--color-dark);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .homepage-nav:hover {
+            background-color: var(--color-light);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .homepage-nav i {
+            margin-right: 8px;
+        }
 
-    .footer-basic .social {
-      text-align: center;
-      padding-bottom: 25px;
-    }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    .footer-basic .social>a {
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      margin: 0 8px;
-      color: inherit;
-      opacity: 0.75;
-    }
+        .app-header {
+            text-align: center;
+            margin: 40px 0;
+        }
 
-    .footer-basic .social>a:hover {
-      opacity: 0.9;
-    }
+        .app-header h1 {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #5a3a22;
+            background-color: #fafafa;
+            padding: 15px 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+        /* Pinned paper effect */
+        .app-header h1::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--pin-color);
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
 
-    .footer-basic .copyright {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 13px;
-      color: #aaa;
-      margin-bottom: 0;
-    }
+        .controls-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
 
-    .card.bg-4 {
-      background: rgba(255, 255, 255, 0.9) url("https://i.scdn.co/image/ab67706c0000bebb01b4eb9c4a97c5d464c39b1a");
-      background-size: cover;
-    }
-  </style>
+        #task-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: var(--font-heading);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+        #task-input:focus {
+            outline: 2px solid var(--pin-color);
+        }
+
+        .btn {
+            background-color: var(--pin-color);
+            color: var(--color-light);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        #clear-completed-btn {
+            background-color: #6c757d;
+        }
+
+
+        #notes-container {
+            column-count: 4;
+            column-gap: 20px;
+        }
+
+        .note {
+            padding: 25px;
+            font-family: var(--font-notes);
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+        }
+        
+        /* Note Pushpin */
+        .note::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--pin-color);
+            border-radius: 50%;
+            box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3), 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        
+        .note:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        .note p {
+            word-wrap: break-word;
+            margin-bottom: 40px; /* Space for footer */
+        }
+        .note.completed p {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        
+        /* Note Colors with Gradients */
+        .note-yellow { background: linear-gradient(135deg, #fffbc1, #f9f586); }
+        .note-pink { background: linear-gradient(135deg, #ffd1e9, #ffbde4); }
+        .note-blue { background: linear-gradient(135deg, #d4f8ff, #a6f1ff); }
+        .note-green { background: linear-gradient(135deg, #e4ffcd, #cbffaa); }
+
+        .note-footer {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .note-footer button {
+            background: transparent; border: none; font-size: 1.1rem;
+            cursor: pointer; color: rgba(0,0,0,0.4); transition: all 0.3s ease;
+        }
+        .note-footer button:hover { color: var(--color-dark); transform: scale(1.2); }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0.7); opacity: 0; }
+        }
+        .note.entering { animation: fadeIn 0.4s ease-out; }
+        .note.exiting { animation: fadeOut 0.4s ease-in; }
+        
+        /* Responsive Masonry Layout */
+        @media (max-width: 1200px) { #notes-container { column-count: 3; } }
+        @media (max-width: 900px) { #notes-container { column-count: 2; } }
+        @media (max-width: 600px) { #notes-container { column-count: 1; } }
+
+    </style>
 </head>
 
 <body>
-  <nav id="navbar" class="sticky">
-    <ul class="menu">
-      <div>
-        <li class="logo"><img src="Countdown.png" alt="Logo">
-        </li>
-      </div>
-      <div class="links">
+    <a href="index.html" class="homepage-nav"><i class="fas fa-home"></i> Back to Home</a>
 
-        <li class="item"><a href="index.html">Home</a></li>
+    <div class="container">
+        <header class="app-header">
+            <h1>My To-Do Board</h1>
+        </header>
 
-        <li class="item"><a href="./about.html">About</a></li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Services</a>
-          <ul class="submenu">
-            <li class="subitem">
-              <a href="./components/CountdownTimer.html">Timer app</a>
-            </li>
-            <li class="subitem">
-              <a href="./to-doLISt/index.html">Todo Manager</a>
-            </li>
-            <li class="subitem"><a href="#">Music Player</a></li>
-          </ul>
-        </li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Plans</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="#">Freelancer</a></li>
-            <li class="subitem"><a href="#">Startup</a></li>
-            <li class="subitem"><a href="#">Enterprise</a></li>
-          </ul>
-        </li>
-        <li class="item"><a href="./blog.html">Blog</a></li>
-        <li class="item"><a href="./contact.html">Contact</a></li>
-
-        <li class="item button button1"><a href="LOGIN/LogIn.html">Log In</a></li>
-
-      </div>
-      <div>
-        <li class="item searched d-flex my-2">
-          <input type="search" placeholder="Search" id="form1" class="form-control" />
-          <button type="button" class="btn btn-primary mx-1">
-            <i class="fas fa-search"></i>
-          </button>
-        </li>
-        <li class="toggle">
-          <a href="#"><i class="fas fa-bars"></i></a>
-        </li>
-      </div>
-    </ul>
-  </nav>
-  <div class="carousel">
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
-  </div>
- 
-  
-  <div class="container20">
-
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="java">Music Instruments App</h2>
-          <p class="java">This is the best Music Instruments Sound app which will make this app unique from other apps.</p>
-          <a href="Pages/Musicapp/index.html" class="goto-btn">Open</a>
+        <div class="controls-area">
+            <input type="text" id="task-input" placeholder="Type a new note..." />
+            <button id="add-task-btn" class="btn" title="Add Note"><i class="fas fa-plus"></i> Add Note</button>
+            <button id="clear-completed-btn" class="btn" title="Clear Completed Notes"><i class="fas fa-broom"></i> Clear Completed</button>
         </div>
-      </div>
-      <div class="face face2">
-        <h2>Music Instruments App</h2>
-      </div>
+
+        <main id="notes-container">
+            </main>
     </div>
-  
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="python">Todo Manager</h2>
-          <p class="python">Procrastination is opportunity's natural assassin</p>
-          <a href="to-doLISt/index.html" class="goto-btn">Open</a>
-        </div>
-      </div>
-      <div class="face face2">
-        <h2>Todo Manager</h2>
-      </div>
-    </div>
-  
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="cSharp">Countdown Timer</h2>
-          <p class="cSharp">A simple web app for setting up a Countdown from right now to a
-            specific date</p>
-            <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
-        </div>
-      </div>
-      <div class="face face2">
-        <h2>Countdown Timer</h2>
-      </div>
-    </div>
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="python">lofi-beats</h2>
-          <p class="python"> A lofi beats playlist which helps you concentrate and focus.</p>
-          <a href="Pages/Musicapp/index.html" class="goto-btn">Open</a>
-        </div>
-      </div>
-      <div class="face face2">
-        <h2>lofi-beats</h2>
-      </div>
-    </div>
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="python">Online Notepad</h2>
-          <p class="python"> Create, edit, and share your notes easily.</p>
-          <a href="Pages\Notepad\notepad.html" class="goto-btn">Open</a>
-        </div>
-      </div>
-      <div class="face face2">
-        <h2>Online Notepad</h2>
-      </div>
-    </div>
-  </div>
 
-  <script>
-    let slideIndex = 0;
-    const showSlides = async () => {
-      let slides = document.getElementsByClassName("slide");
-      let url;
-      try {
-        let response = await fetch(
-          "https://source.unsplash.com/1600x900/?quote"
-        );
-        url = response.url;
-      } catch (error) {
-        console.log(error);
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskInput = document.getElementById('task-input');
+            const addTaskBtn = document.getElementById('add-task-btn');
+            const clearCompletedBtn = document.getElementById('clear-completed-btn');
+            const notesContainer = document.getElementById('notes-container');
 
-      }
-      slides[slideIndex].classList.toggle("active");
-      slideIndex++;
-      slideIndex %= slides.length;
-      slides[slideIndex].classList.toggle("active");
-      slides[slideIndex].src = url;
-    };
-    setInterval(showSlides, 5000);
-    const toggle = document.querySelector(".toggle");
-    const menu = document.querySelector(".menu");
-    /* Toggle mobile menu */
-    function toggleMenu() {
-      if (menu.classList.contains("active")) {
-        menu.classList.remove("active");
-        // adds the menu (hamburger) icon
-        toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
-      } else {
-        menu.classList.add("active");
-        // adds the close (x) icon
-        toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
-      }
-    }
-    /* Event Listener */
-    toggle.addEventListener("click", toggleMenu, false);
-    const items = document.querySelectorAll(".item");
+            const noteColors = ['note-yellow', 'note-pink', 'note-blue', 'note-green'];
 
-    /* Activate Submenu */
-    function toggleItem() {
-      if (this.classList.contains("submenu-active")) {
-        this.classList.remove("submenu-active");
-      } else if (menu.querySelector(".submenu-active")) {
-        menu
-          .querySelector(".submenu-active")
-          .classList.remove("submenu-active");
-        this.classList.add("submenu-active");
-      } else {
-        this.classList.add("submenu-active");
-      }
-    }
+            const loadNotes = () => {
+                const notes = JSON.parse(localStorage.getItem('stickyNotesV2') || '[]');
+                notes.forEach(note => createNoteElement(note));
+            };
 
-    /* Event Listeners */
-    for (let item of items) {
-      if (item.querySelector(".submenu")) {
-        item.addEventListener("click", toggleItem, false);
-        item.addEventListener("keypress", toggleItem, false);
+            const saveNotes = () => {
+                const notes = [];
+                document.querySelectorAll('.note:not(.exiting)').forEach(noteEl => {
+                    notes.push({
+                        id: noteEl.dataset.id,
+                        text: noteEl.querySelector('p').innerText,
+                        completed: noteEl.classList.contains('completed'),
+                        color: Array.from(noteEl.classList).find(c => c.startsWith('note-')),
+                        rotation: noteEl.style.transform
+                    });
+                });
+                localStorage.setItem('stickyNotesV2', JSON.stringify(notes));
+            };
 
-      }
-    }
-    /* Close Submenu From Anywhere */
-    function closeSubmenu(e) {
-      if (menu.querySelector(".submenu-active")) {
-        let isClickInside = menu
-          .querySelector(".submenu-active")
-          .contains(e.target);
+            const createNoteElement = (noteData) => {
+                const { id, text, completed, color, rotation } = noteData;
+                const noteEl = document.createElement('div');
+                noteEl.classList.add('note', color);
+                noteEl.dataset.id = id;
+                noteEl.style.transform = rotation;
 
-        if (!isClickInside && menu.querySelector(".submenu-active")) {
-          menu
-            .querySelector(".submenu-active")
-            .classList.remove("submenu-active");
-        }
-      }
-    }
-    /* Event listener */
-    document.addEventListener("click", closeSubmenu, false);
-  </script>
-  <div class="footer-basic">
-    <footer>
-      <div class="social"><a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
-        <a href="https://in.linkedin.com/"><i class="icon ion-social-linkedin"></i></a>
-        <a href="https://in.pinterest.com/"><i class="icon ion-social-pinterest"></i></a>
-        <a href="https://www.facebook.com/"><i class="icon ion-social-facebook"></i></a>
-        <a href="https://www.youtube.com/"><i class="icon ion-social-youtube"></i></div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="index.html">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="./about.html">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">CountdownTimer © 2021</p>
-    </footer>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+                if (completed) noteEl.classList.add('completed');
+                
+                noteEl.innerHTML = `
+                    <p>${text}</p>
+                    <div class="note-footer">
+                        <button class="complete-btn" title="Complete"><i class="fas fa-check"></i></button>
+                        <button class="delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                
+                // Add entering animation
+                noteEl.classList.add('entering');
+                noteEl.addEventListener('animationend', () => noteEl.classList.remove('entering'), { once: true });
+                
+                notesContainer.appendChild(noteEl);
+            };
+            
+            const addNote = () => {
+                const taskText = taskInput.value.trim();
+                if (taskText === '') return;
+                
+                const randomRotation = (Math.random() * 4) - 2; // between -2 and 2 degrees
+                
+                const newNoteData = {
+                    id: Date.now().toString(),
+                    text: taskText,
+                    completed: false,
+                    color: noteColors[Math.floor(Math.random() * noteColors.length)],
+                    rotation: `rotate(${randomRotation}deg)`
+                };
+                
+                createNoteElement(newNoteData);
+                taskInput.value = '';
+                saveNotes();
+            };
+            
+            const removeNote = (noteEl) => {
+                noteEl.classList.add('exiting');
+                noteEl.addEventListener('animationend', () => {
+                    noteEl.remove();
+                    saveNotes();
+                }, { once: true });
+            };
+
+            const handleNoteClick = (e) => {
+                const noteEl = e.target.closest('.note');
+                if (!noteEl) return;
+
+                if (e.target.closest('.complete-btn')) {
+                    noteEl.classList.toggle('completed');
+                } else if (e.target.closest('.delete-btn')) {
+                    removeNote(noteEl);
+                }
+                // Save changes unless it's a delete action (which saves after animation)
+                if (!e.target.closest('.delete-btn')) {
+                   saveNotes();
+                }
+            };
+            
+            const clearCompleted = () => {
+                const completedNotes = document.querySelectorAll('.note.completed');
+                if (completedNotes.length === 0) return;
+                
+                if (confirm(`Are you sure you want to clear ${completedNotes.length} completed note(s)?`)) {
+                    completedNotes.forEach(note => removeNote(note));
+                }
+            };
+
+            addTaskBtn.addEventListener('click', addNote);
+            taskInput.addEventListener('keypress', (e) => e.key === 'Enter' && addNote());
+            notesContainer.addEventListener('click', handleNoteClick);
+            clearCompletedBtn.addEventListener('click', clearCompleted);
+
+            loadNotes();
+        });
+    </script>
 </body>
-
 </html>
