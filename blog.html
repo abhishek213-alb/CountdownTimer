@@ -5,345 +5,329 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homepage</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Blog | Redesigned</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
   <link rel="manifest" href="favicon_io/site.webmanifest" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="blog.css">
+
   <style>
-    .carousel {
-      height: 40em;
+    /* --- Custom CSS --- */
+    :root {
+      --primary-color: #5e2ced;
+      --secondary-color: #ed5b5b;
+      --dark-color: #23242a;
+      --light-color: #f8f9fa;
+      --text-color: #343a40;
+      --body-font: 'Poppins', sans-serif;
     }
 
-    .footer-basic {
-      padding: 40px 0;
-      background-color: #ffffff;
-      color: #4b4c4d;
+    body {
+      font-family: var(--body-font);
+      background-color: var(--light-color);
+      color: var(--text-color);
     }
 
-    .footer-basic ul {
-      padding: 0;
-      list-style: none;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 0;
+    /* --- Navbar (Consistent with Homepage) --- */
+    .navbar { background-color: #fff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07); }
+    .navbar-brand img { height: 40px; }
+    .navbar .nav-link { font-weight: 500; color: var(--text-color); transition: color 0.3s ease; }
+    .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--primary-color); }
+    .navbar .dropdown-menu { border: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); }
+    
+    .btn-gradient {
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border: none;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        color: white;
     }
 
-    .footer-basic li {
-      padding: 0 10px;
+    /* --- Blog Hero Carousel --- */
+    .blog-hero { height: 60vh; max-height: 500px; }
+    .blog-hero .carousel-item { height: 100%; }
+    .blog-hero .carousel-item img { height: 100%; object-fit: cover; filter: brightness(0.5); }
+    .blog-hero .carousel-caption { bottom: 0; top: 50%; transform: translateY(-50%); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); }
+    .blog-hero .carousel-caption h1 { font-size: 3rem; font-weight: 700; }
+
+    /* --- Blog Grid Section --- */
+    .blog-grid-section { padding: 80px 0; }
+    .section-title { margin-bottom: 50px; font-weight: 700; color: var(--dark-color); }
+    
+    .blog-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .blog-card .card-img-top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 200px;
+        object-fit: cover;
+    }
+    .blog-card .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .blog-card .card-title {
+        font-weight: 600;
+        color: var(--dark-color);
+    }
+    .blog-card .card-text {
+        font-size: 0.9rem;
+    }
+    .blog-card .btn {
+        border-radius: 50px;
+        font-weight: 500;
+        padding: 0.5rem 1.5rem;
     }
 
-    .footer-basic ul a {
-      color: inherit;
-      text-decoration: none;
-      opacity: 0.8;
-    }
-
-    .footer-basic ul a:hover {
-      opacity: 1;
-    }
-
-    .footer-basic .social {
-      text-align: center;
-      padding-bottom: 25px;
-    }
-
-    .footer-basic .social>a {
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      margin: 0 8px;
-      color: inherit;
-      opacity: 0.75;
-    }
-
-    .footer-basic .social>a:hover {
-      opacity: 0.9;
-    }
-
-    .footer-basic .copyright {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 13px;
-      color: #aaa;
-      margin-bottom: 0;
-    }
-
-    .card.bg-4 {
-      background: rgba(255, 255, 255, 0.9) url("https://i.scdn.co/image/ab67706c0000bebb01b4eb9c4a97c5d464c39b1a");
-      background-size: cover;
-    }
+    /* --- Footer (Consistent with Homepage) --- */
+    .footer { background-color: var(--dark-color); color: rgba(255, 255, 255, 0.7); padding: 60px 0 20px; }
+    .footer .footer-links { list-style: none; padding: 0; }
+    .footer .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s ease; }
+    .footer .footer-links a:hover { color: #fff; }
+    .footer .social-icons a { font-size: 24px; color: rgba(255, 255, 255, 0.7); margin: 0 10px; transition: color 0.3s ease, transform 0.3s ease; }
+    .footer .social-icons a:hover { color: var(--secondary-color); transform: translateY(-3px); }
+    .footer .copyright { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9em; color: rgba(255, 255, 255, 0.5); }
   </style>
 </head>
 
 <body>
-  <nav id="navbar" class="sticky">
-    <ul class="menu">
-      <div>
-        <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;">
-        </li>
-      </div>
-      <div class="links">
 
-        <li class="item"><a href="index.html">Home</a></li>
-
-        <li class="item"><a href="./about.html">About</a></li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Services</a>
-          <ul class="submenu">
-            <li class="subitem">
-              <a href="./components/CountdownTimer.html">Timer app</a>
-            </li>
-            <li class="subitem">
-              <a href="./to-doLISt/index.html">Todo Manager</a>
-            </li>
-            <li class="subitem"><a href="#">Music Player</a></li>
-          </ul>
-        </li>
-        <li class="item has-submenu">
-          <a class="submenu-title" tabindex="0">Plans</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="#">Freelancer</a></li>
-            <li class="subitem"><a href="#">Startup</a></li>
-            <li class="subitem"><a href="#">Enterprise</a></li>
-          </ul>
-        </li>
-        <li class="item"><a href="./blog.html">Blog</a></li>
-        <li class="item"><a href="./contact.html">Contact</a></li>
-
-        <li class="item button button1"><a href="LOGIN/LogIn.html">Log In</a></li>
-
-      </div>
-      <div>
-        <li class="item searched d-flex my-2">
-          <input type="search" placeholder="Search" id="form1" class="form-control" />
-          <button type="button" class="btn btn-primary mx-1">
-            <i class="fas fa-search"></i>
-          </button>
-        </li>
-        <li class="toggle">
-          <a href="#"><i class="fas fa-bars"></i></a>
-        </li>
-      </div>
-    </ul>
-  </nav>
-
-  <section>
-    <div class="blogs">
-        <h2 style="text-align: center; color:white; border-bottom: 5px solid black; border-top: 2px solid black;padding: 1.2rem;">Blog Section</h2>
-        <div class="card-container">
-            <div class="card">
-               <div class="image">
-                <img class="imgs" src="./images/blog1.jpeg">
-               </div>
-               <div class="content">
-                <p class="heading">Self-Management vs. Time Management</p>
-                <p class="author">by Patricia Thompson</p>
-               </div>
-               <div>
-                <a target="_blank" href="https://medium.com/the-mission/self-management-vs-time-management-what-you-need-to-know-67a4063715e6"><button class="read">Read more...</button></a>
-               </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog2.jpeg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">Time Management Really Is About Self-Management</p>
-                    <p class="author">by Ye Chen</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://medium.com/@yechen.main/time-management-really-is-about-self-management-ca1935b06d1d"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog3.jpeg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">You Don’t Have A Time Management Problem — You Just Think You Do</p>
-                    <p class="author">by Josh Spector</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://medium.com/an-idea-for-you/you-dont-have-a-time-management-problem-you-just-think-you-do-ac8eb6952b06"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog4.jpeg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">Simplify Your Time Management With the ‘Rule of 4’</p>
-                    <p class="author">by inc. magazine</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://medium.com/inc./simplify-your-time-management-with-the-rule-of-4-e884883c0173"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog5.jpg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">Productivity Isn’t About Time Management. It’s About Attention Management.</p>
-                    <p class="author">by Adam Grant</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://medium.com/@AdamMGrant/productivity-isnt-about-time-management-it-s-about-attention-management-ce622139b1a5"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog6.jpeg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">Why You Really Don’t Have a Time Management Problem</p>
-                    <p class="author">by Charlie Gilkey</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://medium.com/thrive-global/why-you-really-dont-have-a-time-management-problem-82eb6e31ffc9"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog7.jpeg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">How I Got More Done, Reduced Stress, Increased Focus, And Mastered Time Management In 10 Minutes A Day</p>
-                    <p class="author">by Josh Spector</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://medium.com/an-idea-for-you/how-i-got-more-done-reduced-stress-increased-focus-and-mastered-time-management-in-10-minutes-a-4ed59e41f7ba"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img class="imgs" src="./images/blog8.jpg">
-                   </div>
-                   <div class="content">
-                    <p class="heading">The Time Management Secret Nobody Talks About</p>
-                    <p class="author">by Barry Davret</p>
-                   </div>
-                   <div>
-                    <a target="_blank" href="https://barry-davret.medium.com/the-time-management-secret-nobody-talks-about-ea9c154b7e0"><button class="read">Read more...</button></a>
-                   </div>
-            </div>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="Countdown.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./components/CountdownTimer.html">Timer app</a></li>
+              <li><a class="dropdown-item" href="./to-doLISt/index.html">Todo Manager</a></li>
+              <li><a class="dropdown-item" href="#">Music Player</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Plans</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Freelancer</a></li>
+              <li><a class="dropdown-item" href="#">Startup</a></li>
+              <li><a class="dropdown-item" href="#">Enterprise</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="./blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center">
+            <a href="LOGIN/LogIn.html" class="btn btn-gradient">Log In</a>
         </div>
+      </div>
     </div>
-  </section>
-  <script>
-    let slideIndex = 0;
-    const showSlides = async () => {
-      let slides = document.getElementsByClassName("slide");
-      let url;
-      try {
-        let response = await fetch(
-          "https://source.unsplash.com/1600x900/?quote"
-        );
-        url = response.url;
-      } catch (error) {
-        console.log(error);
-
-      }
-      slides[slideIndex].classList.toggle("active");
-      slideIndex++;
-      slideIndex %= slides.length;
-      slides[slideIndex].classList.toggle("active");
-      slides[slideIndex].src = url;
-    };
-    setInterval(showSlides, 5000);
-    const toggle = document.querySelector(".toggle");
-    const menu = document.querySelector(".menu");
-    /* Toggle mobile menu */
-    function toggleMenu() {
-      if (menu.classList.contains("active")) {
-        menu.classList.remove("active");
-        // adds the menu (hamburger) icon
-        toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
-      } else {
-        menu.classList.add("active");
-        // adds the close (x) icon
-        toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
-      }
-    }
-    /* Event Listener */
-    toggle.addEventListener("click", toggleMenu, false);
-    const items = document.querySelectorAll(".item");
-
-    /* Activate Submenu */
-    function toggleItem() {
-      if (this.classList.contains("submenu-active")) {
-        this.classList.remove("submenu-active");
-      } else if (menu.querySelector(".submenu-active")) {
-        menu
-          .querySelector(".submenu-active")
-          .classList.remove("submenu-active");
-        this.classList.add("submenu-active");
-      } else {
-        this.classList.add("submenu-active");
-      }
-    }
-
-    /* Event Listeners */
-    for (let item of items) {
-      if (item.querySelector(".submenu")) {
-        item.addEventListener("click", toggleItem, false);
-        item.addEventListener("keypress", toggleItem, false);
-
-      }
-    }
-    /* Close Submenu From Anywhere */
-    function closeSubmenu(e) {
-      if (menu.querySelector(".submenu-active")) {
-        let isClickInside = menu
-          .querySelector(".submenu-active")
-          .contains(e.target);
-
-        if (!isClickInside && menu.querySelector(".submenu-active")) {
-          menu
-            .querySelector(".submenu-active")
-            .classList.remove("submenu-active");
-        }
-      }
-    }
-    /* Event listener */
-    document.addEventListener("click", closeSubmenu, false);
-  </script>
-  <div class="footer-basic">
-    <footer>
-      <div class="social">
-        <a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
-        <a href="https://in.linkedin.com/"><i class="icon ion-social-linkedin"></i></a>
-        <a href="https://in.pinterest.com/"><i class="icon ion-social-pinterest"></i></a>
-        <a href="https://www.facebook.com/"><i class="icon ion-social-facebook"></i></a>
-        <a href="https://www.youtube.com/"><i class="icon ion-social-youtube"></i>
+  </nav>
+  
+  <header>
+    <div id="blogCarousel" class="carousel slide carousel-fade blog-hero" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="./images/blog1.jpeg" class="d-block w-100" alt="Blog post image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="mb-3">Featured Post: Self-Management vs. Time Management</h1>
+                    <p><a href="https://medium.com/the-mission/self-management-vs-time-management-what-you-need-to-know-67a4063715e6" class="btn btn-light btn-lg">Read Article</a></p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="./images/blog5.jpg" class="d-block w-100" alt="Blog post image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="mb-3">Productivity Isn’t About Time Management. It’s About Attention Management.</h1>
+                    <p><a href="https://medium.com/@AdamMGrant/productivity-isnt-about-time-management-it-s-about-attention-management-ce622139b1a5" class="btn btn-light btn-lg">Read Article</a></p>
+                </div>
+            </div>
         </div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="index.html">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="./about.html">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        <button class="carousel-control-prev" type="button" data-bs-target="#blogCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#blogCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </header>
+  
+  <main>
+    <section class="blog-grid-section">
+      <div class="container">
+        <h2 class="text-center section-title">From Our Blog</h2>
+        <div class="row gy-4">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog1.jpeg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">Self-Management vs. Time Management</h5>
+                <p class="card-text text-muted small">by Patricia Thompson</p>
+                <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/the-mission/self-management-vs-time-management-what-you-need-to-know-67a4063715e6" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog2.jpeg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">Time Management Really Is About Self-Management</h5>
+                <p class="card-text text-muted small">by Ye Chen</p>
+                 <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/@yechen.main/time-management-really-is-about-self-management-ca1935b06d1d" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog3.jpeg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">You Don’t Have A Time Management Problem — You Just Think You Do</h5>
+                <p class="card-text text-muted small">by Josh Spector</p>
+                <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/an-idea-for-you/you-dont-have-a-time-management-problem-you-just-think-you-do-ac8eb6952b06" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog4.jpeg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">Simplify Your Time Management With the ‘Rule of 4’</h5>
+                <p class="card-text text-muted small">by inc. magazine</p>
+                <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/inc./simplify-your-time-management-with-the-rule-of-4-e884883c0173" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog5.jpg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">Productivity Isn’t About Time Management. It’s About Attention Management.</h5>
+                <p class="card-text text-muted small">by Adam Grant</p>
+                 <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/@AdamMGrant/productivity-isnt-about-time-management-it-s-about-attention-management-ce622139b1a5" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog6.jpeg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">Why You Really Don’t Have a Time Management Problem</h5>
+                <p class="card-text text-muted small">by Charlie Gilkey</p>
+                 <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/thrive-global/why-you-really-dont-have-a-time-management-problem-82eb6e31ffc9" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog7.jpeg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">How I Got More Done, Reduced Stress, Increased Focus, And Mastered Time Management...</h5>
+                <p class="card-text text-muted small">by Josh Spector</p>
+                 <div class="mt-auto">
+                    <a target="_blank" href="https://medium.com/an-idea-for-you/how-i-got-more-done-reduced-stress-increased-focus-and-mastered-time-management-in-10-minutes-a-4ed59e41f7ba" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm blog-card">
+              <img src="./images/blog8.jpg" class="card-img-top" alt="Blog post image">
+              <div class="card-body">
+                <h5 class="card-title">The Time Management Secret Nobody Talks About</h5>
+                <p class="card-text text-muted small">by Barry Davret</p>
+                 <div class="mt-auto">
+                    <a target="_blank" href="https://barry-davret.medium.com/the-time-management-secret-nobody-talks-about-ea9c154b7e0" class="btn btn-outline-primary">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="social-icons mb-4">
+        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://in.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <ul class="list-inline footer-links mb-4">
+        <li class="list-inline-item mx-2"><a href="index.html">Home</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Services</a></li>
+        <li class="list-inline-item mx-2"><a href="./about.html">About</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Terms</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Privacy Policy</a></li>
       </ul>
-      <p class="copyright">CountdownTimer © 2021</p>
-    </footer>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+      <p class="copyright">CountdownTimer © <span id="copyright-year"></span></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Automatically update the copyright year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
