@@ -5,340 +5,287 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homepage</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <title>Contact Us | Redesigned</title>
 
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
   <link rel="manifest" href="favicon_io/site.webmanifest" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="contact.css">
+
   <style>
-    .footer-basic {
-      padding: 40px 0;
-      background-color: #ffffff;
-      color: #4b4c4d;
+    /* --- Custom CSS --- */
+    :root {
+      --primary-color: #5e2ced;
+      --secondary-color: #ed5b5b;
+      --dark-color: #23242a;
+      --light-color: #f8f9fa;
+      --text-color: #343a40;
+      --body-font: 'Poppins', sans-serif;
     }
 
-    .footer-basic ul {
-      padding: 0;
-      list-style: none;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 0;
+    body {
+      font-family: var(--body-font);
+      background-color: var(--light-color);
+      color: var(--text-color);
     }
 
-    .footer-basic li {
-      padding: 0 10px;
+    /* --- Navbar (Consistent with Homepage) --- */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+    }
+    .navbar-brand img { height: 40px; }
+    .navbar .nav-link { font-weight: 500; color: var(--text-color); transition: color 0.3s ease; }
+    .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--primary-color); }
+    .navbar .dropdown-menu { border: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); }
+    
+    .btn-gradient {
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border: none;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        color: white;
+    }
+    
+    /* --- Contact Section --- */
+    .contact-section {
+        padding: 80px 0;
+    }
+    .section-title {
+        margin-bottom: 50px;
+        font-weight: 700;
+        color: var(--dark-color);
+    }
+    .contact-form .form-control {
+        border-radius: 10px;
+        padding: 12px;
+        box-shadow: none;
+    }
+    .contact-form .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.25rem rgba(94, 44, 237, 0.25);
+    }
+    .contact-info-box {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        height: 100%;
+    }
+    .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+    .contact-info-item .icon {
+        font-size: 20px;
+        color: var(--primary-color);
+        margin-right: 15px;
+        min-width: 25px;
+        text-align: center;
+    }
+    .contact-info-item h5 {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        height: 250px;
+        margin-top: 20px;
+    }
+    .map-container iframe {
+        border: 0;
+        width: 100%;
+        height: 100%;
     }
 
-    .footer-basic ul a {
-      color: inherit;
-      text-decoration: none;
-      opacity: 0.8;
+    /* --- Footer (Consistent with Homepage) --- */
+    .footer {
+      background-color: var(--dark-color);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 60px 0 20px;
     }
-
-    .footer-basic ul a:hover {
-      opacity: 1;
-    }
-
-    .footer-basic .social {
-      text-align: center;
-      padding-bottom: 25px;
-    }
-
-    .footer-basic .social>a {
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      margin: 0 8px;
-      color: inherit;
-      opacity: 0.75;
-    }
-
-    .footer-basic .social>a:hover {
-      opacity: 0.9;
-    }
-
-    .footer-basic .copyright {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 13px;
-      color: #aaa;
-      margin-bottom: 0;
-    }
-   
+    .footer .footer-links { list-style: none; padding: 0; }
+    .footer .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s ease; }
+    .footer .footer-links a:hover { color: #fff; }
+    .footer .social-icons a { font-size: 24px; color: rgba(255, 255, 255, 0.7); margin: 0 10px; transition: color 0.3s ease, transform 0.3s ease; }
+    .footer .social-icons a:hover { color: var(--secondary-color); transform: translateY(-3px); }
+    .footer .copyright { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9em; color: rgba(255, 255, 255, 0.5); }
   </style>
 </head>
-<>
-  <nav id="navbar">
-    <ul class="menu">
-      <div>
-      <li class="logo"><img src="Countdown.png" alt="Logo" height="80px" width="80px" style="border-radius: 50px;"></li>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="Countdown.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./components/CountdownTimer.html">Timer app</a></li>
+              <li><a class="dropdown-item" href="./to-doLISt/index.html">Todo Manager</a></li>
+              <li><a class="dropdown-item" href="#">Music Player</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Plans
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Freelancer</a></li>
+              <li><a class="dropdown-item" href="#">Startup</a></li>
+              <li><a class="dropdown-item" href="#">Enterprise</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+            <a href="LOGIN/LogIn.html" class="btn btn-gradient">Log In</a>
+        </div>
       </div>
-      <div class="links">
-      <li class="item"><a href="index.html">Home</a></li>
-      <li class="item"><a href="./about.html">About</a></li>
-      <li class="item has-submenu">
-        <a class="submenu-title" tabindex="0">Services</a>
-        <ul class="submenu">
-          <li class="subitem">
-            <a href="./components/CountdownTimer.html">Timer app</a>
-          </li>
-          <li class="subitem">
-            <a href="./to-doLISt/index.html">Todo Manager</a>
-          </li>
-          <li class="subitem"><a href="#">Music Player</a></li>
-        </ul>
-      </li>
-      <li class="item has-submenu">
-        <a class="submenu-title" tabindex="0">Plans</a>
-        <ul class="submenu">
-          <li class="subitem"><a href="#">Freelancer</a></li>
-          <li class="subitem"><a href="#">Startup</a></li>
-          <li class="subitem"><a href="#">Enterprise</a></li>
-        </ul>
-      </li>
-      <li class="item"><a href="blog.html">Blog</a></li>
-      <li class="item"><a href="./contact.html">Contact</a></li>
-      <li class="item button button1"><a href="#">Log In</a></li>
     </div>
-    <div>
-      <li class="item searched d-flex my-2">
-        <input type="search" placeholder="Search" id="form1" class="form-control" />
-        <button type="button" class="btn btn-primary mx-1">
-          <i class="fas fa-search"></i>
-        </button>
-      </li>
-      <li class="toggle">
-        <a href="#"><i class="fas fa-bars"></i></a>
-      </li>
-    </div>
-    </ul>
   </nav>
-  <!-- <div class="carousel">
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide active fade" />
-    <img src="https://source.unsplash.com/1600x900/?quote" alt="quote" class="slide fade" />
-  </div> -->
-  <section>
-    <br>
-    <div class="contact-information">
-        <div class="form-information">
-          <h3>Contact Us</h3>
-          <form action="" class="contact-form">
-            <input type="text" placeholder="Enter your name" required>
-            <input type="email" placeholder="Enter your email address" required>
-            <textarea id="subject" cols="1" rows="1" placeholder="Write the subject here" required></textarea>
-            <textarea name="" id="message" cols="30" rows="10" placeholder="Write message here" required></textarea>
-            <input type="submit" value="Send" class="send-btn">
-          </form>
-        </div>
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721951.884270322!2d85.60622378740801!3d24.356291838840118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fa16ff1397e887%3A0x71543a3dc3e7a20a!2sWest%20Bengal!5e0!3m2!1sen!2sin!4v1665319259589!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-    <div class="address">
-        <br>
-        <ul class="details">
-            <li>
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </li>
-            <li>
-                <i class="fa fa-link" aria-hidden="true"></i>
-            </li>
-            <li>
-                <i class="fa fa-phone" aria-hidden="true"></i>
-            </li>
-            <li>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-            </li>
-        </ul>
-        <ul class="details">
-            <li>
-                Address: 97, Park Street, Kolkata, West Bengal - 700021.
-            </li>
-            <li>
-                Website: abcefghd.com
-            </li>
-            <li>
-                Phone: 0987654321
-            </li>
-            <li>
-                Email: absfec@gmail.com
-            </li>
-        </ul>
-    </div>
-  </section>
-  <div class="container20">
-
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="java">Music Instruments App</h2>
-          <p class="java">This is the best Music Instruments Sound app which will make this app unique from other apps.</p>
-          <a href="Pages/Musicapp/index.html" class="goto-btn">Open</a>
-        </div>
-      </div>
-      <div class="face face2">
-        <h2>Music Instruments App</h2>
-      </div>
-    </div>
   
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="python">Todo Manager</h2>
-          <p class="python">Procrastination is opportunity's natural assassin</p>
-          <a href="to-doLISt/index.html" class="goto-btn">Open</a>
+  <main>
+    <section class="contact-section">
+      <div class="container">
+        <h2 class="text-center section-title">Get In Touch</h2>
+        <div class="row gy-5">
+
+          <div class="col-lg-7">
+            <form action="#" class="contact-form p-4 p-md-5 border rounded-3 bg-white shadow-sm">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="6" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-gradient w-100">Send Message</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="contact-info-box">
+                <div class="contact-info-item">
+                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h5>Address</h5>
+                        <p>97, Park Street, Kolkata,<br>West Bengal - 700016</p>
+                    </div>
+                </div>
+                 <div class="contact-info-item">
+                    <div class="icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <h5>Phone</h5>
+                        <p>+91 09876 54321</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h5>Email</h5>
+                        <p>absfec@gmail.com</p>
+                    </div>
+                </div>
+                 <div class="contact-info-item">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <div>
+                        <h5>Website</h5>
+                        <p>abcefghd.com</p>
+                    </div>
+                </div>
+                <div class="map-container shadow-sm">
+                    <iframe src="http://googleusercontent.com/maps.google.com/2" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="face face2">
-        <h2>Todo Manager</h2>
-      </div>
-    </div>
+    </section>
+  </main>
   
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="cSharp">Countdown Timer</h2>
-          <p class="cSharp">A simple web app for setting up a Countdown from right now to a
-            specific date</p>
-            <a href="components/CountdownTimer.html" class="goto-btn">Open</a>
-        </div>
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="social-icons mb-4">
+        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://in.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
-      <div class="face face2">
-        <h2>Countdown Timer</h2>
-      </div>
-    </div>
-    <div class="card1">
-      <div class="face face1">
-        <div class="content">
-          <span class="stars"></span>
-          <h2 class="python">lofi-beats</h2>
-          <p class="python"> A lofi beats playlist which helps you concentrate and focus.</p>
-          <a href="Pages/Musicapp/index.html" class="goto-btn">Open</a>
-        </div>
-      </div>
-      <div class="face face2">
-        <h2>lofi-beats</h2>
-      </div>
-    </div>
-  </div>
-
-  <script>s
-    let slideIndex = 0;
-    const showSlides = async () => {
-      let slides = document.getElementsByClassName("slide");
-      let url;
-      try {
-        let response = await fetch(
-          "https://source.unsplash.com/1600x900/?quote"
-        );
-        url = response.url;
-      } catch (error) {
-        console.log(error);
-
-      }
-      slides[slideIndex].classList.toggle("active");
-      slideIndex++;
-      slideIndex %= slides.length;
-      slides[slideIndex].classList.toggle("active");
-      slides[slideIndex].src = url;
-    };
-    setInterval(showSlides, 5000);
-    const toggle = document.querySelector(".toggle");
-    const menu = document.querySelector(".menu");
-    /* Toggle mobile menu */
-    function toggleMenu() {
-      if (menu.classList.contains("active")) {
-        menu.classList.remove("active");
-        // adds the menu (hamburger) icon
-        toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
-      } else {
-        menu.classList.add("active");
-        // adds the close (x) icon
-        toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
-      }
-    }
-    /* Event Listener */
-    toggle.addEventListener("click", toggleMenu, false);
-    const items = document.querySelectorAll(".item");
-
-    /* Activate Submenu */
-    function toggleItem() {
-      if (this.classList.contains("submenu-active")) {
-        this.classList.remove("submenu-active");
-      } else if (menu.querySelector(".submenu-active")) {
-        menu
-          .querySelector(".submenu-active")
-          .classList.remove("submenu-active");
-        this.classList.add("submenu-active");
-      } else {
-        this.classList.add("submenu-active");
-      }
-    }
-
-    /* Event Listeners */
-    for (let item of items) {
-      if (item.querySelector(".submenu")) {
-        item.addEventListener("click", toggleItem, false);
-        item.addEventListener("keypress", toggleItem, false);
-
-      }
-    }
-    /* Close Submenu From Anywhere */
-    function closeSubmenu(e) {
-      if (menu.querySelector(".submenu-active")) {
-        let isClickInside = menu
-          .querySelector(".submenu-active")
-          .contains(e.target);
-
-        if (!isClickInside && menu.querySelector(".submenu-active")) {
-          menu
-            .querySelector(".submenu-active")
-            .classList.remove("submenu-active");
-        }
-      }
-    }
-    /* Event listener */
-    document.addEventListener("click", closeSubmenu, false);
-  </script>
-  <div class="footer-basic">
-    <footer>
-      <div class="social">
-        <a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
-        <a href="https://in.linkedin.com/"><i class="icon ion-social-linkedin"></i></a>
-        <a href="https://in.pinterest.com/"><i class="icon ion-social-pinterest"></i></a>
-        <a href="https://www.facebook.com/"><i class="icon ion-social-facebook"></i></a>
-        <a href="https://www.youtube.com/"><i class="icon ion-social-youtube"></i>
-        </div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="index.html">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="./about.html">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      <ul class="list-inline footer-links mb-4">
+        <li class="list-inline-item mx-2"><a href="index.html">Home</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Services</a></li>
+        <li class="list-inline-item mx-2"><a href="./about.html">About</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Terms</a></li>
+        <li class="list-inline-item mx-2"><a href="#">Privacy Policy</a></li>
       </ul>
-      <p class="copyright">CountdownTimer © 2021</p>
-    </footer>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+      <p class="copyright">CountdownTimer © <span id="copyright-year"></span></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Automatically update the copyright year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
