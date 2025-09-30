@@ -19,6 +19,7 @@ Technologies used in the project:
 *   HTML
 *   CSS
 *   JAVASCRIPT
+*   Tailwind css
 
 <h2>🛡️ License:</h2>
 
