@@ -1,50 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
-  <title>ToDo App</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Sticky To-Do Board</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --font-heading: 'Poppins', sans-serif;
+            --font-notes: 'Kalam', cursive;
+            --color-dark: #4a4a4a;
+            --color-light: #fff;
+            --pin-color: #ff4757;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-heading);
+            background-color: #D2B48C;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            color: var(--color-dark);
+            padding: 20px;
+        }
+
+        .homepage-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--color-dark);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .homepage-nav:hover {
+            background-color: var(--color-light);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .homepage-nav i {
+            margin-right: 8px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .app-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .app-header h1 {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #5a3a22;
+            background-color: #fafafa;
+            padding: 15px 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+        /* Pinned paper effect */
+        .app-header h1::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--pin-color);
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .controls-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        #task-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: var(--font-heading);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+        #task-input:focus {
+            outline: 2px solid var(--pin-color);
+        }
+
+        .btn {
+            background-color: var(--pin-color);
+            color: var(--color-light);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        #clear-completed-btn {
+            background-color: #6c757d;
+        }
+
+
+        #notes-container {
+            column-count: 4;
+            column-gap: 20px;
+        }
+
+        .note {
+            padding: 25px;
+            font-family: var(--font-notes);
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+        }
+        
+        /* Note Pushpin */
+        .note::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--pin-color);
+            border-radius: 50%;
+            box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3), 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        
+        .note:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        .note p {
+            word-wrap: break-word;
+            margin-bottom: 40px; /* Space for footer */
+        }
+        .note.completed p {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        
+        /* Note Colors with Gradients */
+        .note-yellow { background: linear-gradient(135deg, #fffbc1, #f9f586); }
+        .note-pink { background: linear-gradient(135deg, #ffd1e9, #ffbde4); }
+        .note-blue { background: linear-gradient(135deg, #d4f8ff, #a6f1ff); }
+        .note-green { background: linear-gradient(135deg, #e4ffcd, #cbffaa); }
+
+        .note-footer {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .note-footer button {
+            background: transparent; border: none; font-size: 1.1rem;
+            cursor: pointer; color: rgba(0,0,0,0.4); transition: all 0.3s ease;
+        }
+        .note-footer button:hover { color: var(--color-dark); transform: scale(1.2); }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0.7); opacity: 0; }
+        }
+        .note.entering { animation: fadeIn 0.4s ease-out; }
+        .note.exiting { animation: fadeOut 0.4s ease-in; }
+        
+        /* Responsive Masonry Layout */
+        @media (max-width: 1200px) { #notes-container { column-count: 3; } }
+        @media (max-width: 900px) { #notes-container { column-count: 2; } }
+        @media (max-width: 600px) { #notes-container { column-count: 1; } }
+
+    </style>
 </head>
-<style>
-  .container{
-    position: relative;
-    right: 300px;
-    top: 100px;
-  }
-</style>
+
 <body>
-  <div class="container">
-    <h1>ADD TODO LIST</h1>
-    <div id="line"></div>
-    <div class="task-input">
-      <input type="text" id="add-task" name="todo" placeholder="Add Task..." value="">
-      <div class="flex-button">
-        <input type="button" value="➕" name="add" id="add-btn" title="Add Task">
-        <input type="button" value="❌" name="delete" id="del-btn" title="Remove All Task">
-      </div>
+    <a href="index.html" class="homepage-nav"><i class="fas fa-home"></i> Back to Home</a>
+
+    <div class="container">
+        <header class="app-header">
+            <h1>My To-Do Board</h1>
+        </header>
+
+        <div class="controls-area">
+            <input type="text" id="task-input" placeholder="Type a new note..." />
+            <button id="add-task-btn" class="btn" title="Add Note"><i class="fas fa-plus"></i> Add Note</button>
+            <button id="clear-completed-btn" class="btn" title="Clear Completed Notes"><i class="fas fa-broom"></i> Clear Completed</button>
+        </div>
+
+        <main id="notes-container">
+            </main>
     </div>
 
-    <div class="new-tasks">
-      <div class="task-buttons">
-        <!--
-				<div class="task">
-					<input type="checkbox" id="complete-task">
-					<input type="text" id="added-task" disabled value='sd'>
-					<input type="button" value="✏️" id="rename-task">
-					<input type="button" value="❌" id="del-task">
-				</div>
-				-->
-      </div>
-    </div>
-  </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskInput = document.getElementById('task-input');
+            const addTaskBtn = document.getElementById('add-task-btn');
+            const clearCompletedBtn = document.getElementById('clear-completed-btn');
+            const notesContainer = document.getElementById('notes-container');
 
-  <script src="script.js"></script>
+            const noteColors = ['note-yellow', 'note-pink', 'note-blue', 'note-green'];
+
+            const loadNotes = () => {
+                const notes = JSON.parse(localStorage.getItem('stickyNotesV2') || '[]');
+                notes.forEach(note => createNoteElement(note));
+            };
+
+            const saveNotes = () => {
+                const notes = [];
+                document.querySelectorAll('.note:not(.exiting)').forEach(noteEl => {
+                    notes.push({
+                        id: noteEl.dataset.id,
+                        text: noteEl.querySelector('p').innerText,
+                        completed: noteEl.classList.contains('completed'),
+                        color: Array.from(noteEl.classList).find(c => c.startsWith('note-')),
+                        rotation: noteEl.style.transform
+                    });
+                });
+                localStorage.setItem('stickyNotesV2', JSON.stringify(notes));
+            };
+
+            const createNoteElement = (noteData) => {
+                const { id, text, completed, color, rotation } = noteData;
+                const noteEl = document.createElement('div');
+                noteEl.classList.add('note', color);
+                noteEl.dataset.id = id;
+                noteEl.style.transform = rotation;
+
+                if (completed) noteEl.classList.add('completed');
+                
+                noteEl.innerHTML = `
+                    <p>${text}</p>
+                    <div class="note-footer">
+                        <button class="complete-btn" title="Complete"><i class="fas fa-check"></i></button>
+                        <button class="delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                
+                // Add entering animation
+                noteEl.classList.add('entering');
+                noteEl.addEventListener('animationend', () => noteEl.classList.remove('entering'), { once: true });
+                
+                notesContainer.appendChild(noteEl);
+            };
+            
+            const addNote = () => {
+                const taskText = taskInput.value.trim();
+                if (taskText === '') return;
+                
+                const randomRotation = (Math.random() * 4) - 2; // between -2 and 2 degrees
+                
+                const newNoteData = {
+                    id: Date.now().toString(),
+                    text: taskText,
+                    completed: false,
+                    color: noteColors[Math.floor(Math.random() * noteColors.length)],
+                    rotation: `rotate(${randomRotation}deg)`
+                };
+                
+                createNoteElement(newNoteData);
+                taskInput.value = '';
+                saveNotes();
+            };
+            
+            const removeNote = (noteEl) => {
+                noteEl.classList.add('exiting');
+                noteEl.addEventListener('animationend', () => {
+                    noteEl.remove();
+                    saveNotes();
+                }, { once: true });
+            };
+
+            const handleNoteClick = (e) => {
+                const noteEl = e.target.closest('.note');
+                if (!noteEl) return;
+
+                if (e.target.closest('.complete-btn')) {
+                    noteEl.classList.toggle('completed');
+                } else if (e.target.closest('.delete-btn')) {
+                    removeNote(noteEl);
+                }
+                // Save changes unless it's a delete action (which saves after animation)
+                if (!e.target.closest('.delete-btn')) {
+                   saveNotes();
+                }
+            };
+            
+            const clearCompleted = () => {
+                const completedNotes = document.querySelectorAll('.note.completed');
+                if (completedNotes.length === 0) return;
+                
+                if (confirm(`Are you sure you want to clear ${completedNotes.length} completed note(s)?`)) {
+                    completedNotes.forEach(note => removeNote(note));
+                }
+            };
+
+            addTaskBtn.addEventListener('click', addNote);
+            taskInput.addEventListener('keypress', (e) => e.key === 'Enter' && addNote());
+            notesContainer.addEventListener('click', handleNoteClick);
+            clearCompletedBtn.addEventListener('click', clearCompleted);
+
+            loadNotes();
+        });
+    </script>
 </body>
-
 </html>
